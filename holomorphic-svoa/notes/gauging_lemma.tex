@@ -1,0 +1,742 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{enumitem}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\cC}{\mathcal C}
+\newcommand{\cD}{\mathcal D}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cG}{\mathcal G}
+\newcommand{\SC}{\mathcal S\widetilde{\mathcal C}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Bimod}{\operatorname{Bimod}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\SH}{\widetilde{SH}}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Ehat}{\widehat E}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\tK}{\widetilde K}
+\newcommand{\tG}{\widetilde G}
+\newcommand{\st}[1]{\textbf{[#1]}}
+
+\title{A gauging lemma for anomalies of holomorphic SVOAs:\\
+gauging an odd abelian normal subgroup with inflated anomaly}
+\author{Consolidated write-up, 18 October 2026\\
+\small (companion to \texttt{gauging\_lemma.md}, \S\S G0--G11, and \texttt{NOTES\_q8\_anomaly.md}, \S S6.3(d))}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Let $H=E\rtimes Q$ act on a holomorphic SVOA $V$, where $E$ is abelian of odd order coprime to
+$|Q|$ and the anomaly of $H$ is inflated from $\alpha\in\SH^3(BQ)$. We prove that for every
+$Q$-invariant discrete torsion $\psi$, the quotient $Q$ acts on the orbifold $V/\!/_\psi E$, and
+that this action has anomaly $\alpha$. Majorana, Gu--Wen and bosonic layers are all treated. The proof is
+categorical. Its VOA inputs are the algebra-object description of twisted modules (Kirillov;
+Huang--Kirillov--Lepowsky; Creutzig--Kanade--McRae; McRae), applied after adjoining fermion parity,
+together with Carnahan--Miyamoto regularity and quantum Galois theory. This is the lemma used in
+\S S6 of the Q8-anomaly notes to show that the $Q_8$ action on the length-96 code SVOA is non-anomalous.
+\end{abstract}
+
+\paragraph{Status labels.} \st{P} proved here; \st{C} cited, with theorem number checked against
+the source text unless stated otherwise; \st{C$^\circ$} cited, number or attribution not
+re-checked. Section~\ref{sec:status} collects them.
+
+\paragraph{Authority.} This document is the authoritative version of the gauging lemma.
+\texttt{gauging\_lemma.md} (\S\S G0--G13) is the working record of its derivation and of the review
+rounds; where the two differ, this document is correct.
+
+\paragraph{Conventions.}
+\begin{itemize}[nosep]
+\item SVOAs are of CFT type with a positive-definite invariant form.
+\item Groups act by even automorphisms, which commute with fermion parity $\sigma=(-1)^F$.
+\item For a group automorphism we write ${}^q e:=qeq^{-1}$. For a 2-cochain $\psi$ on $E$ we put
+$\psi^q(a,b):=\psi({}^{q^{-1}}a,{}^{q^{-1}}b)$.
+\item For a finite group $G\subset\Aut(V)$, $\cF(V,G)=\bigoplus_{g\in G}\cF_g$ is the $G$-graded
+super-fusion category of $g$-twisted modules of Gaiotto--Johnson-Freyd~\cite[Thm.~4.2]{GJF}. Its
+precise construction is recalled in \S\ref{sec:setup}.
+\end{itemize}
+
+%======================================================================
+\section{Statement}\label{sec:statement}
+
+\begin{theorem}[Gauging lemma]\label{thm:main}
+Let $V$ be a holomorphic SVOA and $H\subset\Aut(V)$ a finite solvable group. Suppose $H=E\rtimes Q$
+with $E\trianglelefteq H$. Write $\pi:H\to Q$ for the projection and $s:Q\to H$ for the complement.
+Assume:
+\begin{enumerate}[label=(\arabic*),start=0]
+\item $E$ is abelian of odd order and $\gcd(|E|,|Q|)=1$;
+\item $E$ is non-anomalous, so that the holomorphic orbifolds $V/\!/_\psi E$, $\psi\in H^2(E;U(1))$,
+  exist;
+\item $\alpha(V,H)=\pi^*\alpha$ for some $\alpha\in\SH^3(BQ)$; necessarily $\alpha=s^*\alpha(V,H)=\alpha(V,Q)$;
+\item $[\psi]\in H^2(E;U(1))$ is fixed by $Q$, acting through conjugation in $H$. By
+Lemma~\ref{lem:conj} this is equivalent to the intrinsic condition $s(q)\cdot V/\!/_\psi E\cong
+V/\!/_\psi E$ over $V^E$ for all $q$;
+\item the Majorana layer vanishes: $m(V,Q)=0\in H^1(Q;\Z_2)$;
+\item \textup{(P)} $\sigma\notin H$;
+\item \textup{(R)} the even part $V_0$ is a regular VOA, and the twisted sectors of
+  $V':=V/\!/_\psi E$ other than $V^E$ have positive conformal weights.
+\end{enumerate}
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item The action of $H$ on $V^E$ extends to a group $K\subset\Aut(V')$, which is an extension
+  $1\to\Ehat\to K\to Q\to1$ with $\Ehat=\Hom(E,U(1))$ the dual symmetry. $K$ splits, any two
+  complements of $\Ehat$ are conjugate by an element of $\Ehat$, and $(V')^K=V^H$.
+\item For every complement $Q'\subset K$ of $\Ehat$, identified with $Q$ via $K\to Q$,
+  \[\alpha(V',Q')=\alpha\in\SH^3(BQ).\]
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Where the hypotheses enter]\label{rem:hyp}
+\begin{itemize}[nosep]
+\item \emph{Odd order of $E$.} The parity homomorphism $E\to\Z_2$ is trivial (Lemma~\ref{lem:algebras}
+and Lemma~\ref{lem:B}). The Majorana and Gu--Wen layers of $E$ vanish, so discrete torsion is
+ordinary $H^2$. Lyndon--Hochschild--Serre gives $H^i(H;\Z_2)\cong H^i(Q;\Z_2)$.
+\item \emph{$E$ abelian.} The quantum symmetry is a group $\Ehat$ with $|\Ehat|=|E|$, and the
+Schur--Weyl pieces are invertible. Lemma~\ref{lem:B} splits the right action into characters.
+\item \emph{Coprimality.} Invariant cocycles (Lemma~\ref{lem:invariant}), $H^1(Q;\Ehat)=0$, and
+Schur--Zassenhaus.
+\item \emph{$m=0$.} Simple objects of $\cF(V,Q)$ have $\End=\C$.
+\item \emph{(P) and (R).} These are used only to apply the algebra-object theory over a bosonic
+base (\S\ref{sec:setup}). If $\sigma\in H$, McRae's theorem applies to $H$ directly.
+\end{itemize}
+Hypothesis (2) implies (1), because $\operatorname{res}_E\pi^*\alpha=0$. Conversely, under (0),
+(1) implies (2) (Proposition~\ref{prop:coprime}).
+\end{remark}
+
+\begin{remark}[The application]
+In \S S6 of the notes, $V=V_{\Lambda(C_i)}$, $E=(C_i+U_b)/C_i\cong\Z_3^2$ and $Q=Q_8$ with
+the Gaiotto--Johnson-Freyd lift, so $|H|=72$. All hypotheses hold:
+\begin{itemize}[nosep]
+\item (1) and (2): S6.3(b) and S6.3(c) of the notes.
+\item (3): $Q_8$ acts on $E$ through $SL(2,3)$ (Lemma~\ref{lem:det}).
+\item (4): \cite[Ex.~4.4]{GJF}.
+\item (P): $H$ fixes the odd $N=1$ current.
+\item (R): $V_0$ and $V'_0$ are positive-definite even-lattice VOAs.
+\end{itemize}
+\end{remark}
+
+%======================================================================
+\section{Set-up: twisted modules as modules over an algebra object}\label{sec:setup}
+
+\subsection{Parity adjunction and the bosonic base}\label{ssec:parity}
+Let $G\subset\Aut(V)$ be finite and solvable, acting evenly, with $\sigma\notin G$. Put
+$\tG:=G\times\langle\sigma\rangle$ and $U_0:=V^{\tG}=(V^G)_0$. By (R) and Carnahan--Miyamoto
+\cite[Main Thm]{CM}, $U_0$ is regular. Their hypotheses are: a simple, non-negatively graded,
+regular VOA with a nonsingular invariant form, and a finite solvable group. Hence
+$\widetilde\cC:=\Rep(U_0)$ is a modular tensor category \cite{Hu7} \st{C}.
+
+Let $\SC$ be the superisation of $\widetilde\cC$ in the sense of \cite[Def.~2.11]{CKM}, the
+\emph{enriched supercategory of graded pairs}:
+\begin{itemize}[nosep]
+\item objects are pairs $W=(W^0,W^1)$ of objects of $\widetilde\cC$;
+\item $\Hom_{\SC}(W_1,W_2):=\Hom_{\widetilde\cC}(W_1^0\oplus W_1^1,\,W_2^0\oplus W_2^1)$;
+\item the parity of a morphism is defined through $P_W=1\oplus(-1)$;
+\item $\Pi$ exchanges the two entries.
+\end{itemize}
+Odd morphisms are therefore genuine morphisms of $\SC$: this is not a Deligne product with only
+even maps. With Koszul signs on the tensor product of morphisms and on the braiding, $\SC$ is a
+braided tensor supercategory with right exact tensoring \cite[Prop.~2.17, Thm~2.20,
+Prop.~2.23]{CKM} \st{C}.
+
+Every SVOA $A$ with $U_0\subset A_0$ that appears below ($V^G$, $V^E$, $V$, $V'$) is a commutative
+superalgebra in $\SC$, with injective unit, $\tfrac12\Z$-graded twist and no monodromy
+\cite[Thm~3.42]{CKM} \st{C}. For such $A$:
+\begin{itemize}[nosep]
+\item $\Rep A$, the not-necessarily-local $A$-modules in $\SC$, is a monoidal supercategory
+under $\otimes_A$ \cite[Thm~2.53]{CKM};
+\item $\Rep^0A$ is braided \cite[Thm~2.55]{CKM};
+\item $\Rep^0A$ is the category of $A$-modules, with the Huang--Lepowsky--Zhang structure equal
+to the Kirillov--Ostrik one \cite[Thm~3.65]{CKM}, refining \cite[Thm~3.4]{HKL} and
+\cite[Thm~3.14]{CKL};
+\item induction is a tensor functor \cite[Thm~2.59]{CKM}.
+\end{itemize}
+
+\subsection{Gaiotto--Johnson-Freyd's category}\label{ssec:GJF}
+In the proof of \cite[Thm~4.2]{GJF}, the fusion product of twisted modules is provided by
+regularity of $V^G$. The bosonic case is said to be the main result of \cite{Kir02}, and the
+fermionic one is obtained by replacing categories by supercategories. In \cite[\S4]{Kir02}:
+\begin{itemize}[nosep]
+\item a $g$-twisted module is \emph{defined} as an object $X$ of $\Rep A$, with $A=V$ in
+$\Rep(V^G)$, satisfying $\mu_X\circ R^2=\mu_X\circ(g^{-1}\otimes1)$ \cite[Def.~4.1]{Kir02};
+\item the product is $\otimes_A$;
+\item the anomaly cocycle is the associator of $\Rep A$ on the simple objects
+\cite[eq.~(5.3)]{Kir02}.
+\end{itemize}
+Accordingly we \emph{define}
+\[
+\cD_G:=\Rep^0_{\SC}(V^G),\qquad \cF(V,G):=\Rep_{\cD_G}(V),
+\]
+graded by Kirillov's monodromy condition, with product $\otimes_V$ over $\cD_G$ and the
+associator of \cite[Thm~2.52]{CKM}. This reading of \cite{GJF} is the one interpretive step of
+the paper; see Remark~\ref{rem:reading}.
+
+\begin{theorem}[Identification with McRae's crossed category]\label{thm:GQ}
+Let $\Rep_{\SC}(V)$ be the braided $\tG$-crossed supercategory of \cite[Thm~4.15]{McR}, which
+applies since $\tG\ni\sigma$. There is a canonical equivalence of $G$-graded monoidal
+supercategories
+\[
+\Theta:\cF(V,G)\xrightarrow{\ \simeq\ }\bigoplus_{g\in G}\Rep_g(V)\subset\Rep_{\SC}(V).
+\]
+It is the identity on underlying objects of $\SC$ and on Hom superspaces. It commutes with $\Pi$,
+preserves degrees, and has an even tensorator under which associators and unit isomorphisms
+coincide. ``Canonical'' means that $\Theta$ is unique up to unique monoidal isomorphism once
+cokernel objects (such as $V\otimes_UX$) are chosen. For fixed choices it is bijective on objects;
+we never need such choices.
+Moreover, for $G'\subset G$ the category $\cF(V,G')$, built over $\Rep(V^{G'})$, is canonically
+equivalent, as a $G'$-graded monoidal supercategory, to the $G'$-graded part of $\cF(V,G)$. \st{P, from \cite{CKM,McR} and Galois}; proof in \S\ref{sec:GQ}.
+\end{theorem}
+
+From \cite[Thm~4.15]{McR} \st{C}: every indecomposable object of $\Rep_{\SC}(V)$ is $\tilde
+g$-twisted for some $\tilde g\in\tG$, and $\Rep_{\SC}(V)$ is braided $\tG$-crossed; the latter is
+\cite[Thm~2.10]{McR}, which needs no parity hypothesis. By \cite[Thm~4.2]{GJF} and
+\cite[Thms~4.3, 4.7]{Kir02}, each component $\cF_g$ of $\cF(V,G)$ has exactly one simple object
+$X_g$ up to isomorphism and parity, and $\cF_1\simeq\mathrm{SVec}$.
+
+\subsection{The three layers}\label{ssec:layers}
+The class $\alpha(V,G)\in\SH^3(BG)$ \cite[Thm~4.2]{GJF} \st{C} has three layers. The
+dictionary is standard \cite{GJF,BGK}.
+\begin{itemize}[nosep]
+\item \emph{Majorana layer} $m\in H^1(G;\Z_2)$: $m(g)=1$ iff $\End(X_g)\cong\mathrm{Cl}(1)$.
+\item \emph{Gu--Wen layer} $n\in C^2(G;\Z_2)$, defined when $m=0$:
+$X_g\otimes X_h\cong\Pi^{n(g,h)}X_{gh}$.
+\item \emph{Bosonic layer} $\omega\in C^3(G;U(1))$: the associator on the $X_g$, with
+$d\omega=(-1)^{n\cup n}$.
+\end{itemize}
+Two $G$-graded super-fusion categories with pointed components and the same class are
+equivalent by a graded equivalence that is the identity on degrees. We never use explicit
+cocycles. All constructions below are functors that preserve $\End$-algebras, parities of fusion
+isomorphisms, and associators.
+
+\subsection{Pullback and inflation}\label{ssec:inflation}
+For a homomorphism $f:G'\to G$ and a $G$-graded category $\cG$, the pullback $f^*\cG$ is defined
+as follows.
+\begin{itemize}[nosep]
+\item $(f^*\cG)_{g'}:=\cG_{f(g')}$, with objects written $X^{(g')}$.
+\item Hom spaces are those of $\cG$ within one degree, and zero between different degrees.
+\item $X^{(a)}\otimes Y^{(b)}:=(X\otimes Y)^{(ab)}$, with the associator of $\cG$.
+\end{itemize}
+Its class is $f^*\mathrm{class}(\cG)$ \st{P}. By Mac Lane strictification we may assume that
+$\cG$ is strict; then $f^*\cG$ is strict. In particular the objects $1^{(e)}$, $e\in\ker f$, have
+identity associators with everything.
+
+\begin{proposition}[Inflation]\label{prop:inflation}
+Under hypothesis (2), let $\cG:=\cF(V,Q)$. There is an $H$-graded equivalence
+$\Phi:\pi^*\cG\xrightarrow{\simeq}\cF(V,H)$ that is the identity on degrees. \st{P}
+\end{proposition}
+\begin{proof}
+First, $\cF(V,Q)$ is canonically equivalent to the $s(Q)$-graded part of $\cF(V,H)$ (Theorem~\ref{thm:GQ}). Second,
+$\mathrm{class}(\pi^*\cG)=\pi^*s^*\alpha(V,H)=\pi^*\alpha=\alpha(V,H)$. Equal classes give the
+graded equivalence by \S\ref{ssec:layers}.
+\end{proof}
+
+\begin{proposition}[Coprime splitting]\label{prop:coprime}
+Let $H=E\rtimes Q$ with $\gcd(|E|,|Q|)=1$ and $|E|$ odd. Then
+\[
+(s^*,\operatorname{res}_E):\ \SH^3(BH)\xrightarrow{\ \cong\ }\SH^3(BQ)\oplus H^3(E;U(1))^Q
+\]
+is an isomorphism. In particular, if $E$ is non-anomalous then $\alpha(V,H)=\pi^*\alpha(V,Q)$. \st{P, given the natural
+filtration of $\SH^3$, \cite[Def.~4.1]{GJF}}
+\end{proposition}
+\begin{proof}
+\emph{The filtration.} $\SH^3(BG)=[BG,B^3\mathrm{SAlg}^\times_\C]$ is the degree-3 group of the
+cohomology theory whose spectrum has homotopy groups $\Z_2,\Z_2,\C^\times$ in three consecutive
+degrees, with $k$-invariant $\mathrm{Sq}^2$ \cite[Def.~4.1]{GJF}. In degree 3 it agrees with the
+Anderson dual of spin bordism (notes, \S S2.3). It carries a three-step filtration, natural in $G$, whose
+associated graded pieces are subquotients $E_\infty^{1,\cdot}$, $E_\infty^{2,\cdot}$,
+$E_\infty^{3,\cdot}$ of $E_2$-terms. These are $H^1(G;\Z_2)$ (Majorana), $H^2(G;\Z_2)$ (Gu--Wen)
+and $H^3(G;U(1))$ (bosonic), and the differentials are natural. Since all groups are finite, we
+argue prime by prime.
+
+\emph{Primes $p$ dividing $|Q|$.} The coefficient groups are trivial $H$-modules and $|E|$ is
+prime to $p$. So Lyndon--Hochschild--Serre gives
+$\pi^*:H^i(Q;M)_{(p)}\xrightarrow{\cong}H^i(H;M)_{(p)}$, with inverse $s^*$, for $M=\Z_2,U(1)$.
+Hence $\pi^*$ is an isomorphism of $p$-localised spectral sequences from $E_2$ onward, and by
+the five lemma on the finite filtration it is an isomorphism
+$\SH^3(BQ)_{(p)}\cong\SH^3(BH)_{(p)}$, with inverse $s^*$.
+
+\emph{Primes $p$ dividing $|E|$.} Here $p$ is odd, so the $\Z_2$-layers vanish after
+localisation, and $p$-local differentials into or out of the bosonic layer are zero. Hence
+$\SH^3(BH)_{(p)}=H^3(H;U(1))_{(p)}$. Coprimality gives $H^a(Q;H^b(E;U(1)))=0$ for $a>0$ and
+$H^b(Q;U(1))_{(p)}=0$ for $b>0$, so $H^3(H;U(1))_{(p)}\cong H^3(E;U(1))^Q_{(p)}$ via
+$\operatorname{res}_E$.
+
+\emph{Conclusion.} The two families of primes are disjoint, so the map is an isomorphism. Both
+$\alpha(V,H)$ and $\pi^*\alpha(V,Q)$ map to $(\alpha(V,Q),0)$. Restriction to subgroups is
+compatible with $\alpha$ by Theorem~\ref{thm:GQ} (base change).
+\end{proof}
+
+\begin{remark}
+S6.3(c) of the notes argues instead through the degree-three inclusions
+$H^3(X;\C^\times)\hookrightarrow r\SH^3(X)\hookrightarrow\SH^3(X)$, which \cite{GJF} state just
+before Thm~4.2: the connecting maps are stable operations, which vanish in low degrees. That
+argument is valid. The $p$-local comparison above is an alternative direct proof in the coprime
+setting, and it gives an isomorphism rather than an injection.
+\end{remark}
+
+%======================================================================
+\section{The algebra $A_\psi$ and $Q$-invariant cocycles}\label{sec:algebra}
+Work in $\pi^*\cG$ with $\cG=\cF(V,Q)$ strict, and put $1_e:=1^{(e)}$ for $e\in E$. Then
+$1_a\otimes1_b=1_{ab}$, and all associators among the $1_e$ are identities.
+
+\begin{lemma}\label{lem:algebras}
+For a normalised cochain $\psi:E\times E\to U(1)$, the object $A_\psi:=\bigoplus_e1_e$ with
+multiplication $\psi(a,b)\,\mathrm{id}:1_a\otimes1_b\to1_{ab}$ is an associative unital algebra iff
+$d\psi=1$. It is then haploid and separable, and rescaling the $1_e$ changes $\psi$ by a
+coboundary. Every algebra structure on $\bigoplus_eX_e$ with $X_e$ simple of degree $e$, $X_1=1$,
+and all multiplication components isomorphisms, is isomorphic to some $A_\psi$. \st{P}
+\end{lemma}
+\begin{proof}
+With trivial associators, associativity reads $\psi(a,b)\psi(ab,c)=\psi(b,c)\psi(a,bc)$. For the
+last claim, write $X_e\cong\Pi^{p(e)}1_e$. The multiplication components are even isomorphisms,
+so $p:E\to\Z_2$ is a homomorphism. Since $|E|$ is odd, $p=0$.
+\end{proof}
+
+\begin{lemma}[Invariant representatives]\label{lem:invariant}
+Let $Q$ act on $E$ with $\gcd(|Q|,|E|)=1$, and let $[\psi]\in H^2(E;U(1))^Q$. Then $[\psi]$ has a
+representative $\bar\psi$ with $\bar\psi^q=\bar\psi$ as functions, for all $q\in Q$. Two such
+representatives differ by $d\lambda$ with $\lambda$ $Q$-invariant. \st{P}
+\end{lemma}
+\begin{proof}
+$N:=\prod_q\psi^q$ is invariant as a function and represents $|Q|[\psi]$. Choose $n$ with
+$n|Q|\equiv1\pmod{|E|}$ and put $\bar\psi:=N^n$. For the second claim, let $\psi'=\psi\,d\lambda$.
+Then $c_q:=\lambda^q/\lambda\in\Ehat$ is a 1-cocycle. Since $H^1(Q;\Ehat)=0$, we have
+$c_q=\mu^q/\mu$, and replacing $\lambda$ by $\lambda/\mu$ makes it invariant.
+\end{proof}
+
+\begin{lemma}[The case $E=\F_3^2$, $Q_8\subset SL(2,3)$]\label{lem:det}
+Let $\zeta=e^{2\pi i/3}$ and $\psi_k(a,b)=\zeta^{k\det(a,b)}$ for $k\in\Z_3$.
+\begin{itemize}[nosep]
+\item The $\psi_k$ represent the three classes of $H^2(\F_3^2;U(1))\cong\Z_3$.
+\item $g\in GL(2,3)$ sends $\psi_k$ to $\psi_{\det(g)k}$ on the nose; in particular $SL(2,3)$
+fixes each $\psi_k$.
+\item The Gaiotto--Johnson-Freyd $Q_8$ acts on every block tetracode with determinant $1$.
+\end{itemize}
+\st{P}; exhaustive check in \texttt{psi\_cocycle\_check.py}.
+\end{lemma}
+\begin{proof}
+Each $\psi_k$ is bimultiplicative. The commutator pairing $\zeta^{2k\det}$ separates the three
+classes, and $\det(ga,gb)=\det(g)\det(a,b)$. The determinant statement was verified on the
+certificate (notes, \S9.2).
+\end{proof}
+
+\paragraph{The conjugation action.}
+Fix $q\in Q$ and a simple $X=X_q\in\cG_q$. By (4), $\End X=\C$, so $X$ is invertible, with
+isomorphisms $\mathrm{ev}:X^*\otimes X\to1$ and $\mathrm{coev}:1\to X\otimes X^*$. Put
+$\bar X:=X^{(s(q))}$ and $\bar X^*:=(X^*)^{(s(q)^{-1})}$. (The unit cannot be placed in degree
+$s(q)$ for $q\ne1$.)
+
+\begin{lemma}\label{lem:conj}
+The functor $c_q(Y):=\bar X\otimes Y\otimes\bar X^*$, with tensorator $\mathrm{id}\otimes
+\mathrm{ev}\otimes\mathrm{id}$, is a monoidal autoequivalence covering $h\mapsto s(q)hs(q)^{-1}$.
+After the identifications $u:=\mathrm{coev}^{-1}:c_q(1_e)\to1_{{}^qe}$, it is \emph{strictly}
+monoidal on the objects $1_e$. Consequently $c_q(A_\psi)=A_{\psi^q}$ on the nose.
+
+If $\Phi$ is as in Proposition~\ref{prop:inflation}, the VOA transport
+$T_{s(q)}:M\mapsto M\circ s(q)^{-1}$ satisfies $T_{s(q)}\circ\Phi\cong\Phi\circ c_q$ on the
+$E$-part. \st{P; the second claim uses the crossed braiding of \cite[Thms 2.10, 4.15]{McR}}
+\end{lemma}
+\begin{proof}
+\emph{Strictness.} Both $u\circ J_{1_a,1_b}$ and $u\otimes u$ are maps $X X^*XX^*\to1$ in $\cG$,
+independent of $a$ and $b$. Precomposing with the isomorphism $\mathrm{coev}\otimes\mathrm{coev}$
+gives $1$ for both, by the zigzag identity. Also $u\circ\mathrm{coev}=\mathrm{id}$. Hence $c_q$
+is strictly monoidal on the $1_e$, and transporting the multiplication gives
+$\psi'({}^qa,{}^qb)=\psi(a,b)$.
+
+\emph{Comparison with $T_{s(q)}$.} For an invertible $s(q)$-twisted $M$, the crossed braiding
+$c_{M,-}:M\otimes N\to T_{s(q)}(N)\otimes M$ is natural and monoidal in $N$ (crossed hexagon).
+So $T_{s(q)}\cong M\otimes-\otimes M^*$ as monoidal functors. Taking $M=\Phi(\bar X)$ gives the
+claim.
+\end{proof}
+Hence the $Q$-action on orbifold algebra objects is $\psi\mapsto\psi^q$, and hypothesis (3) is
+intrinsic. From now on $\psi$ is a $Q$-invariant cocycle (Lemma~\ref{lem:invariant}) and
+$A:=A_\psi$.
+
+%======================================================================
+\section{Bimodules: the categorical core}\label{sec:bimod}
+Let $\Bimod_A:=\Bimod_A(\pi^*\cG)$. It is $Q$-graded by support on cosets $qE$. For $X\in\cG_q$
+define the bimodule $B_X:=A\otimes X^{(s(q))}=\bigoplus_eX^{(eq)}$, with
+\begin{itemize}[nosep]
+\item left action of $1_{e'}$: multiplication by $\psi(e',e)$ on $X^{(eq)}$;
+\item right action of $1_{e'}$: multiplication by $\psi(e,{}^qe')$ on $X^{(eq)}$.
+\end{itemize}
+For $\chi\in\Ehat$, the bimodule $B_X^\chi$ is $B_X$ with its right action multiplied by
+$\chi(e')$.
+
+\begin{proposition}\label{prop:Ind}
+\begin{enumerate}[label=(\alph*),nosep]
+\item $B_X$ and $B_X^\chi$ are bimodules. Right associativity holds for all $e,a,b$ iff
+$\psi({}^qa,{}^qb)=\psi(a,b)$, which is why invariance on the nose is needed.
+\item $\Ind:X\mapsto B_X$, $f\mapsto\bigoplus_ef^{(eq)}$, is fully faithful on Hom
+superspaces. In particular $\End B_{X_q}=\End X_q$.
+\item $\Ind$ is monoidal: $B_X\otimes_AB_Y\cong B_{X\otimes Y}$ via the free-module isomorphism.
+On homogeneous summands this composite carries the balancing factor $\psi(e,{}^qf)$. The two
+threefold coefficients agree,
+\[\psi(e,{}^qf)\,\psi(e\,{}^qf,{}^{qr}g)=\psi(f,{}^rg)\,\psi(e,{}^q(f\,{}^rg)),\]
+by the cocycle identity and invariance. So no new 3-cocycle on $Q$ arises, and the associator
+of the $B$'s is that of $\cG$.
+\item Consequently $\Ind:\cG\xrightarrow{\simeq}\Ind(\cG)\subset\Bimod_A$ is an equivalence of
+$Q$-graded super-fusion categories onto its image. It preserves $m$, $n$ and $\omega$, so
+$\mathrm{class}(\Ind\cG)=\alpha$.
+\end{enumerate}
+\st{P}
+\end{proposition}
+\begin{proof}
+(a) Left associativity, and the commutation of the left and right actions, are instances of the
+cocycle identity. For right associativity, apply the cocycle identity at
+$(e,{}^qa,{}^qb)$; this reduces it to $\psi({}^qa,{}^qb)=\psi(a,b)$.
+
+(b) Supports on distinct cosets are disjoint. A bimodule map from the free left module $B_X$ is
+determined by its restriction to $X^{(q)}$, which lands in degree $s(q)$. The only possibly odd
+morphism is $f$, and it is never moved past another odd morphism, so no Koszul sign arises.
+
+(c) The coequaliser defining $\otimes_A$ splits on free modules, and $s$ is a homomorphism.
+Associativity constraints are induced from those of $\pi^*\cG$, which are those of $\cG$.
+\end{proof}
+
+\begin{lemma}[Classification of bimodules]\label{lem:B}
+Every simple $A$-bimodule in $\pi^*\cG$ is, up to parity, isomorphic to exactly one $B_{X_q}^\chi$,
+with $q\in Q$ and $\chi\in\Ehat$. Hence there are exactly $|H|$ simple bimodules up to parity,
+each with $\End=\C$. \st{P}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}[nosep]
+\item Every left $A$-module is a sum of free modules $A\otimes X_q^{(q)}$, since $A\otimes1_e\cong A$.
+Moreover $\Hom_A(A\otimes X_q,A\otimes X_{q'})=\delta_{qq'}\C$, using $m=0$.
+\item A simple bimodule $P$ is supported on a single coset, so as a left module
+$P\cong(A\otimes X_q)\otimes W$ for a super vector space $W$.
+\item The right action of $1_{e'}$, composed with the inverse of the canonical right action of
+$B_{X_q}$, is an even left-module automorphism $\rho(e')\in GL(W)$. Right associativity of $P$
+and of $B_{X_q}$ makes $\rho$ a representation of $E$.
+\item Since $E$ is abelian, $W$ splits into characters, so $P\cong\Pi^pB^\chi_{X_q}$.
+\item Comparing right actions on $\Ind(f)$ shows $B^\chi\cong B^{\chi'}$ iff $\chi=\chi'$.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}
+The $|E|$ bimodules $B_{X_q}^\chi$ on each coset correct the earlier sketch, which claimed
+$B_{X_q}$ was the only one. The extra ones are the sectors twisted by the dual symmetry $\Ehat$.
+\end{remark}
+
+%======================================================================
+\section{The gauged theory and the bimodule dictionary}\label{sec:gauged}
+
+\paragraph{Inputs.}
+\begin{itemize}[nosep]
+\item \emph{(Gal) Quantum Galois correspondence.} For a simple SVOA $W$ and finite
+$G\subset\Aut W$, $K\mapsto W^K$ is a bijection from subgroups of $G$ to subalgebras containing
+$W^G$. This is \cite[Thm~6.2]{DJX}, attributed there to Dong--Mason and Hanaki--Miyamoto--Tambara;
+the super Schur--Weyl decomposition it rests on is \cite[Thm~3.2]{McR19} \st{C$^\circ$}.
+\item \emph{(Ext) Extensions and orbifolds.}
+\begin{itemize}[nosep]
+\item SVOA extensions $L'\supset B=V^E$ correspond to commutative superalgebras in $\cD$
+\cite[Thm~3.42]{CKM}, \cite[Thm~3.2]{HKL}, and isomorphisms over $B$ correspond to algebra
+isomorphisms.
+\item \emph{Definition.} $V/\!/_\psi E$ is the extension $L'$ for which
+$\Ind_B^L(L')=L\otimes_BL'\cong\Phi(A_\psi)$ as algebras in $\Rep(L)$. This is Kirillov's
+correspondence. Under the equivariantisation equivalence of \cite[Thm~4.17]{McR}, applied to
+$\widetilde E=E\times\langle\sigma\rangle$, which contains parity, and composed with the forgetful
+functor, the induction $\Ind_B^L$ is the functor that forgets the $E$-equivariant structure. So an
+orbifold is an $E$-equivariant algebra whose underlying algebra is $A_\psi$. This motivates the
+definition but is not used in the proofs. Existence for each $[\psi]$ is \cite[Thm~4.2]{GJF}; in the application the
+extensions are explicit lattice SVOAs.
+\item Automorphisms of $V$ normalising $E$ transport extensions; on algebra objects the transport
+is given by Lemma~\ref{lem:conj}.
+\end{itemize}
+\end{itemize}
+
+\begin{proposition}[Theorem~\ref{thm:main}(i)]\label{prop:K}
+Let $K:=\{g\in\Aut V': g(V^E)=V^E,\ g|_{V^E}\in H|_{V^E}\}$. Then
+$1\to\Ehat\to K\xrightarrow{\bar\pi}Q\to1$ is exact and split, its complements are
+$\Ehat$-conjugate, and $(V')^K=V^H$. \st{P from (Gal), (Ext)}
+\end{proposition}
+\begin{proof}
+Let $\chi\in\Ehat$ act on the twisted-sector summand $N_e$ of $V'$ by $\chi(e)$; then
+$(V')^{\Ehat}=V^E$. For $q\in Q$, the extension $s(q)\cdot V'$ (which is $V'$ with $B$ acting through
+$s(q)^{-1}$) has induced algebra $T_{s(q)}\Phi(A_\psi)\cong\Phi(A_{\psi^q})$ by
+Lemma~\ref{lem:conj}. By (3) and Lemma~\ref{lem:algebras} this is isomorphic to $\Phi(A_\psi)$. By
+(Ext), the resulting isomorphism of extensions composes with the transport to give
+$\phi_q\in\Aut V'$ with $\phi_q|_{V^E}=s(q)|_{V^E}$. By (Gal), $H|_{V^E}\cong H/E\cong Q$ and
+$\ker(K\to Q)=\Aut(V'/V^E)=\Ehat$. Schur--Zassenhaus applies since $\gcd(|\Ehat|,|Q|)=1$, and $\Ehat$
+is abelian. Finally $(V')^K=((V')^{\Ehat})^{Q}=V^H$.
+\end{proof}
+
+Put $\tH=H\times\langle\sigma\rangle$ and $\tK=K\times\langle\sigma'\rangle$. Here $\sigma'\notin K$:
+otherwise $h\sigma$ would fix $V^E$ for some $h\in H$, so $h\sigma\in E$ by (Gal), and then
+$\sigma\in H$. Both groups contain parity and have the common bosonic fixed algebra
+$U_0=V^{\tH}=V'^{\tK}$. Set $B:=V^E$, $L:=V$ and $L':=V'$ in $\SC$, and $\cD:=\Rep^0_{\SC}(B)$.
+Decompose $L=\bigoplus_{\chi}V_\chi$ under $E$, and $L'=\bigoplus_eN_e$ under $\Ehat$.
+
+\paragraph{(Inv)} The $V_\chi$ and $N_e$ are invertible objects of $\cD$.
+\begin{itemize}[nosep]
+\item In general, this follows from \cite[Thm~6.3, Prop.~4.17]{DJX} under their twisted-module
+hypotheses \st{C}.
+\item In the application, $B=V_{\Lambda_E}$ with $\Lambda_E=\Lambda(C_i\cap U_b^\perp)$, and the
+$V_\chi,N_e$ are lattice coset modules $V_{\lambda+\Lambda_E}$. These are simple currents by the
+lattice fusion rules \cite{DL} \st{C$^\circ$}.
+\end{itemize}
+
+\begin{lemma}[Charge--flux monodromy]\label{lem:mono}
+In $\cD$, $c_{N_e,V_\chi}c_{V_\chi,N_e}=\chi(e)^{-1}$. Here the label $e$ of $N$ is \emph{defined} as
+the degree of the invertible $L$-module $M_e:=L\otimes_BN$. \st{P}
+\end{lemma}
+\begin{proof}
+By \cite[Def.~4.1]{Kir02} and \cite[Def.~2.3]{McR}, $\mu\circ M_{L,M_e}=\mu\circ(e^{-1}\otimes1)$.
+Restrict to $V_\chi\otimes(B\otimes_BN_e)$ and use modules in stages. There $\mu$ is the
+canonical isomorphism onto $V_\chi\otimes_BN_e$, which is nonzero.
+\end{proof}
+
+Put $A:=L\otimes_BL'=\bigoplus_{N}\Ind(N)\in\Rep_{\cD}(L)$, the sum running over the $|E|$
+summands of $L'$. By (Ext), $A\cong\Phi(A_\psi)$ has exactly one simple summand in each degree
+$e\in E$. Hence $N\mapsto e(N)$ is a bijection onto $E$; write $N_e$ for the summand with label
+$e$, so that $A=\bigoplus_eM_e$ with $M_e=\Ind(N_e)$.
+(\emph{Consistency check:} the multiplication components $M_e\otimes_LM_{e'}\to M_{ee'}$ are
+$\Ind$ of the multiplication $N_e\otimes_BN_{e'}\to N_{ee'}$ of $V'$. These are nonzero because
+$V'$ is simple and its vertex operators do not vanish on nonzero vectors
+\cite[Lemma~4.18]{McR}, and $\Ind$ is faithful.)
+
+\begin{theorem}[Bimodule dictionary]\label{thm:D2}
+The functor
+\[
+\Psi:\cF(V',K)\overset{\ref{thm:GQ}}{\cong}\bigoplus_{k\in K}\Rep_k(L')\subset\Rep_{\SC}(L')
+\simeq\Rep_{\Rep B}(L')\longrightarrow\Bimod_A(\cF(V,H)),\qquad \Psi(N)=L\otimes_BN,
+\]
+is an equivalence of super-fusion categories. It commutes with $\Pi$, and it is compatible with
+cosets: $\Psi(\cF(V',K)_k)$ is supported on $s(\bar\pi k)E$. \st{P}
+\end{theorem}
+\begin{proof}
+\emph{Monoidal.} We use three facts.
+\begin{itemize}[nosep]
+\item \emph{Modules in stages.} $\Rep_{\SC}(L)\simeq\Rep_{\Rep B}(L)$ as monoidal supercategories,
+by the remark in \cite[\S3.6]{DMNO}. Both relative tensor products are the same quotient of
+$X\otimes Y$, and the coequalisers split by separability.
+\item \emph{Central algebras.} For a commutative algebra $R$ in the centre of $\Rep B$, $\Rep R$
+is monoidal and the free functor is monoidal \cite{Sch}, \cite[Thm~2.59]{CKM}.
+\item \emph{Transport of bimodules.} Additive monoidal functors preserve split coequalisers.
+\end{itemize}
+Then $\Psi$ is the composite of three monoidal functors,
+\[\Rep(L')\subset\Bimod_{L'}(\Rep B)\to\Bimod_{\Ind L'}(\Rep L).\]
+The right action uses the half-braiding, with one braiding convention fixed throughout.
+
+\emph{Cosets.} Monodromies multiply, and $L$ is local over $B$, so $B$-types are preserved.
+
+\emph{Fully faithful (central vectors).} Let $P=\Psi(N)$. Bimodule maps $A\to P$ are the central
+vectors $x:1\to P$. Commuting with $L$ is automatic. Decompose $x=\sum_\chi x_\chi$ with
+$x_\chi:1\to V_\chi\otimes_BN$. By the hexagon, naturality and Lemma~\ref{lem:mono}, the right
+action of $N_e$ on $x_\chi$ equals $\chi(e)$ times the left action. No Koszul sign appears: the
+only possibly odd morphism is $x_\chi$, and naturality pairs it with $\mathrm{id}_{N_e}$. The left
+action $\ell_e(\mathrm{id}\otimes x_\chi)$ vanishes only if $x_\chi=0$, by invertibility of the
+$N_e$-multiplication. So $x_\chi=0$ for $\chi\ne1$, and the central vectors are exactly
+$\Hom(L',N)$. Full faithfulness follows by rigidity, since $\Psi$ is monoidal.
+
+\emph{Essentially surjective.}
+\begin{itemize}[nosep]
+\item By Theorem~\ref{thm:GQ} and Lemma~\ref{lem:B}, $\Bimod_A$ restricted to $H$-degrees has
+$|H|$ simples up to parity, each with $\End=\C$.
+\item $\cF(V',K)$ is pointed with $|K|=|H|$ simples \cite[Thm~4.2]{GJF}.
+\item Full faithfulness and $\Pi$-compatibility map simples injectively, up to parity, onto
+simples.
+\item It follows also that $m(V',K)=0$.
+\end{itemize}
+\emph{Restriction.} Degrees in $\tK\setminus K$ go to Ramond-type cosets, outside $\cF(V,H)$.
+\end{proof}
+
+%======================================================================
+\section{Proof of Theorem~\ref{thm:main}(ii) and independence of choices}\label{sec:proof}
+
+\begin{proof}[Proof of (ii)]
+\begin{enumerate}[nosep]
+\item Let $\cD':=\Phi(\Ind\cG)\subset\Bimod_{\Phi(A)}(\cF(V,H))$. By
+Proposition~\ref{prop:Ind}, $\cD'$ is a full monoidal subcategory with class $\alpha$.
+\item Under $\Psi^{-1}$, its $|Q|$ simples go to simples in $|Q|$ distinct degrees of
+$\cF(V',K)$. These degrees form a subgroup $\widetilde Q$, which maps isomorphically to $Q$ by
+coset compatibility, so $\widetilde Q$ is a complement of $\Ehat$.
+\item Since each degree carries a single simple, $\Psi^{-1}(\cD')$ is the $\widetilde Q$-graded part
+of $\cF(V',K)$. This is canonically equivalent to $\cF(V',\widetilde Q)$ as a graded monoidal
+supercategory (Theorem~\ref{thm:GQ}, base change). Hence
+$\alpha(V',\widetilde Q)=\alpha$.
+\item Any complement is $Q'=c\widetilde Qc^{-1}$ with $c\in\Ehat$. Conjugation by $c$ is a graded
+equivalence compatible with $\bar\pi$, so $\alpha(V',Q')=\alpha$.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}[Independence]\label{prop:indep}
+The conclusion is independent of three choices:
+\begin{itemize}[nosep]
+\item the complement $s(Q)$, since all complements are $E$-conjugate and $s'^*\pi^*=\mathrm{id}$,
+and conjugate complements give bimodules related by $1_e\subset A$;
+\item the invariant representative $\psi$, since another one is related by an invariant rescaling
+(Lemma~\ref{lem:invariant}), which is a $Q$-compatible algebra isomorphism;
+\item the equivalence $\Phi$, since $\mathrm{class}(\cD')$ is computed intrinsically.
+\end{itemize}
+\st{P}
+\end{proposition}
+
+%======================================================================
+\section{Proof of Theorem~\ref{thm:GQ}}\label{sec:GQ}
+Put $U:=V^G$, so that $\cD_G=\Rep^0U$. Write $I^U_{V,X}:V\boxtimes X\to V\otimes_UX$ for the
+cokernel map.
+
+\begin{proof}
+\begin{enumerate}[nosep]
+\item \emph{Objects.} Define $\Theta(X,\mu_X):=(X,\mu_X\circ I^U_{V,X})$.
+\begin{itemize}[nosep]
+\item Associativity transfers in both directions, because the associator of $\Rep U$ is
+characterised through $I^U$ \cite[Thm~2.52]{CKM}.
+\item By \cite[Thm~4.15(1)]{McR}, $\Theta(X)=\bigoplus Y_{\tilde g}$ with $Y_{\tilde g}$ $\tilde g$-twisted.
+Each summand is local over $U$. On $U\boxtimes Y_{\tilde g}$ this gives
+$\nu\circ((\tilde g^{-1}|_U-1)\boxtimes1)=0$, so every $u'=\tilde g^{-1}u-u\in U$ acts by zero on
+$Y_{\tilde g}$. By the non-vanishing lemma \cite[Lemma~4.18]{McR} ($V$ simple, $\tilde G\ni\sigma$),
+this forces $u'=0$, so $\tilde g|_U=\mathrm{id}$. Then $\tilde g\in G$ by (Gal) and (P).
+\item Conversely, the action $\nu$ of a $g$-twisted $Y$ with $g\in G$ is $U$-balanced, by
+associativity together with the commutativity of $V$ \cite[Thm~3.42(3)]{CKM}. So $\nu$ factors
+uniquely through $I^U$.
+\end{itemize}
+\item \emph{Morphisms, parity and $\Pi$.} Morphisms on both sides are $\SC$-morphisms commuting
+with the action, and $I^U$ is epi. So $\Theta$ is the identity on Hom superspaces, and $\Pi$ is
+the same on both sides.
+\item \emph{Degrees.} We have $I^U\circ R^2=(R^U)^2\circ I^U$ \cite[eq.~(2.28)]{CKM}, and $g$
+fixes $U$. So Kirillov's and McRae's monodromy conditions coincide.
+\item \emph{Cokernels are preserved.} The quotients below are taken in three categories,
+$\cD_G=\Rep^0U\subset\Rep U$ and $\SC$. They agree for three reasons.
+\begin{itemize}[nosep]
+\item \emph{Rep U to SC.} For an even (or parity-homogeneous) morphism in $\Rep U$, the cokernel
+computed in $\SC$ carries a unique $U$-action. This uses right exactness of $U\boxtimes-$
+\cite[Prop.~2.23]{CKM}, and the result is the cokernel in $\Rep U$ \cite[Prop.~2.32]{CKM}.
+\item \emph{Local modules to Rep U.} The locality condition $\mu\circ M_{U,-}=\mu$ passes to
+quotients by naturality of $M$ and surjectivity of the quotient map. So $\Rep^0U$ is closed under
+these cokernels, and cokernels in $\Rep^0U$ are cokernels in $\Rep U$ \cite[Thm~2.55,
+Prop.~2.56]{CKM}.
+\item \emph{All three split.} $\widetilde\cC$ is semisimple because $U_0$ is regular, and $U$ and
+$V$ are separable. So each coequaliser defining a relative tensor product is split by a
+separability idempotent, and split coequalisers are preserved by every additive functor.
+\end{itemize}
+In particular the forgetful functors $\Rep^0U\to\Rep U\to\SC$ preserve the cokernels used in
+the next step. Without this, a cokernel internal to the local-module category need not be a
+cokernel in the ambient category.
+\item \emph{Tensorator.} $I^{V/\cD}_{X,Y}\circ I^U_{X,Y}$ and $I^{V/\SC}_{X,Y}$ are cokernels of
+the same pair $X\boxtimes V\boxtimes Y\rightrightarrows X\boxtimes Y$. A map coequalising the
+$V$-pair coequalises the $U$-pair, and $\boxtimes$ is right exact \cite[Prop.~2.23]{CKM}. This
+gives a unique even natural isomorphism $\tau$ compatible with the $V$-actions
+\cite[Props.~2.38, 2.39, 2.46, 2.47]{CKM}.
+\item \emph{Associators and units.} \cite[Thm~2.52]{CKM} characterises each associator as the
+unique morphism compatible, through the cokernel maps, with the associator of the base. Composing
+the characterisations for $V/\cD$ and $U/\SC$, both associators satisfy the same equation with
+respect to the same epimorphism, so they are equal. The units are treated the same way using
+\cite[Props.~2.40, 2.42]{CKM}.
+\end{enumerate}
+\emph{Base change.} Replace $U$ by $B'=V^{\tG'}$ for $G'\subset G$; the same steps apply.
+Combining this with the theorem for $G$ and for $G'$ gives a canonical graded monoidal
+equivalence between $\cF(V,G')$ and the $G'$-graded part of $\cF(V,G)$.
+\end{proof}
+
+\begin{remark}[McRae's Remark 4.16]\label{rem:4.16}
+\cite[Rem.~4.16]{McR} leaves open whether McRae's twisted intertwining operators agree with
+Huang's general definition for non-commuting $g_1,g_2$; they agree with Xu's for commuting ones.
+Theorem~\ref{thm:GQ} compares two \emph{categorical} constructions, so that question does not
+arise here.
+\end{remark}
+
+\begin{remark}[The interpretive step]\label{rem:reading}
+We read the tensor structure in \cite[Thm~4.2]{GJF} as Kirillov's $\otimes_V$, because that is
+the construction in the source the proof cites. If one instead \emph{defines} the anomaly through
+Huang's analytic tensor product of twisted modules, the comparison of
+Remark~\ref{rem:4.16} becomes necessary, and $Q_8$ is non-abelian. In that case the accurate
+status is: \emph{the categorical argument proves the lemma under the stated hypotheses and the
+graded monoidal identification; completing that identification closes the application to the GJF
+anomaly.}
+\end{remark}
+
+%======================================================================
+\section{Application: the $Q_8$ neighbour chain}\label{sec:app}
+For each of the 23 steps $C_i\to C_{i+1}=(C_i\cap U_b^\perp)+U_b$ of the notes (\S S6.2), set
+$V=V_{\Lambda(C_i)}$, $E\cong\Z_3^2$ and $Q=Q_8$. That $V'=V_{\Lambda(C_{i+1})}$ is an orbifold in the
+sense of (Ext), with a $Q_8$-invariant class, takes three separate steps.
+\begin{enumerate}[label=(A\arabic*),nosep]
+\item \emph{Cosets and degrees (lattice intersection).} The summands of $V'$ over
+$B=V_{\Lambda_E}$, with $\Lambda_E=\Lambda(C_i)\cap\Lambda(C_{i+1})=\Lambda(C_i\cap U_b^\perp)$, are
+$N_\nu=V_{\nu+\Lambda_E}$ for $\nu\in\Lambda(C_{i+1})/\Lambda_E$. Each induces the $L$-module
+$V_{\nu+\Lambda(C_i)}$, whose degree is the image of $\nu$ in
+$(\Lambda(C_i)+\Lambda(C_{i+1}))/\Lambda(C_i)\cong E$. This map is injective because the
+intersection is $\Lambda_E$, and it is bijective because both sides have order $9$. So each degree
+occurs exactly once in $\Ind(V')$.
+\item \emph{The multiplication cocycle.} The components $M_e\otimes_LM_{e'}\to M_{ee'}$ of
+$\Ind(V')$ are $\Ind$ of the vertex operators $N_\nu\otimes N_{\nu'}\to N_{\nu+\nu'}$. These are
+nonzero, since $Y(e^{\nu},z)e^{\nu'}=\epsilon(\nu,\nu')z^{\langle\nu,\nu'\rangle}e^{\nu+\nu'}+\dots$ with
+$\epsilon\ne0$. Nonzero maps between invertible objects are isomorphisms, so
+Lemma~\ref{lem:algebras} gives $\Ind(V')\cong A_{\psi'}$ for a well-defined class
+$[\psi']\in H^2(E;U(1))\cong\Z_3$. Its value is not needed below. The count in the notes (\S9.2)
+shows that $V'$ is one of the three orbifolds $V/\!/_{\psi_k}E$, that is, $[\psi']$ is one of the
+classes of Lemma~\ref{lem:det}.
+\item \emph{Invariance.} By Lemma~\ref{lem:det}, $Q_8$ acts on $E$ through $SL(2,3)$ and fixes
+each $\psi_k$ on the nose. So hypothesis (3) holds for $[\psi']$, and Lemma~\ref{lem:invariant}
+supplies the invariant representative used in \S\ref{sec:bimod} (here $\psi_k$ itself).
+\end{enumerate}
+Theorem~\ref{thm:main} gives $\alpha(V',Q')=\alpha(V,Q_8)$ for every complement $Q'$. Every complement
+is a homomorphic lift of the monomial $Q_8\subset O(\Lambda(C_{i+1}))$, since $\Ehat$ acts trivially
+on the Heisenberg currents. So it is conjugate to the Gaiotto--Johnson-Freyd lift by \S S6.3(e).
+Hence
+\[
+\alpha(V_{\Lambda(C)},Q_8)=\alpha(V_{\Z^{96}},Q_8)=24\,\alpha(\mathrm{Fer}(8),Q_8)=0 .
+\]
+The inputs \emph{not} supplied by Theorem~\ref{thm:main} are kept separate:
+\begin{enumerate}[nosep]
+\item the exact computations: the frame code, the neighbour chain, and Lemma~\ref{lem:det};
+\item the lift identification, \S S6.3(e), via $H^2(Q_8,\Lambda)=0$;
+\item existence of the extensions, which are explicit lattice SVOAs;
+\item additivity of anomalies under $\otimes$;
+\item $\Omega_3^{\mathrm{Spin}}(BQ_8)\cong\Z_8\oplus\Z_4^2$, which has exponent $8$.
+\end{enumerate}
+
+%======================================================================
+\section{Status}\label{sec:status}
+\begin{center}\small
+\begin{tabular}{p{0.38\textwidth}p{0.55\textwidth}}
+\hline
+Step & Status\\\hline
+Inflation, algebra $A_\psi$, invariant cocycles, conjugation (\S\S2--3) & \st{P}, given GJF Thm 4.2 classification \st{C}\\
+Bimodule embedding and classification (\S4) & \st{P}\\
+$K$, Schur--Zassenhaus (Prop.~\ref{prop:K}) & \st{P}, from (Gal) \st{C$^\circ$} and (Ext) \st{C}\\
+Bimodule dictionary (Thm~\ref{thm:D2}) & \st{P}, from CKM \st{C}, McRae Thm 4.15 \st{C}, (Inv)\\
+(Inv) & application: lattice fusion \st{C$^\circ$}; general: DJX Thm 6.3 \st{C} under its hypotheses\\
+Identification with GJF (Thm~\ref{thm:GQ}) & \st{P} from CKM/McRae, on the reading of Rem.~\ref{rem:reading}\\
+Regularity (R) for $V'_0$ & application: lattice VOA; general: Lin Thms 3.10/3.11 (ABD, HKL) \st{C$^\circ$} plus the CFT-type proviso\\
+\hline
+\end{tabular}
+\end{center}
+
+%======================================================================
+\begin{thebibliography}{99}\small
+\bibitem{GJF} D.~Gaiotto, T.~Johnson-Freyd, \emph{Holomorphic SCFTs with small index}, arXiv:1811.00589, \S4 (Thm 4.2, Ex.~4.4).
+\bibitem{Kir02} A.~Kirillov Jr., \emph{Modular categories and orbifold models}, Comm.~Math.~Phys.~229 (2002) 309--335, arXiv:math/0104242 (Def.~4.1, Thms 4.3, 4.7, eq.~(5.3)).
+\bibitem{McR} R.~McRae, \emph{Twisted modules and $G$-equivariantization in logarithmic conformal field theory}, Comm.~Math.~Phys.~383 (2021) 1939--2019, arXiv:1910.13226 (Def.~2.3, Thms 2.10, 3.3, 4.14, 4.15, 4.17, Rem.~4.16).
+\bibitem{McR19} R.~McRae, \emph{On the tensor structure of modules for compact orbifold vertex operator algebras}, Math.~Z.~(2019), Thm 3.2.
+\bibitem{CKM} T.~Creutzig, S.~Kanade, R.~McRae, \emph{Tensor categories for vertex operator superalgebra extensions}, arXiv:1705.05017v2 (Def.~2.11; Props.~2.17--2.47; Thms 2.20, 2.52, 2.53, 2.55, 2.59, 3.42, 3.65).
+\bibitem{CKL} T.~Creutzig, S.~Kanade, A.~Linshaw, \emph{Simple current extensions beyond semi-simplicity}, Commun.~Contemp.~Math.~(2019) 1950001, arXiv:1511.08754 (Thms 3.13, 3.14).
+\bibitem{HKL} Y.-Z.~Huang, A.~Kirillov Jr., J.~Lepowsky, \emph{Braided tensor categories and extensions of vertex operator algebras}, Comm.~Math.~Phys.~337 (2015) 1143--1159, arXiv:1406.3420 (Thms 3.2, 3.4, 3.5).
+\bibitem{Hu7} Y.-Z.~Huang, \emph{Rigidity and modularity of vertex tensor categories}, Commun.~Contemp.~Math.~10 (2008), suppl.~1, 871--911.
+\bibitem{CM} S.~Carnahan, M.~Miyamoto, \emph{Regularity of fixed-point vertex operator subalgebras}, arXiv:1603.05645.
+\bibitem{DJX} C.~Dong, X.~Jiao, F.~Xu, \emph{Quantum dimensions and quantum Galois theory}, Trans.~AMS 365 (2013) 6441--6469, arXiv:1201.2738 (Thms 6.1--6.3, Prop.~4.17).
+\bibitem{DMNO} A.~Davydov, M.~M\"uger, D.~Nikshych, V.~Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, J.~reine angew.~Math.~677 (2013), \S3.6.
+\bibitem{Sch} P.~Schauenburg, \emph{The monoidal center construction and bimodules}, J.~Pure Appl.~Algebra 158 (2001).
+\bibitem{BGK} L.~Bhardwaj, D.~Gaiotto, A.~Kapustin, \emph{State sum constructions of spin-TFTs and string net constructions of fermionic phases of matter}, arXiv:1605.01640.
+\bibitem{DL} C.~Dong, J.~Lepowsky, \emph{Generalized vertex algebras and relative vertex operators}, Progr.~Math.~112, Birkh\"auser 1993.
+\bibitem{Lin} X.~Lin, \emph{Rationality and $C_2$-cofiniteness of certain diagonal coset vertex operator algebras}, arXiv:2107.09400 (Thms 3.10, 3.11).
+\end{thebibliography}
+\end{document}

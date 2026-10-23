@@ -1,0 +1,77 @@
+{
+ "9": {
+  "k": 9,
+  "length": 108,
+  "widths": [
+   8,
+   10,
+   8,
+   10,
+   8,
+   10
+  ],
+  "systematic": true,
+  "self_dual": true,
+  "claimed_index": 24,
+  "index_banded_DP": 24,
+  "g_preserves": true,
+  "g_order": 3,
+  "g_cycle_lengths": [
+   3
+  ],
+  "fixed_dim": 18,
+  "contracted_rank": 18,
+  "contracted_self_dual": true,
+  "balance_exhaustive": {
+   "even": 216,
+   "odd": 216,
+   "index": 0,
+   "seconds": 0.009926795959472656
+  }
+ },
+ "10": {
+  "k": 10,
+  "length": 120,
+  "widths": [
+   12,
+   12,
+   12,
+   12,
+   12
+  ],
+  "systematic": true,
+  "self_dual": true,
+  "claimed_index": 24,
+  "index_banded_DP": 24,
+  "g_preserves": true,
+  "g_order": 2,
+  "g_cycle_lengths": [
+   1
+  ],
+  "fixed_dim": 0,
+  "contracted_rank": 0,
+  "contracted_self_dual": false,
+  "balance_exhaustive": {
+   "even": 0,
+   "odd": 0,
+   "index": 0,
+   "seconds": 0.006906032562255859
+  }
+ },
+ "11": {
+  "k": 11,
+  "length": 132,
+  "widths": [
+   12,
+   12,
+   12,
+   12,
+   12,
+   6
+  ],
+  "systematic": true,
+  "self_dual": true,
+  "claimed_index": 24,
+  "index_banded_DP": 24
+ }
+}

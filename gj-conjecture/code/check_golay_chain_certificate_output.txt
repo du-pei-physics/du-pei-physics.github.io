@@ -1,0 +1,7 @@
+ok    states
+ok    number of non-zero entries of T
+ok    u = T s
+ok    T u = -u
+ok    s . u = -24
+ok    s^T T^k s = (-1)^k 24 for k = 1..20
+golay_chain_transfer.json: 423 non-zero entries of T, 33 of u

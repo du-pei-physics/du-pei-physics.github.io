@@ -1,0 +1,44 @@
+{
+ "description": "distinct codes (= distinct generator rowspaces) among the hits logged by the searches; monomial equivalence is not taken into account",
+ "lists": {
+  "k8_Q8": {
+   "source": "claude/results/k8/q8_survey.json",
+   "hits_logged": 42,
+   "distinct_codes": 42
+  },
+  "k16_Q8": {
+   "source": "claude/persistent/q8_k16/hits.jsonl",
+   "hits_logged": 20,
+   "distinct_codes": 20
+  },
+  "k10_HP": {
+   "source": "claude/results/kspan/k10_hits.json",
+   "hits_logged": 56,
+   "distinct_codes": 56
+  },
+  "k10_products": {
+   "source": "claude/persistent/kspan_rings/hits.jsonl",
+   "hits_logged": 20,
+   "distinct_codes": 20
+  },
+  "k14_products": {
+   "source": "claude/persistent/kspan_rings/hits.jsonl",
+   "hits_logged": 17,
+   "distinct_codes": 17
+  },
+  "k15_certificate": {
+   "source": "claude/results/kspan/k15_certificate.json",
+   "hits_logged": 3,
+   "distinct_codes": 1
+  },
+  "k21_certificate": {
+   "source": "claude/results/kspan/k21_certificate.json",
+   "hits_logged": 2,
+   "distinct_codes": 2
+  }
+ },
+ "note_certificates": {
+  "files": 17,
+  "distinct_codes": 17
+ }
+}

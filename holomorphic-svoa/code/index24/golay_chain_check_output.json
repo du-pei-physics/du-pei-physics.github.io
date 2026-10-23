@@ -1,0 +1,162 @@
+{
+ "golay_weights": [
+  0,
+  6,
+  9,
+  12
+ ],
+ "golay_index": -24,
+ "gram": {
+  "p.p": 2,
+  "v.v": 1,
+  "p.r": 0,
+  "v.w": 0,
+  "r.r": 0,
+  "w.w": 0,
+  "p.v": 0,
+  "p.w": 0,
+  "r.v": 0,
+  "r.w": 0
+ },
+ "supports": {
+  "p,r": [
+   0,
+   4,
+   6,
+   7,
+   9
+  ],
+  "v,w": [
+   2,
+   3,
+   8,
+   10,
+   11
+  ]
+ },
+ "T_nonzero_entries": 423,
+ "T_entry_values": [
+  -3,
+  -2,
+  -1,
+  1
+ ],
+ "u_nonzero_entries": {
+  "0000": -4,
+  "0001": -1,
+  "0002": -1,
+  "0010": -1,
+  "0011": -4,
+  "0012": -4,
+  "0020": -1,
+  "0021": -4,
+  "0022": -4,
+  "0100": 2,
+  "0110": -1,
+  "0120": 2,
+  "0200": 2,
+  "0210": 2,
+  "0220": -1,
+  "1020": 2,
+  "1021": 2,
+  "1022": -1,
+  "1102": -4,
+  "1111": -1,
+  "1120": -1,
+  "1201": -1,
+  "1212": -4,
+  "1220": -1,
+  "2010": 2,
+  "2011": -1,
+  "2012": 2,
+  "2102": -1,
+  "2110": -1,
+  "2121": -4,
+  "2201": -4,
+  "2210": -1,
+  "2222": -1
+ },
+ "u_entry_values": [
+  -4,
+  -1,
+  2
+ ],
+ "transfer_index_k1_to_kmax": [
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24,
+  -24,
+  24
+ ],
+ "brute_force": {
+  "1": {
+   "length": 12,
+   "index": -24,
+   "index_after_negating_coordinate_0": 24
+  },
+  "2": {
+   "length": 24,
+   "index": 24,
+   "index_after_negating_coordinate_0": -24
+  },
+  "3": {
+   "length": 36,
+   "index": -24,
+   "index_after_negating_coordinate_0": 24
+  },
+  "4": {
+   "length": 48,
+   "index": 24
+  }
+ },
+ "script": "golay_chain_check.py",
+ "python": "3.12.15",
+ "numpy": "2.5.4",
+ "kmax": 30,
+ "brute": 4,
+ "cpu_seconds": 7.3,
+ "checks": {
+  "G: 729 distinct words": true,
+  "G: self-dual": true,
+  "G: minimum weight 6": true,
+  "G: Index(G) = -24": true,
+  "Gram: p.p + v.v = p.r + v.w = r.r + w.w = 0": true,
+  "supports of p, r and of v, w are disjoint": true,
+  "<p, r> cap G = 0": true,
+  "T u = -u": true,
+  "s^T u = Index(G)": true,
+  "s^T T^k s = (-1)^k 24 for k = 1..kmax": true,
+  "s^T U^k s = 3^(6k) = |C_k| for k = 1..kmax": true,
+  "W_k totally isotropic": true,
+  "dim W_k = 2(k-1) and W_k cap G^k = 0": true,
+  "C_k self-dual of length 12k": true,
+  "brute force Index(C_k) = s^T T^k s = (-1)^k 24": true,
+  "one coordinate negated: self-dual, index -Index(C_k)": true
+ },
+ "failures": []
+}

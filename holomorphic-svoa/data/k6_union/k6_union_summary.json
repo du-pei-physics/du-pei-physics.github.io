@@ -1,0 +1,125 @@
+{
+ "codes": 8748,
+ "by_source": {
+  "hp": 1078,
+  "refl": 6034,
+  "bench2_k6": 100,
+  "bench3_k6": 1535,
+  "bench_k6": 1
+ },
+ "by_closure": {
+  "nega": 7921,
+  "cyc": 827
+ },
+ "distinct_polynomials": 4579,
+ "distinct_polynomials_census_subset": 2961,
+ "new_polynomials_from_added_codes": 1618,
+ "added_codes_with_a_census_polynomial": 0,
+ "distinct_polar_parts_through_weight_5_2": 4563,
+ "constant_only_collision_pairs": [
+  [
+   14116,
+   14196
+  ],
+  [
+   14276,
+   14532
+  ],
+  [
+   14676,
+   14748
+  ],
+  [
+   14732,
+   14852
+  ],
+  [
+   15068,
+   15124
+  ],
+  [
+   15548,
+   15620
+  ],
+  [
+   16052,
+   16100
+  ],
+  [
+   16236,
+   16324
+  ],
+  [
+   18028,
+   18124
+  ],
+  [
+   18268,
+   18340
+  ],
+  [
+   18324,
+   18620
+  ],
+  [
+   19924,
+   19988
+  ],
+  [
+   20004,
+   20132
+  ],
+  [
+   22156,
+   22356
+  ],
+  [
+   22948,
+   22980
+  ],
+  [
+   24588,
+   24628
+  ]
+ ],
+ "distinct_n_D1": 4579,
+ "distinct_coefficients_a0_to_a6": [
+  1457,
+  4234,
+  3299,
+  496,
+  15,
+  1,
+  1
+ ],
+ "codes_with_dim_T1_positive": 2701,
+ "max_dim_T1": 16,
+ "dim_T1_values": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  16
+ ],
+ "index_signs": {
+  "+": 4336,
+  "-": 4412
+ },
+ "ramond_coefficients_all_positive": true,
+ "X_twisted_values_added_codes": [
+  859373568,
+  861831168,
+  864288768
+ ],
+ "csv_sha256": "e147b4202107f09cf933e9050693e46ee0a9a648bd04485860731db2fc8a3d72"
+}

@@ -1,0 +1,94 @@
+{
+ "hp_census_hits.jsonl": {
+  "source": "claude/persistent/hp_census/hits.jsonl",
+  "source_sha256": "a32e2d8766c3362433446d5d1f053355de597f8359e1d16339c12581a879d65f",
+  "lines": 1081,
+  "fields_kept": [
+   "rep",
+   "blocks",
+   "parities",
+   "R",
+   "r",
+   "orbit_size",
+   "I1",
+   "I2",
+   "I3",
+   "nmax",
+   "nz_eigs",
+   "IL"
+  ],
+  "sha256": "9e92ba2289248cd7aa3ca88cec4d9448796ad5db2c93cc2c8c2617350ea1ba66"
+ },
+ "refl_census_hits.jsonl": {
+  "source": "claude/persistent/refl_census/hits.jsonl",
+  "source_sha256": "1abe4b0c18fa71f82b8f6dbf4548bb6a714c6561ae2d0493bab916ef90f9bc6b",
+  "lines": 6034,
+  "fields_kept": [
+   "key",
+   "phase",
+   "left",
+   "support",
+   "R",
+   "r",
+   "I3",
+   "nmax",
+   "nz_eigs",
+   "IL"
+  ],
+  "sha256": "cbe463bd9623f93eca645891b91a969d59cff36c2b6d35fb906bcd6232b309df"
+ },
+ "fc_seed_census.jsonl.gz": {
+  "source": "claude/results/census/fc_seed_census.jsonl",
+  "source_sha256": "fc1d713c411e6d14e7a51d85a39af58776c29a88f50596116fb3cb48499e921c",
+  "lines": 7112,
+  "sha256": "8b426b8e4cfbebe69695273f1b57e03b87b925eb4f82bc0c1ffa2b53c167fef3"
+ },
+ "fc_seed_level1_part1of2.jsonl.gz": {
+  "source": "claude/results/census/fc_seed_level1_part1of2.jsonl",
+  "source_sha256": "8ce060ee3f23ee5fed42606f7f64f0b0ef3f9e9280bdbcb6dd4b60e16573a1ef",
+  "lines": 3556,
+  "sha256": "e10a2904314983ef2c37f0aaba2c96253c99ed413cca3b5062e8f58da32f49de"
+ },
+ "fc_seed_level1_part2of2.jsonl.gz": {
+  "source": "claude/results/census/fc_seed_level1_part2of2.jsonl",
+  "source_sha256": "6f1539fb6fa6292741d2fe68f47275b64dafe949549971acea15f189eaa8ab35",
+  "lines": 3556,
+  "sha256": "adf9c24085b79ddb84b634e291a7b918e5058bc86f18ff49c3ff69e04210eb01"
+ },
+ "fc_seed_level2_part1of2.jsonl.gz": {
+  "source": "claude/results/census/fc_seed_level2_part1of2.jsonl",
+  "source_sha256": "88ab6834e3e5b65c0744d7ebc1ccaae29c3b31eb28d6c07000c15c3fec32c572",
+  "lines": 3556,
+  "sha256": "2f92d279c08b456deb3bfdb383de13acb849de19161ecfa4199524f6c94f32b1"
+ },
+ "fc_seed_level2_part2of2.jsonl.gz": {
+  "source": "claude/results/census/fc_seed_level2_part2of2.jsonl",
+  "source_sha256": "6337f8338b746b6164051c53af601c7a0873c5f992a5967b8a649ca0cfd3c7c7",
+  "lines": 3556,
+  "sha256": "b23d02d6af9c988504bc3f40a003e9ab9b3ef2d59f754fd11dcae73b4b34264a"
+ },
+ "fc_seed_census_summary.json": {
+  "source": "claude/results/census/fc_seed_census_summary.json",
+  "sha256": "427d987afae332dfac55f8c464a43e3f12f697cd735423311240e697cd2f44ed"
+ },
+ "fc_seed_level1_summary.json": {
+  "source": "claude/results/census/fc_seed_level1_summary.json",
+  "sha256": "d27757fb1236884703a0101c7ddc2e1c3dcdf361ad9029bfbdf20239f7eabb61"
+ },
+ "fc_seed_level2_summary.json": {
+  "source": "claude/results/census/fc_seed_level2_summary.json",
+  "sha256": "71e18dfe7bd041e6c3785cb07d5326124fe57c090d9e99fe4936019471c957a0"
+ },
+ "k6_seed_codes.json": {
+  "source": "claude/results/census/k6_seed_codes.json",
+  "sha256": "392fbb1c2345a7aed1d0c24453f6ae0ae6e69d79d87b696a2a6b642fe2979c40"
+ },
+ "k6_seed_polynomials.csv": {
+  "source": "claude/results/census/k6_seed_polynomials.csv",
+  "sha256": "cd50f91714d414ffbd3137cb9deae70add4e7c28de70317e6caacf593313606b"
+ },
+ "k6_seed_polynomials_summary.json": {
+  "source": "claude/results/census/k6_seed_polynomials_summary.json",
+  "sha256": "25eaa8d9577f27c1ba5fb1a20bc56687d7b517a27fea9b69f1f7e333c66dbdbe"
+ }
+}

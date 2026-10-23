@@ -1,0 +1,13 @@
+{
+ "python": "3.12.15",
+ "numpy": "2.5.4",
+ "machine": "arm64",
+ "system": "Darwin",
+ "unit": "CPU seconds",
+ "r3_build_transfer_matrix_width12": 0.01017,
+ "r3_build_transfer_matrix_width6": 0.0004,
+ "r3_k13_evaluate_one_candidate": 0.00127,
+ "r4_build_transfer_matrix_width12": 0.02255,
+ "r4_build_transfer_matrix_width6": 0.00162,
+ "r4_k21_evaluate_one_candidate_exact": 0.03242
+}

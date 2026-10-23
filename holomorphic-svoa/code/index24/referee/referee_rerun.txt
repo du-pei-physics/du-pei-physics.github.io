@@ -1,0 +1,113 @@
+# Re-run of the referee scripts for the online note, 2026-10-19 23:43 PDT; Python 3.12.15, numpy 2.5.4
+
+$ python3 t1_L1.py
+chi-hat(t) = i sqrt3 chi(t): ok
+tetracode weights: [0, 3] self-dual: True
+index_fast == index_brute on 300 random codes: ok
+n mod 4 = 0: {'n': 348, 'ok': 348, 'plus_ok': 348, 'nonzero': 143}  (ok = matches i^n-signed formula; plus_ok = matches formula with i^n=+1)
+n mod 4 = 1: {'n': 271, 'ok': 271, 'plus_ok': 0, 'nonzero': 0}  (ok = matches i^n-signed formula; plus_ok = matches formula with i^n=+1)
+n mod 4 = 2: {'n': 235, 'ok': 235, 'plus_ok': 141, 'nonzero': 94}  (ok = matches i^n-signed formula; plus_ok = matches formula with i^n=+1)
+n mod 4 = 3: {'n': 346, 'ok': 346, 'plus_ok': 0, 'nonzero': 0}  (ok = matches i^n-signed formula; plus_ok = matches formula with i^n=+1)
+L3 (Index even for n even): ok on all tested codes
+(exit 0, 35 s)
+
+$ python3 t2_L2.py 4
+n=4: cosets (alpha,beta): (q-values, #full-support, index contribution)
+    (0, 0) ({0}, 0, 0)
+    (0, 1) ({0}, 0, 0)
+    (0, 2) ({0}, 0, 0)
+    (1, 0) ({0}, 0, 0)
+    (1, 1) ({1}, 2, 0)
+    (1, 2) ({2}, 0, 0)
+    (2, 0) ({0}, 0, 0)
+    (2, 1) ({2}, 0, 0)
+    (2, 2) ({1}, 2, 0)
+    Index C, C', D, D^perp = 0 0 0 0
+n=4: pairs=200  (L2 ok, L1 for D, inclusion-exclusion) counts: {(True, True, True): 200}
+    [(('C mod 3', 0), 200), (('C mod 8', 0), 200), (('iD even', True), 200), (('|C|', 0), 200), (('|D|', 0), 200)]
+(exit 0, 1 s)
+
+$ python3 t2_L2.py 8
+n=8: cosets (alpha,beta): (q-values, #full-support, index contribution)
+    (0, 0) ({0}, 0, 0)
+    (0, 1) ({0}, 0, 0)
+    (0, 2) ({0}, 0, 0)
+    (1, 0) ({0}, 0, 0)
+    (1, 1) ({1}, 0, 0)
+    (1, 2) ({2}, 4, 0)
+    (2, 0) ({0}, 0, 0)
+    (2, 1) ({2}, 4, 0)
+    (2, 2) ({1}, 0, 0)
+    Index C, C', D, D^perp = 0 0 0 0
+n=8: pairs=200  (L2 ok, L1 for D, inclusion-exclusion) counts: {(True, True, True): 200}
+    [(('C mod 3', 0), 200), (('C mod 8', 0), 200), (('iD even', True), 200), (('|C|', 0), 200), (('|D|', 0), 200)]
+(exit 0, 0 s)
+
+$ python3 t2_L2.py 12
+n=12: cosets (alpha,beta): (q-values, #full-support, index contribution)
+    (0, 0) ({0}, 4, 0)
+    (0, 1) ({0}, 6, 0)
+    (0, 2) ({0}, 6, 0)
+    (1, 0) ({0}, 6, 0)
+    (1, 1) ({2}, 0, 0)
+    (1, 2) ({1}, 0, 0)
+    (2, 0) ({0}, 6, 0)
+    (2, 1) ({1}, 0, 0)
+    (2, 2) ({2}, 0, 0)
+    Index C, C', D, D^perp = 0 0 0 0
+n=12: pairs=300  (L2 ok, L1 for D, inclusion-exclusion) counts: {(True, True, True): 300}
+    [(('C mod 3', 0), 300), (('C mod 8', 0), 300), (('iD even', True), 300), (('|C|', 0), 240), (('|C|', 24), 60), (('|D|', 0), 200), (('|D|', 6), 82), (('|D|', 12), 18)]
+(exit 0, 0 s)
+
+$ python3 t2_L2.py 24
+n=24: cosets (alpha,beta): (q-values, #full-support, index contribution)
+    (0, 0) ({0}, 34, -6)
+    (0, 1) ({0}, 35, -9)
+    (0, 2) ({0}, 35, -9)
+    (1, 0) ({0}, 31, 3)
+    (1, 1) ({1}, 0, 0)
+    (1, 2) ({2}, 0, 0)
+    (2, 0) ({0}, 31, 3)
+    (2, 1) ({2}, 0, 0)
+    (2, 2) ({1}, 0, 0)
+    Index C, C', D, D^perp = 0 -24 -6 -18
+n=24: pairs=150  (L2 ok, L1 for D, inclusion-exclusion) counts: {(True, True, True): 150}
+    [(('C mod 3', 0), 150), (('C mod 8', 0), 150), (('iD even', True), 150), (('|C|', 0), 58), (('|C|', 24), 65), (('|C|', 48), 22), (('|C|', 72), 5), (('|D|', 0), 34), (('|D|', 6), 57), (('|D|', 12), 39), (('|D|', 18), 13), (('|D|', 24), 5), (('|D|', 30), 2)]
+(exit 0, 14 s)
+
+$ python3 t2_L2.py 36
+n=36: pairs=60  (L2 ok, L1 for D, inclusion-exclusion) counts: {(True, True, True): 60}
+    [(('C mod 3', 0), 60), (('C mod 8', 0), 60), (('iD even', True), 60), (('|C|', 0), 13), (('|C|', 24), 14), (('|C|', 48), 16), (('|C|', 72), 11), (('|C|', 96), 3), (('|C|', 120), 1), (('|C|', 168), 1), (('|C|', 216), 1), (('|D|', 0), 4), (('|D|', 6), 17), (('|D|', 12), 8), (('|D|', 18), 16), (('|D|', 24), 6), (('|D|', 30), 2), (('|D|', 36), 1), (('|D|', 48), 2), (('|D|', 54), 3), (('|D|', 72), 1)]
+(exit 0, 23 s)
+
+$ python3 t3_random.py 12 2000
+n=12: 2000 codes; |Index| distribution [(0, 1322), (24, 678)]
+   not divisible by 8: []  not divisible by 24: 0
+(exit 0, 1 s)
+
+$ python3 t3_random.py 24 1000
+n=24: 1000 codes; |Index| distribution [(0, 369), (24, 450), (48, 156), (72, 23), (96, 1), (120, 1)]
+   not divisible by 8: []  not divisible by 24: 0
+(exit 0, 2 s)
+
+$ python3 t3_random.py 36 300
+n=36: 300 codes; |Index| distribution [(0, 33), (24, 81), (48, 68), (72, 56), (96, 30), (120, 19), (144, 8), (168, 3), (192, 1), (216, 1)]
+   not divisible by 8: []  not divisible by 24: 0
+(exit 0, 25 s)
+
+$ python3 t3_random.py 48 10
+n=48: 10 codes; |Index| distribution [(0, 1), (24, 2), (48, 2), (96, 1), (144, 1), (192, 1), (240, 1), (432, 1)]
+   not divisible by 8: []  not divisible by 24: 0
+(exit 0, 77 s)
+
+$ python3 t4_chain.py 12 50
+n=12: 50 chains ok; chain lengths seen [4, 5, 6]
+(exit 0, 0 s)
+
+$ python3 t4_chain.py 24 20
+n=24: 20 chains ok; chain lengths seen [9, 10, 11, 12]
+(exit 0, 1 s)
+
+$ python3 t4_chain.py 36 4
+n=36: 4 chains ok; chain lengths seen [15, 16, 17]
+(exit 0, 5 s)

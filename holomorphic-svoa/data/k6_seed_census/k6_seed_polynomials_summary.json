@@ -1,0 +1,39 @@
+{
+ "seeds": 7112,
+ "distinct_polynomials": 2961,
+ "polynomials_with_one_seed": 1191,
+ "polynomials_with_one_class": 1417,
+ "largest_group_seeds": 24,
+ "largest_group_classes": 15,
+ "classes_per_polynomial_histogram": {
+  "1": 1417,
+  "2": 848,
+  "3": 241,
+  "4": 201,
+  "5": 108,
+  "6": 1,
+  "7": 100,
+  "8": 5,
+  "10": 12,
+  "12": 25,
+  "14": 1,
+  "15": 2
+ },
+ "constant_on_classes": true,
+ "classes": 6390,
+ "hp_distinct_polynomials": 286,
+ "hp_classes": 358,
+ "distinct_Tpp_NS_dims_to_weight_3": 2961,
+ "Z_T_to_Z_Tpp_injective": true,
+ "certificate_Tpp_dims_0_to_3": [
+  1,
+  0,
+  0,
+  113,
+  2928,
+  42001,
+  975100
+ ],
+ "file": "claude/results/census/k6_seed_polynomials.csv",
+ "file_sha256": "cd50f91714d414ffbd3137cb9deae70add4e7c28de70317e6caacf593313606b"
+}

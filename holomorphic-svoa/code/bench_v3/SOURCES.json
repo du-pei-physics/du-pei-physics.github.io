@@ -1,0 +1,464 @@
+{
+ "recorded": {
+  "bench_q8.py": {
+   "fb9132576f0e7cc8869ccfddc0b3104dc310636a1f333c7a48d287a9b59ce5ad": {
+    "runs": [
+     "bench3_q8_k16#0",
+     "bench3_q8_k8#0",
+     "bench3_q8_k8#1",
+     "bench3_q8b_k16#0"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_q8.py",
+    "packaged": "older_versions/bench_q8.fb9132576f0e.py",
+    "from": "git b5603fbfd3"
+   },
+   "c2d0b142a4b41cab2ae058df40fceee9637fa5aadbd4dceb811db293503040de": {
+    "runs": [
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_q8.py",
+    "packaged": "claude/persistent/mixed_rings/bench_q8.py",
+    "from": "current workspace file"
+   }
+  },
+  "bench_q8_blocks.py": {
+   "95963143522236ae31c1066bad61ea4a2a31bf98fb311e48c8222d25440d0de4": {
+    "runs": [
+     "bench3_q8b_k16#0"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_q8_blocks.py",
+    "packaged": "older_versions/bench_q8_blocks.959631435222.py",
+    "from": "reconstructed (bench_q8_blocks.95963143522236ae.py in claude/online/recovered_sources; SHA-256 verified)"
+   },
+   "18c8b58f83da4c38f8f34c4db439b6f459e00ccd330286f303251fcec4d06c5a": {
+    "runs": [
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_q8_blocks.py",
+    "packaged": "claude/persistent/mixed_rings/bench_q8_blocks.py",
+    "from": "current workspace file"
+   }
+  },
+  "bench_worker.py": {
+   "9839627c5ed44e4e9282185b3b4266e8452e23eb4988873a6279a4ee62d5ef34": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18c#0",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_worker.py",
+    "packaged": "older_versions/bench_worker.9839627c5ed4.py",
+    "from": "git 5c9d798ef5"
+   },
+   "8b2413dfb42948cb870cac07dfbdc648d348404463809c60768d6b2d230e3167": {
+    "runs": [
+     "bench3_k15#4",
+     "bench3_k18#3",
+     "bench3_k18c#1",
+     "bench3_k18m1#3",
+     "bench3_k21#3",
+     "bench3_k21b#3",
+     "bench3_k21c#0"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/bench_worker.py",
+    "packaged": "claude/persistent/mixed_rings/bench_worker.py",
+    "from": "current workspace file"
+   }
+  },
+  "cells_general.py": {
+   "a010f3d2102cdeb854ddb63639b69b761e5a627c0bb7c88dfcc3bbfe1c467a80": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k15#4",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18#3",
+     "bench3_k18c#0",
+     "bench3_k18c#1",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k18m1#3",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21#3",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/kspan/cells_general.py",
+    "packaged": "claude/kspan/cells_general.py",
+    "from": "current workspace file"
+   }
+  },
+  "f3lib.py": {
+   "a2687892c6d35f2ae08d28f64161de87fc6fca93fb309856322502f189ea1a9c": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k15#4",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18#3",
+     "bench3_k18c#0",
+     "bench3_k18c#1",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k18m1#3",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21#3",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/f3lib.py",
+    "packaged": "claude/f3lib.py",
+    "from": "current workspace file"
+   }
+  },
+  "journal.py": {
+   "22b37a8c7ac468ae3ca198dbd058bdaee9f2abacc7c2ea2abf89e04f3e1a64b3": {
+    "runs": [
+     "bench3_k15#4",
+     "bench3_k18#3",
+     "bench3_k18c#1",
+     "bench3_k18m1#3",
+     "bench3_k21#3",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/journal.py",
+    "packaged": "claude/persistent/mixed_rings/journal.py",
+    "from": "current workspace file"
+   }
+  },
+  "kspan_rings.py": {
+   "8aa41220a358a059ead9eb6133141ed400aa9ef38d36763c5b27f644154d5bd4": {
+    "runs": [
+     "bench3_q8b_k16#0",
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/k24_transfer/kspan_rings.py",
+    "packaged": "claude/k24_transfer/kspan_rings.py",
+    "from": "current workspace file",
+    "packaged_sha256": "652d6f1cc0e086232af70aaaa4dbe5b328053c87e59c5c5b0cecc2e223df7555",
+    "publication_edit": "one docstring phrase about internal workflow removed (lines 1-2); the code is unchanged"
+   }
+  },
+  "mixed_products.py": {
+   "35a545c58504fae79a87d8ab8e447a0bf1993a3f686dc913b2d177f4476090a5": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k15#4",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18#3",
+     "bench3_k18c#0",
+     "bench3_k18c#1",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k18m1#3",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21#3",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/kspan/mixed_products.py",
+    "packaged": "claude/kspan/mixed_products.py",
+    "from": "current workspace file"
+   }
+  },
+  "q8_cells.py": {
+   "813f113be165250225a11c02e0f57fa5161b0ea4da62a21084b886d183f2f429": {
+    "runs": [
+     "bench3_q8_k16#0",
+     "bench3_q8_k8#0",
+     "bench3_q8_k8#1",
+     "bench3_q8b_k16#0",
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/k8/q8_cells.py",
+    "packaged": "claude/k8/q8_cells.py",
+    "from": "current workspace file"
+   }
+  },
+  "q8_rings.py": {
+   "746ce521bc5591e56f5674b10bb962133432a1de46f1638df6b8ed4bef4880b3": {
+    "runs": [
+     "bench3_q8b_k16#0",
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/k24_transfer/q8_rings.py",
+    "packaged": "claude/k24_transfer/q8_rings.py",
+    "from": "current workspace file"
+   }
+  },
+  "run.py": {
+   "c95ffeeb61a00a62ded12c10f29978e2c8c28c9e2b29abe617569d889f24943d": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k15#4",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18#3",
+     "bench3_k18c#0",
+     "bench3_k18c#1",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k18m1#3",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21#3",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/persistent/mixed_rings/run.py",
+    "packaged": "claude/persistent/mixed_rings/run.py",
+    "from": "current workspace file"
+   }
+  },
+  "verify.py": {
+   "14c8ccc9225ec621cce1a218f18112061c700df3f6cc9774f03c364efaca8fb0": {
+    "runs": [
+     "bench3_q8_k16#0",
+     "bench3_q8_k8#0",
+     "bench3_q8_k8#1",
+     "bench3_q8b_k16#0",
+     "bench3_q8b_k16#1"
+    ],
+    "workspace_path": "claude/online/holomorphic-svoa/code/verify.py",
+    "packaged": "claude/online/holomorphic-svoa/code/verify.py",
+    "from": "current workspace file"
+   }
+  },
+  "verify_mixed_hit.py": {
+   "505de0646ca4fdc57dbd6009235c557396e540da3b931d7ce1d4e6b2d791ffc4": {
+    "runs": [
+     "bench3_k10#0",
+     "bench3_k10#1",
+     "bench3_k10#2",
+     "bench3_k11#0",
+     "bench3_k11#1",
+     "bench3_k11#2",
+     "bench3_k13#0",
+     "bench3_k13#1",
+     "bench3_k13#2",
+     "bench3_k14#0",
+     "bench3_k14#1",
+     "bench3_k14#2",
+     "bench3_k15#0",
+     "bench3_k15#1",
+     "bench3_k15#2",
+     "bench3_k15#3",
+     "bench3_k15#4",
+     "bench3_k18#0",
+     "bench3_k18#1",
+     "bench3_k18#2",
+     "bench3_k18#3",
+     "bench3_k18c#0",
+     "bench3_k18c#1",
+     "bench3_k18m1#0",
+     "bench3_k18m1#1",
+     "bench3_k18m1#2",
+     "bench3_k18m1#3",
+     "bench3_k21#0",
+     "bench3_k21#1",
+     "bench3_k21#2",
+     "bench3_k21#3",
+     "bench3_k21b#0",
+     "bench3_k21b#1",
+     "bench3_k21b#2",
+     "bench3_k21b#3",
+     "bench3_k21c#0",
+     "bench3_k6#0",
+     "bench3_k6#1",
+     "bench3_k6#2",
+     "bench3_k7#0",
+     "bench3_k7#1",
+     "bench3_k7#2",
+     "bench3_k9#0"
+    ],
+    "workspace_path": "claude/kspan/verify_mixed_hit.py",
+    "packaged": "claude/kspan/verify_mixed_hit.py",
+    "from": "current workspace file"
+   }
+  }
+ },
+ "unrecorded_dependencies": {
+  "claude/persistent/common.py": {
+   "sha256": "54f90c8534d448d25705e67a7a72b7c7f9ef0ad85630f61d576d15aea7fc5ee4",
+   "packaged": "claude/persistent/common.py",
+   "note": "current version; its version at run time was not recorded"
+  },
+  "claude/persistent/bench3_run.sh": {
+   "sha256": "15c1fcb114716715acaf311354a38d729e7a40b3baf0196336ea5d988f206e62",
+   "packaged": "claude/persistent/bench3_run.sh",
+   "note": "current version; its version at run time was not recorded"
+  },
+  "claude/k24_transfer/core.py": {
+   "sha256": "ad9575eeb1f62d2533417d3bc5f123651f6a3267ee27ef60376c0dcaece965a8",
+   "packaged": "claude/k24_transfer/core.py",
+   "note": "current version; its version at run time was not recorded"
+  },
+  "claude/k24_transfer/bases.py": {
+   "sha256": "108087c1b450651e656501c65fcfb76ec3d5d734daaa6ef6f6775bc0ad965807",
+   "packaged": "claude/k24_transfer/bases.py",
+   "note": "current version; its version at run time was not recorded"
+  },
+  "claude/k24_transfer/search_p4.py": {
+   "sha256": "c0231e7fc18a4f5cabf1606cd7c26ac59c708e49bdc4fe30c017a1030583096c",
+   "packaged": "claude/k24_transfer/search_p4.py",
+   "note": "current version; its version at run time was not recorded"
+  },
+  "claude/index_gray.c": {
+   "sha256": "79a2e7d8ab1232ae3a0355288857ef031c59e3436e6d8a916c297f8e73a5f497",
+   "packaged": "claude/index_gray.c",
+   "note": "current version; its version at run time was not recorded"
+  }
+ },
+ "next_run_versions": {}
+}

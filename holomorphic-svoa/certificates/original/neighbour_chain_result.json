@@ -1,0 +1,153 @@
+{
+ "frame_block": [
+  [
+   1,
+   1,
+   1,
+   0
+  ],
+  [
+   -1,
+   1,
+   0,
+   1
+  ],
+  [
+   -1,
+   0,
+   1,
+   -1
+  ],
+  [
+   0,
+   -1,
+   1,
+   1
+  ]
+ ],
+ "steps": [
+  [
+   0,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 4"
+  ],
+  [
+   1,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 6"
+  ],
+  [
+   2,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 8"
+  ],
+  [
+   3,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 10"
+  ],
+  [
+   4,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 12"
+  ],
+  [
+   5,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 14"
+  ],
+  [
+   6,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 16"
+  ],
+  [
+   7,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 18"
+  ],
+  [
+   8,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 20"
+  ],
+  [
+   9,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 22"
+  ],
+  [
+   10,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 24"
+  ],
+  [
+   11,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 26"
+  ],
+  [
+   12,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 28"
+  ],
+  [
+   13,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 30"
+  ],
+  [
+   14,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 32"
+  ],
+  [
+   15,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 34"
+  ],
+  [
+   16,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 36"
+  ],
+  [
+   17,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 38"
+  ],
+  [
+   18,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 40"
+  ],
+  [
+   19,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 42"
+  ],
+  [
+   20,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 44"
+  ],
+  [
+   21,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 46"
+  ],
+  [
+   22,
+   "U\u2229C_i dim 0; new code self-dual&Q8-inv: True; dim(C_new \u2229 C') = 48"
+  ],
+  [
+   23,
+   "skip (U already in C_i)"
+  ]
+ ],
+ "n_steps": 23,
+ "intermediate_dims_C_i_cap_Cprime": [
+  2,
+  4,
+  6,
+  8,
+  10,
+  12,
+  14,
+  16,
+  18,
+  20,
+  22,
+  24,
+  26,
+  28,
+  30,
+  32,
+  34,
+  36,
+  38,
+  40,
+  42,
+  44,
+  46,
+  48
+ ]
+}

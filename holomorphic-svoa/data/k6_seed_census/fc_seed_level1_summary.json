@@ -1,0 +1,51 @@
+{
+ "records_with_both": 7112,
+ "distinct_n": 1038,
+ "distinct_n_D1": 2961,
+ "distinct_n_D1_T1": 2961,
+ "singletons_n_D1_T1": 1191,
+ "largest_tie_group": 24,
+ "tie_group_size_histogram": {
+  "1": 1191,
+  "2": 924,
+  "3": 239,
+  "4": 320,
+  "5": 108,
+  "6": 4,
+  "7": 100,
+  "8": 27,
+  "10": 12,
+  "12": 30,
+  "14": 1,
+  "15": 2,
+  "24": 3
+ },
+ "distinct_D1": 2793,
+ "distinct_T1": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "histogram_T1": {
+  "0": 5434,
+  "1": 807,
+  "2": 556,
+  "3": 201,
+  "4": 86,
+  "5": 21,
+  "6": 6,
+  "7": 1
+ },
+ "classes": 6390,
+ "hp_classes": 358,
+ "classes_where_invariant_varies": 0,
+ "examples_varying": [],
+ "distinct_invariant_values_per_class_max": 1,
+ "classes_merged_by_invariant": 3429,
+ "n_to_Tpp_injective": true
+}

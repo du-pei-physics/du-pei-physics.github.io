@@ -1,0 +1,42 @@
+# Output of: python3 code/verify.py --selftest ; python3 code/verify.py   (run 2026-10-18 23:16 PDT, Darwin arm64, Python 3.12.15, numpy 2.5.4)
+selftest 18: widths [6, 2, 4] r=1 cyc  self-dual True  band (index, words) (0, 0)  brute (0, 0)  ok
+selftest 19: widths [2, 2, 4, 4] r=1 nega self-dual True  band (index, words) (0, 0)  brute (0, 0)  ok
+selftest: PASS
+
+numpy 2.5.4 | python 3.12.15
+finite checks = code and symmetry facts verified exactly here (self-duality, rowspace hash, index, symmetry,
+balance, quaternion relations).  basis = what the orbifold index rests on beyond them: 'GJF 5.6' (cited theorem,
+hypotheses checked), 'Q8 lemma' (conditional on the anomaly lemma of details F.3), 'm = 1' (no orbifold).
+  k |    c | team   | length | self-dual | code index | R ground states (even/odd) | symmetry | orbifold index | basis | TMF min | finite checks | method | CPU s
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+  6 |   72 | Claude |     72 | True      |        -24 | 41488/41512 | Z6, g: 3^24; h fixed words 40/40 |   -4 | GJF 5.6 |   4 | pass | banded transfer DP | 0.0   [k06_claude_canonical.json]
+  7 |   84 | Codex  |     84 | True      |         24 | 289048/289024 | none needed (m = 1) |   24 | m = 1 |  24 | pass | banded transfer DP | 0.0   [k07_codex.json]
+  8 |   96 | Claude |     96 | True      |         24 | 1973160/1973136 | Q8, i: 2^48 |    3 | Q8 lemma |   3 | pass | banded transfer DP | 0.1   [k08_claude_q8.json]
+  9 |  108 | Claude |    108 | True      |         24 | 8675968/8675944 | Z3, g: 3^36; h fixed words 280/280 |    8 | GJF 5.6 |   8 | pass | banded transfer DP | 18.3   [k09_claude.json]
+  9 |  108 | Codex  |    108 | True      |         24 | 6491304/6491280 | Z3, g: 3^36; h fixed words 216/216 |    8 | GJF 5.6 |   8 | pass | banded transfer DP | 0.1   [k09_codex.json]
+ 10 |  120 | Claude |    120 | True      |        -24 | 34771384/34771408 | Z2, g: 1^120 |  -12 | GJF 5.6 |  12 | pass | banded transfer DP | 0.1   [k10_claude.json]
+ 10 |  120 | Codex  |    120 | True      |         24 | 81378688/81378664 | Z2, g: 1^120 |   12 | GJF 5.6 |  12 | pass | banded transfer DP | 0.0   [k10_codex.json]
+ 11 |  132 | Codex  |    132 | True      |         24 | 273469872/273469848 | none needed (m = 1) |   24 | m = 1 |  24 | pass | banded transfer DP | 0.0   [k11_codex.json]
+ 13 |  156 | Claude |    156 | True      |         24 | 14266852880/14266852856 | none needed (m = 1) |   24 | m = 1 |  24 | pass | banded transfer DP | 0.0   [k13_claude.json]
+ 14 |  168 | Claude |    168 | True      |        -24 | 110788786704/110788786728 | Z2, g: 1^168 |  -12 | GJF 5.6 |  12 | pass | banded transfer DP | 0.1   [k14_claude.json]
+ 15 |  180 | Claude |    180 | True      |        -24 | 761129244424/761129244448 | Z3, g: 3^60; h fixed words 9280/9280 |   -8 | GJF 5.6 |   8 | pass | banded transfer DP | 0.1   [k15_claude.json]
+ 16 |  192 | Claude |    192 | True      |        -24 | 1995731708648/1995731708672 | Q8, i: 2^96 |   -3 | Q8 lemma |   3 | pass | banded transfer DP | 0.2   [k16_claude_antiperiodic.json]
+ 16 |  192 | Claude |    192 | True      |        -24 | 1119057359752/1119057359776 | Q8, i: 2^96 |   -3 | Q8 lemma |   3 | pass | banded transfer DP | 0.1   [k16_claude_periodic.json]
+ 18 |  216 | Codex  |    216 | True      |         24 | 51682708642600/51682708642576 | Z6, g: 3^72; h fixed words 42352/42352 |    4 | GJF 5.6 |   4 | pass | banded transfer DP | 0.2   [k18_codex.json]
+ 21 |  252 | Claude |    252 | True      |        -24 | 6755695763655152/6755695763655176 | Z3, g: 3^84; h fixed words 239744/239744 |   -8 | GJF 5.6 |   8 | pass | banded transfer DP | 0.2   [k21_claude_antiperiodic.json]
+ 21 |  252 | Claude |    252 | True      |        -24 | 6755695777607168/6755695777607192 | Z3, g: 3^84; h fixed words 240080/240080 |   -8 | GJF 5.6 |   8 | pass | banded transfer DP | 0.2   [k21_claude_periodic.json]
+ 21 |  252 | Codex  |    252 | True      |         24 | 5717289714568648/5717289714568624 | Z3, g: 3^84; h fixed words 229912/229912 |    8 | GJF 5.6 |   8 | pass | banded transfer DP | 0.2   [k21_codex.json]
+
+Rows without a new code: cited constructions + index arithmetic (no finite certificate; the theories exist by
+the cited constructions: symmetric squares, tensor products, GJF's k = 3 theory).
+  k |    c | type             | index | TMF min | arithmetic | how
+ 12 |  144 | cited+arithmetic |    2 |   2 | matches | T' = Sym^2 T6: I(I+3)/2 at I = -4
+ 17 |  204 | cited+arithmetic |   24 |  24 | matches | T8 (x) T9: 3 * 8
+ 19 |  228 | cited+arithmetic |  -24 |  24 | matches | T16 (x) T3: -3 * 8
+ 20 |  240 | cited+arithmetic |    6 |   6 | matches | T8 (x) T12: 3 * 2
+ 22 |  264 | cited+arithmetic |   12 |  12 | matches | T16 (x) T6: -3 * -4
+ 23 |  276 | cited+arithmetic |  -24 |  24 | matches | T8 (x) T15: 3 * -8
+ 24 |  288 | cited+arithmetic |   -1 |   1 | matches | D4 check at I(T6) = -4: sectors untwisted 15, inner swaps -24, both inner swaps 10, outer swaps -6, rotations 4, total -1; without the Arf phase 21, -24, 6, 6, -4, total 5; (I^4+6I^3+3I^2-18I)/8 = -1; agrees with the Sym^2 chain: True
+ 24 |  288 | cited+arithmetic |   -1 |   1 | matches | T'' = Sym^2(T' x Arf): I(I+3)/2 at I = -2  [= twisted D4 orbifold of T6^4]
+
+17 certificates (17 distinct codes by rowspace): finite checks pass for 17; orbifold index = TMF minimum for 17 (basis: 11 GJF Thm 5.6, 3 conditional on the Q8 anomaly lemma, 3 m = 1); 0 failed

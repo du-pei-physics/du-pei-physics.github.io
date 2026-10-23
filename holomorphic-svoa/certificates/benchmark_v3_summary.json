@@ -1,0 +1,2099 @@
+{
+ "description": "benchmark v3: the table on index.html, recounted from the audit bundle (tools/cpu_table.py)",
+ "snapshot_utc": "20261020T005245Z",
+ "audit_bundle": "data/bench3_audit_20261020T005245Z.tar.gz",
+ "audit_bundle_sha256": "feab7c2dc294f0c866f881c015bd2a0b19604e51917916ae19af90e45309d133",
+ "audit_bundle_file_sha256": {
+  "README.txt": "b8ae66b31f1fcf393797929815fc00f0ab4b9bc911fd9f70db80d717078c5ffb",
+  "bench3_k10/epochs.jsonl": "fe74411270826dc329b236bcf8d277296aed3e70b7771a77c239c37ca68e9088",
+  "bench3_k10/hit_index.jsonl": "bd59343d310f40e0920b0a77efa87ebadf0ee670a3a412274101fbb627207ec5",
+  "bench3_k10/hits.jsonl": "5a2b4205314abe69652465f6f98a2c7f93d2a28a70a4baca19f7178fc9b63304",
+  "bench3_k10/rowspaces.txt": "b1b074ed247d6e708bb62fb485c313fa444563663fc8d8dacdedac35b01cefbb",
+  "bench3_k10/runs.jsonl": "927a1f9fca63149def6229668f46d62f10df20c76478b26fc13c5879627ba7ef",
+  "bench3_k10/state.json": "ba7b97d0323635d5382a3332f67f7d13f1598c94ec5536cbeb42c295b0e1b680",
+  "bench3_k11/epochs.jsonl": "ff6077529efcf8ac0519480770757d6f77d7b1242cbcfb285a00d62878fb382d",
+  "bench3_k11/hit_index.jsonl": "05cc9cacf2b9d4b3fdfb7e88a9c2b1f9c6b257784f6f8ca9e72910ab99074145",
+  "bench3_k11/hits.jsonl": "6017f7668172a80464ca2903c7524f55dba3c1c69f62ae918b02defb6336c753",
+  "bench3_k11/rowspaces.txt": "15b74403f37ddc8385edef114f21fe1809484410880d068099da47607eb40aae",
+  "bench3_k11/runs.jsonl": "a065fe6e9899ad4b0f5388184f9d3e258e22463a735c1cf052d7a3164caeccc1",
+  "bench3_k11/state.json": "39e0f9c978e82e6e822493197cff78d67c8f19b7ef2022efc27c8af0dbd34809",
+  "bench3_k13/epochs.jsonl": "efbf86839c7a11d932ab8f4431112cb6ef5234fb0292220134e68261867202af",
+  "bench3_k13/hit_index.jsonl": "4fe49fad0ab98e696aa372e95d3358e8b4db9daa1f9ce5b6285ae198bd656263",
+  "bench3_k13/hits.jsonl": "cf885aa5b3016847440ea2c31e8afac89a0ea835262e141ab364b4a1023454b7",
+  "bench3_k13/rowspaces.txt": "ca2d9036662e3b02d029b03ec24e272406d1185bfa7d9d8188b97ea72c9cec54",
+  "bench3_k13/runs.jsonl": "d22b2e8dccb121c1b7c484d1f0aedfaf2c05a08f676eedb699f1107b440d81f0",
+  "bench3_k13/state.json": "85099e1d6c824c347be9dba137b102d87df472c6a8dc6380bf1985e89334259d",
+  "bench3_k14/epochs.jsonl": "2a8f47c1f4b11ffbe340ee7f416d3d8e1b2b625baa49e99056b7510167e5cddf",
+  "bench3_k14/hit_index.jsonl": "cf80228deb5976bb9408bb52a57bc54f748dbd89eaa1adb0a148f3c7da6241e3",
+  "bench3_k14/hits.jsonl": "ef91e65829e6f3ce9de626752ee54dca72ffcc0fc1b8bc3b55d25bb279af702f",
+  "bench3_k14/rowspaces.txt": "c8ca2a26b9fec13006e3d79af6a36aee47dc6c6f4151dcce6bc1cfb461bbd116",
+  "bench3_k14/runs.jsonl": "67eee0fd4289f4f996a3268eb5f65b520c6152a38e591eec9d838f7bdaafd445",
+  "bench3_k14/state.json": "ebddcee6f53ebfd010bb754593b6325b7f94403132fd9e2c8af85aa7350c94f3",
+  "bench3_k15/epochs.jsonl": "df5aff78a306646485e8228f817cea50537d5c0076a1890b765f4628db50d779",
+  "bench3_k15/hit_index.jsonl": "3a7e6f722ae8f343ca6d08ed4e7aabe28daf9ddcac6a9523d978f8b2a98a27e7",
+  "bench3_k15/hits.jsonl": "8c7a49bf701b667af76eac9571e17acef33441e341304a4a9b4567a25f89332a",
+  "bench3_k15/rowspaces.txt": "009d524ae7a601dddd34a068845de249b593b97ea3ae32577716e33e335f676c",
+  "bench3_k15/runs.jsonl": "ed755cab6b653e8f7157df32a3199ba5e862ad7803a9a6458aa5029275a35d12",
+  "bench3_k15/state.json": "f14c123d5f8adc2c7fe8ea7d57e564ac50f12569eccd50acd55d4bbd3d056703",
+  "bench3_k18/epochs.jsonl": "388d140d7faef385e18d9fe7a110f6e8973fef811f8579084409addc0f10cf8f",
+  "bench3_k18/runs.jsonl": "26251fdaa727d3b83651ff6a2ad2f191c688e7a961a6c28fa2f1efdc65232c49",
+  "bench3_k18/state.json": "da65fd06f6f2ea57e04b5c992bb7a1c592021041f7586286b67f1c43c2941c5d",
+  "bench3_k18c/epochs.jsonl": "e8e25d9c6e8570323e49ba55ed3c3c38d91958cddf14b27853be3d5a092be3aa",
+  "bench3_k18c/runs.jsonl": "c48c99b64064f009b037c8293313d1c6c2ec43ffad0d69ac7206031106b425fa",
+  "bench3_k18c/state.json": "832ec935f807459dd2088cf20b993968e0c6c51abe149c518bbb3ecb9b03a60a",
+  "bench3_k18m1/epochs.jsonl": "2c60a3322304679b058c3825d2c869b4c01fa6581f326a5fbf984e9ed740aa07",
+  "bench3_k18m1/hit_index.jsonl": "cea47c76fd2da60fd01503ed287fa3e15a4743cdb6e1e1b911507216e100a234",
+  "bench3_k18m1/hits.jsonl": "e2621c2eff698242adb6ef178c0c15d0bcd1a1a41ccce2d5d2018c709f97df58",
+  "bench3_k18m1/rowspaces.txt": "3144e9a3d4ddf0637e3627dd5c638e7b67a007ddedcad6c6e1dd6b378c95b889",
+  "bench3_k18m1/runs.jsonl": "f86c2cb7d53b96f500609167fd339922ae187d887406d2738f1965e84fb5da75",
+  "bench3_k18m1/state.json": "02040abfe88ca6c5a239950132fa98a83b6f6fc72b6ee5c7a3c339c095ee3b71",
+  "bench3_k21/epochs.jsonl": "384c791fa7964617c0f215ddd9447b2526cb80140d610457419648aba5c14f06",
+  "bench3_k21/hit_index.jsonl": "8a467b870469d5165b2ca75e49791eee781070908fb92f1b24d99e34469171ef",
+  "bench3_k21/hits.jsonl": "b60a84cb15ffce1b6fd2cf09eda2b0b1f712894ed47551a9d4c2421d14182100",
+  "bench3_k21/rowspaces.txt": "37f6c680146ccceed7a479b25de4a52d9cd1b40cd188938dc786c9dfd8e811e7",
+  "bench3_k21/runs.jsonl": "d3eb29df14afe31d08b19561a9bdad7bb470ad68a8f49a651404f58dd46c0f42",
+  "bench3_k21/state.json": "ed7b5dff0b0f29a1a80eb2393771ea285772875459c88c07f92d1227dcd934cb",
+  "bench3_k21b/epochs.jsonl": "09a0fc261c10f5c7c8343fe221dcf90780b3ca0048333e4eaa3619f57396a215",
+  "bench3_k21b/runs.jsonl": "913377b03b47d7cdeb3a3377312d71883da3ac87a48794bec45f5561de09fa10",
+  "bench3_k21b/state.json": "2a28db86d12067173e9f8b27ded1a8845c50e0248fbc9c285a9d6394ec3853be",
+  "bench3_k21c/epochs.jsonl": "9a8318a70926a8bed3e14c5f6b3596f1cea7447543a9508001c316723d8ec5a9",
+  "bench3_k21c/hit_index.jsonl": "c25f1725124671e1f1cfff61df47bfdd6ec836cef2c8154eee1d316d523d3266",
+  "bench3_k21c/hits.jsonl": "a7f1fc6aed668caa9cc432e8fa94847dcc36ee00055a7b3719e3ec451137179a",
+  "bench3_k21c/rowspaces.txt": "85a20c939c68b1ee467c5d5a8b99656f61de0c9adddcb7446a206aa9e9fe0b46",
+  "bench3_k21c/runs.jsonl": "9fba788f5939d396897a6a5411e237e1aadadf1b6d1e0a8e87e5ada4e4271a14",
+  "bench3_k21c/state.json": "cfd5d055e7bcb33a4f2f7074b0dd81a1a8225c7fd562be6835c124fd0be0a7c7",
+  "bench3_k6/epochs.jsonl": "beaada766bf652bcb6dd6c546964254fc4c214eed01ac6014c8d353b5c4f4858",
+  "bench3_k6/hit_index.jsonl": "50d5a3d6f4f71fb70580777df0c4a6ce674c76d95a7c24bdf1bfad91ce45813b",
+  "bench3_k6/hits.jsonl": "fe5fddf8613fb2f066dee544a35dbcecd05c70f5437494505a40d14de7faab4e",
+  "bench3_k6/rowspaces.txt": "30b62d5ac1e44b10980eb9cb8e35f7c86ef42691f8e3b90cbbb6ada226f4e62d",
+  "bench3_k6/runs.jsonl": "94fbc32fc9b65acff19649fbcb49333cbd45e9d1b2d1b72b05465267117e054b",
+  "bench3_k6/state.json": "933f3316621a5626396ade75cec7422d0c5e8648e146c7cfa5c9085c37508b81",
+  "bench3_k7/epochs.jsonl": "69ed7ee2e3515fcd8122b79981e970eaeb39ddace31a98a7faf5e1c2648afc1f",
+  "bench3_k7/hit_index.jsonl": "771e0fc0c8f10b612e5d17fb1844cd4a81c9c944c98ce8d4213389d763511017",
+  "bench3_k7/hits.jsonl": "89720205c23fda48947642aaa3a83b92dfb62cac3a40e2fa4626880d76a4a6e5",
+  "bench3_k7/rowspaces.txt": "f84f80243b608f456937a879008e585e1756b13a45c3bc8caa63195683e2231d",
+  "bench3_k7/runs.jsonl": "4f6c7c55d476b15b1189fedd59ddbbaaf2c40336e6fe24c3c71b359dfbafbc14",
+  "bench3_k7/state.json": "11350a5e772b9cfa381e2ab104b16492c4b741be4af2c20f3fa25b8967f11f67",
+  "bench3_k9/epochs.jsonl": "77c43c11ea779edbb6a62e2b611705fb5918aa6bbbe49cdad546e20fc36ba856",
+  "bench3_k9/hit_index.jsonl": "43bc9e5d32a1ea61957001f9632f2b28e99acd0d8d8b1a7c3ff57285c9d8a40c",
+  "bench3_k9/hits.jsonl": "06d558275c41aa415f3d4b1f4853874ead61aeda3f16a783236e3bf96edded43",
+  "bench3_k9/rowspaces.txt": "8819566d16a2f91a4a044007b766d0912d24f1886ce07b554a36ff0d977f542d",
+  "bench3_k9/runs.jsonl": "f13bc3c6c2ff7197d3d9b161c8b83a004928c2e3fd5fce75d51c9476236fa11a",
+  "bench3_k9/state.json": "138d11bb3039bb8887283670bc1a96065d5e67049cf9a1e6aaff6d64d91d1cf1",
+  "bench3_q8_k16/epochs.jsonl": "e3f22b5dfcdcaaabb51362804d54005c2847919404bb3b45b12d5167c2b3b277",
+  "bench3_q8_k16/hit_index.jsonl": "832fa7445ebe6738375f076067c9456eb3725135ca2dae6b307f9c3bf2545880",
+  "bench3_q8_k16/hits.jsonl": "ebd1f11f090f86e7daee14155af2366248ed62c0a8c7588835b9e31435d47016",
+  "bench3_q8_k16/rowspaces.txt": "74586061529caeadba53ab2c516f016b80af6613207a760fc619acac1e73d0ad",
+  "bench3_q8_k16/runs.jsonl": "9594cfd8907c8e048c13a180e9e6c798f70005a20ec6c1e4eac677b3f3a93fa8",
+  "bench3_q8_k16/state.json": "9db79bf4a4a2d3406d83e865a20694258a48b429ce0e2191dde25ef26a481d31",
+  "bench3_q8_k8/PAUSED.txt": "070cbff08e709619cd7072f44176fbb22b95c31c81f7e1ea38d5cc0a61bef25f",
+  "bench3_q8_k8/epochs.jsonl": "12680a0d5d938e2dfa1b294cc4c3b23a2318e4fe46002c5493941131c3c8e845",
+  "bench3_q8_k8/hit_index.jsonl": "d1a702342b0cc2d281eeb85fe9fc70d00357d92d669a452e2ae77d3c4236d5fb",
+  "bench3_q8_k8/hits.jsonl": "0f21135b5de047213b81e68da045f7d30c15eabe5316c485e7fbe4bf36ca13d6",
+  "bench3_q8_k8/rowspaces.txt": "e1aa59721a12c604f9b2988c097904e322041d77a6cbdef2a1fde4ab0fd48f93",
+  "bench3_q8_k8/runs.jsonl": "278bfbb043a19fc6117310690926abec691cd36ae63bb9acb9e242bb7db4f0fc",
+  "bench3_q8_k8/state.json": "cc964ae15412948deb44ca306b3342778f98324cdcc1a0a3f31b43663af49b99",
+  "bench3_q8_k8/stop.flag": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "bench3_q8b_k16/epochs.jsonl": "e3188c6401581f40e2188736fe73e14bfc4532edcee99428dc837b5ef393abed",
+  "bench3_q8b_k16/hit_index.jsonl": "1c3e8932b7b7da5b202a6c67357f918e280b92c07e3e1a77e71054282b532cb7",
+  "bench3_q8b_k16/hits.jsonl": "4f731e47dfc7bedc863d8287a058e64b2a3777d4ac086209e1ad7d4520d755b2",
+  "bench3_q8b_k16/rowspaces.txt": "7a1c938525969efb7433ab69b928a74703454e3989ab3d6760426d298a89c406",
+  "bench3_q8b_k16/runs.jsonl": "436c1b309d36434053d918c637380432be55627e6c9fd01cff2dc61a2f7b066d",
+  "bench3_q8b_k16/state.json": "10d4a0c823aad3ce8869f716579ff78ccf5833181bd52acb197b661c3d779eff"
+ },
+ "snapshot_attempts": [
+  {
+   "snapshot_utc": "20261020T005245Z",
+   "problems": []
+  }
+ ],
+ "definitions": {
+  "within_pool_unique_tuples_tested": "state.json stats.tried",
+  "successful_candidates": "distinct (run, epoch, tuple) among hit records",
+  "closure_hits": "hit records (exact transfer hits, both closures counted)",
+  "verified_closures": "hit records with verified == true (missing counts as false)",
+  "check_level": "per run, from the worker source whose SHA-256 the run record gives: 'signed' if that source calls signed_check (signed transfer index = signed generator-DP index), 'absolute' if not (|index| = 24); a hit has the level of its run",
+  "distinct_rowspaces": "distinct rowspace_sha256 of verified records, union over the lanes of a row",
+  "cpu": "process CPU seconds, search and verification separately"
+ },
+ "rows": [
+  {
+   "k": 6,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "6",
+    "--widths": "12",
+    "--periods": "3",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k6"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 180223,
+   "successful_candidates": 1467,
+   "closure_hits": 1535,
+   "verified_closures": 1535,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 1535,
+   "cpu_search_s": 3447.14,
+   "cpu_verify_s": 97.13
+  },
+  {
+   "k": 7,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "7",
+    "--widths": "12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k7"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 7287702,
+   "successful_candidates": 72823,
+   "closure_hits": 82017,
+   "verified_closures": 82017,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 82017,
+   "cpu_search_s": 6140.77,
+   "cpu_verify_s": 4577.92
+  },
+  {
+   "k": 8,
+   "engine": "bench_q8.py",
+   "config": {
+    "--k": "8",
+    "--widths": null,
+    "--periods": null,
+    "--r": null,
+    "--fast": null,
+    "--metric2": null,
+    "--exclude-bases": null,
+    "--s-refl": null,
+    "--pool": null,
+    "--refresh": null,
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_q8_k8"
+   ],
+   "status": "paused",
+   "within_pool_unique_tuples_tested": 3733140,
+   "successful_candidates": 4791,
+   "closure_hits": 4842,
+   "verified_closures": 4842,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 4842,
+   "cpu_search_s": 1981.14,
+   "cpu_verify_s": 391.09
+  },
+  {
+   "k": 9,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "9",
+    "--widths": "12,6",
+    "--periods": "3",
+    "--r": "3",
+    "--fast": "1",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k9"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 20881601,
+   "successful_candidates": 400,
+   "closure_hits": 400,
+   "verified_closures": 400,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 400,
+   "cpu_search_s": 15900.06,
+   "cpu_verify_s": 26.9
+  },
+  {
+   "k": 10,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "10",
+    "--widths": "12,12,12,12,12",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k10"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 5936433,
+   "successful_candidates": 4522,
+   "closure_hits": 4708,
+   "verified_closures": 4708,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 4708,
+   "cpu_search_s": 6671.36,
+   "cpu_verify_s": 460.7
+  },
+  {
+   "k": 11,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "11",
+    "--widths": "12,12,12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k11"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 7846998,
+   "successful_candidates": 1965,
+   "closure_hits": 2208,
+   "verified_closures": 2208,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 2208,
+   "cpu_search_s": 10545.64,
+   "cpu_verify_s": 208.35
+  },
+  {
+   "k": 13,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "13",
+    "--widths": "12,12,12,12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k13"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 9262841,
+   "successful_candidates": 328,
+   "closure_hits": 368,
+   "verified_closures": 368,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 368,
+   "cpu_search_s": 14949.03,
+   "cpu_verify_s": 41.91
+  },
+  {
+   "k": 14,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "14",
+    "--widths": "12,12,12,12,12,12,12",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k14"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 6926833,
+   "successful_candidates": 163,
+   "closure_hits": 168,
+   "verified_closures": 168,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 168,
+   "cpu_search_s": 11374.18,
+   "cpu_verify_s": 22.74
+  },
+  {
+   "k": 15,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "15",
+    "--widths": "12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k15"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 17383172,
+   "successful_candidates": 23,
+   "closure_hits": 46,
+   "verified_closures": 46,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 46,
+   "cpu_search_s": 58271.47,
+   "cpu_verify_s": 14.47
+  },
+  {
+   "k": 16,
+   "engine": "bench_q8.py",
+   "config": {
+    "--k": "16",
+    "--widths": null,
+    "--periods": null,
+    "--r": null,
+    "--fast": null,
+    "--metric2": null,
+    "--exclude-bases": null,
+    "--s-refl": null,
+    "--pool": null,
+    "--refresh": null,
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_q8_k16"
+   ],
+   "status": "final",
+   "within_pool_unique_tuples_tested": 16400737,
+   "successful_candidates": 1,
+   "closure_hits": 1,
+   "verified_closures": 1,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 1,
+   "cpu_search_s": 15923.0,
+   "cpu_verify_s": 0.16
+  },
+  {
+   "k": 16,
+   "engine": "bench_q8_blocks.py",
+   "config": {
+    "--k": "16",
+    "--widths": null,
+    "--periods": null,
+    "--r": null,
+    "--fast": null,
+    "--metric2": null,
+    "--exclude-bases": null,
+    "--s-refl": null,
+    "--pool": null,
+    "--refresh": null,
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_q8b_k16"
+   ],
+   "status": "running",
+   "within_pool_unique_tuples_tested": 75080000,
+   "successful_candidates": 9,
+   "closure_hits": 9,
+   "verified_closures": 9,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 9,
+   "cpu_search_s": 21288.35,
+   "cpu_verify_s": 1.64
+  },
+  {
+   "k": 18,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "18",
+    "--widths": "12,12,12",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "0",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k18m1"
+   ],
+   "status": "running",
+   "within_pool_unique_tuples_tested": 41328648,
+   "successful_candidates": 3,
+   "closure_hits": 6,
+   "verified_closures": 6,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 6,
+   "cpu_search_s": 66768.71,
+   "cpu_verify_s": 3.42
+  },
+  {
+   "k": 18,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "18",
+    "--widths": "12,12,12",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k18",
+    "bench3_k18c"
+   ],
+   "status": "running",
+   "within_pool_unique_tuples_tested": 67587768,
+   "successful_candidates": 0,
+   "closure_hits": 0,
+   "verified_closures": 0,
+   "verified_closures_signed_check": 0,
+   "distinct_rowspaces": 0,
+   "cpu_search_s": 88047.35,
+   "cpu_verify_s": 0.0
+  },
+  {
+   "k": 21,
+   "engine": "bench_worker.py",
+   "config": {
+    "--k": "21",
+    "--widths": "12,12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--batch": null,
+    "--batches-per-pool": null
+   },
+   "lanes": [
+    "bench3_k21",
+    "bench3_k21b",
+    "bench3_k21c"
+   ],
+   "status": "running",
+   "within_pool_unique_tuples_tested": 43006154,
+   "successful_candidates": 2,
+   "closure_hits": 4,
+   "verified_closures": 4,
+   "verified_closures_signed_check": 2,
+   "distinct_rowspaces": 4,
+   "cpu_search_s": 138642.8,
+   "cpu_verify_s": 2.58
+  }
+ ],
+ "runs_with_signed_check": [
+  "bench3_k15 run 4",
+  "bench3_k18 run 3",
+  "bench3_k18c run 1",
+  "bench3_k18m1 run 3",
+  "bench3_k21 run 3",
+  "bench3_k21b run 3",
+  "bench3_k21c run 0",
+  "bench3_q8b_k16 run 1"
+ ],
+ "verified_closures_by_check_level": {
+  "absolute": 96310,
+  "signed": 2
+ },
+ "full_hit_records_signed_comparison": {
+  "match": 866,
+  "mismatch": 0,
+  "not_comparable": 0
+ },
+ "reconciliation_problems": [],
+ "lanes": [
+  {
+   "name": "bench3_k10",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k10",
+    "--k": "10",
+    "--widths": "12,12,12,12,12",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "40",
+    "--seed": "289018755",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 5942196,
+    "dup": 5763,
+    "tried": 5936433,
+    "cand_hit": 4522,
+    "hits": {
+     "nega": 2383,
+     "cyc": 2325
+    },
+    "verified": 4708,
+    "verify_fail": 0,
+    "distinct": 4708,
+    "cpu_total": 7132.06,
+    "cpu_verify": 460.7,
+    "cpu_search": 6671.36,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "24": 2383,
+      "48": 3670,
+      "192": 5523,
+      "240": 3721,
+      "120": 2407,
+      "168": 2366,
+      "216": 3339,
+      "72": 3013,
+      "96": 4715,
+      "144": 5660
+     },
+     "cyc": {
+      "192": 5349,
+      "240": 3686,
+      "216": 3370,
+      "48": 3758,
+      "72": 3157,
+      "120": 2414,
+      "168": 2344,
+      "96": 4761,
+      "144": 5381,
+      "24": 2325
+     }
+    },
+    "epochs": 31,
+    "full_stored": 100
+   },
+   "hits": 4708,
+   "verified": 4708,
+   "verified_by_check": {
+    "absolute": 4708
+   },
+   "distinct_rowspaces": 4708,
+   "cands": 4522,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 06:07:43",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 02:17:37",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 05:27:42",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k11",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k11",
+    "--k": "11",
+    "--widths": "12,12,12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "60",
+    "--seed": "470457838",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 7847181,
+    "dup": 183,
+    "tried": 7846998,
+    "cand_hit": 1965,
+    "hits": {
+     "nega": 1073,
+     "cyc": 1135
+    },
+    "verified": 2208,
+    "verify_fail": 0,
+    "distinct": 2208,
+    "cpu_total": 10753.99,
+    "cpu_verify": 208.35,
+    "cpu_search": 10545.64,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "240": 3417,
+      "144": 5410,
+      "192": 8323,
+      "96": 5544,
+      "168": 1192,
+      "48": 2948,
+      "24": 1073,
+      "216": 2157,
+      "72": 1819,
+      "120": 1181
+     },
+     "cyc": {
+      "240": 3337,
+      "144": 5427,
+      "192": 8300,
+      "96": 5553,
+      "216": 2196,
+      "48": 3025,
+      "24": 1135,
+      "120": 1199,
+      "168": 1109,
+      "72": 1772
+     }
+    },
+    "epochs": 42,
+    "full_stored": 100
+   },
+   "hits": 2208,
+   "verified": 2208,
+   "verified_by_check": {
+    "absolute": 2208
+   },
+   "distinct_rowspaces": 2208,
+   "cands": 1965,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 07:07:46",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:47:31",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 02:57:37",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 06:07:43",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k13",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k13",
+    "--k": "13",
+    "--widths": "12,12,12,12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "90",
+    "--seed": "564020926",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 9262849,
+    "dup": 8,
+    "tried": 9262841,
+    "cand_hit": 328,
+    "hits": {
+     "nega": 176,
+     "cyc": 192
+    },
+    "verified": 368,
+    "verify_fail": 0,
+    "distinct": 368,
+    "cpu_total": 14990.94,
+    "cpu_verify": 41.91,
+    "cpu_search": 14949.03,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "192": 2681,
+      "24": 176,
+      "96": 1394,
+      "240": 731,
+      "72": 343,
+      "144": 1177,
+      "48": 600,
+      "168": 185,
+      "120": 212,
+      "216": 402
+     },
+     "cyc": {
+      "192": 2550,
+      "24": 192,
+      "96": 1408,
+      "168": 200,
+      "144": 1219,
+      "48": 623,
+      "240": 672,
+      "216": 410,
+      "120": 211,
+      "72": 303
+     }
+    },
+    "epochs": 48,
+    "full_stored": 100
+   },
+   "hits": 368,
+   "verified": 368,
+   "verified_by_check": {
+    "absolute": 368
+   },
+   "distinct_rowspaces": 368,
+   "cands": 328,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 07:18:51",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 00:27:33",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 03:17:38",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 06:07:43",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k14",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k14",
+    "--k": "14",
+    "--widths": "12,12,12,12,12,12,12",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "90",
+    "--seed": "290743706",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 6926836,
+    "dup": 3,
+    "tried": 6926833,
+    "cand_hit": 163,
+    "hits": {
+     "nega": 83,
+     "cyc": 85
+    },
+    "verified": 168,
+    "verify_fail": 0,
+    "distinct": 168,
+    "cpu_total": 11396.92,
+    "cpu_verify": 22.74,
+    "cpu_search": 11374.18,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "144": 287,
+      "96": 272,
+      "48": 150,
+      "120": 70,
+      "72": 94,
+      "192": 364,
+      "216": 120,
+      "240": 169,
+      "168": 68,
+      "24": 83
+     },
+     "cyc": {
+      "96": 279,
+      "144": 296,
+      "192": 390,
+      "120": 65,
+      "48": 165,
+      "72": 86,
+      "240": 157,
+      "216": 94,
+      "168": 71,
+      "24": 85
+     }
+    },
+    "epochs": 36,
+    "full_stored": 100
+   },
+   "hits": 168,
+   "verified": 168,
+   "verified_by_check": {
+    "absolute": 168
+   },
+   "distinct_rowspaces": 168,
+   "cands": 163,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 07:18:50",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 00:47:34",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 03:57:40",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 07:07:46",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k15",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k15",
+    "--k": "15",
+    "--widths": "12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "240",
+    "--seed": "640036860",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 24083190,
+    "dup": 6700018,
+    "tried": 17383172,
+    "cand_hit": 23,
+    "hits": {
+     "nega": 23,
+     "cyc": 23
+    },
+    "verified": 46,
+    "verify_fail": 0,
+    "distinct": 46,
+    "cpu_total": 58285.94,
+    "cpu_verify": 14.47,
+    "cpu_search": 58271.47,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "240": 7240,
+      "192": 930,
+      "24": 23
+     },
+     "cyc": {
+      "240": 7315,
+      "24": 23,
+      "192": 911
+     }
+    },
+    "epochs": 546,
+    "full_stored": 46
+   },
+   "hits": 46,
+   "verified": 46,
+   "verified_by_check": {
+    "absolute": 46
+   },
+   "distinct_rowspaces": 46,
+   "cands": 23,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 15:29:55",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 03:07:33",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 07:07:35",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 3,
+     "time": "2026-10-19 11:07:37",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 4,
+     "time": "2026-10-19 15:07:40",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 46,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k18",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k18",
+    "--k": "18",
+    "--widths": "12,12,12",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "41413647",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 71750072,
+    "dup": 19989689,
+    "tried": 51760383,
+    "cand_hit": 0,
+    "hits": {
+     "nega": 0,
+     "cyc": 0
+    },
+    "verified": 0,
+    "verify_fail": 0,
+    "distinct": 0,
+    "cpu_total": 66761.06,
+    "cpu_verify": 0.0,
+    "cpu_search": 66761.06,
+    "min_abs": {
+     "nega": 192,
+     "cyc": 72
+    },
+    "small": {
+     "nega": {
+      "192": 55,
+      "240": 345
+     },
+     "cyc": {
+      "240": 356,
+      "120": 2,
+      "192": 58,
+      "72": 3,
+      "144": 3
+     }
+    },
+    "epochs": 1620,
+    "full_stored": 0
+   },
+   "hits": 0,
+   "verified": 0,
+   "verified_by_check": {},
+   "distinct_rowspaces": 0,
+   "cands": 0,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:39",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 05:07:31",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 11:07:34",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 3,
+     "time": "2026-10-19 17:07:35",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 0,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k18c",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k18c",
+    "--k": "18",
+    "--widths": "12,12,12",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "549900444",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 21932367,
+    "dup": 6104982,
+    "tried": 15827385,
+    "cand_hit": 0,
+    "hits": {
+     "nega": 0,
+     "cyc": 0
+    },
+    "verified": 0,
+    "verify_fail": 0,
+    "distinct": 0,
+    "cpu_total": 21286.29,
+    "cpu_verify": 0.0,
+    "cpu_search": 21286.29,
+    "min_abs": {
+     "nega": 192,
+     "cyc": 168
+    },
+    "small": {
+     "nega": {
+      "240": 123,
+      "192": 23
+     },
+     "cyc": {
+      "240": 150,
+      "192": 13,
+      "168": 1
+     }
+    },
+    "epochs": 496,
+    "full_stored": 0
+   },
+   "hits": 0,
+   "verified": 0,
+   "verified_by_check": {},
+   "distinct_rowspaces": 0,
+   "cands": 0,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:30",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 11:52:08",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 17:52:10",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 0,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k18m1",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k18m1",
+    "--k": "18",
+    "--widths": "12,12,12",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "0",
+    "--max-minutes": "360",
+    "--seed": "212848641",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 57277744,
+    "dup": 15949096,
+    "tried": 41328648,
+    "cand_hit": 3,
+    "hits": {
+     "nega": 3,
+     "cyc": 3
+    },
+    "verified": 6,
+    "verify_fail": 0,
+    "distinct": 6,
+    "cpu_total": 66772.13,
+    "cpu_verify": 3.42,
+    "cpu_search": 66768.71,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "192": 53,
+      "240": 286,
+      "96": 2,
+      "24": 3
+     },
+     "cyc": {
+      "240": 274,
+      "192": 41,
+      "96": 2,
+      "24": 3
+     }
+    },
+    "epochs": 1294,
+    "full_stored": 6
+   },
+   "hits": 6,
+   "verified": 6,
+   "verified_by_check": {
+    "absolute": 6
+   },
+   "distinct_rowspaces": 6,
+   "cands": 3,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:38",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 05:07:32",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 11:07:33",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 3,
+     "time": "2026-10-19 17:07:34",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 6,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k21",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k21",
+    "--k": "21",
+    "--widths": "12,12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "288476775",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 22273881,
+    "dup": 878924,
+    "tried": 21394957,
+    "cand_hit": 1,
+    "hits": {
+     "nega": 1,
+     "cyc": 1
+    },
+    "verified": 2,
+    "verify_fail": 0,
+    "distinct": 2,
+    "cpu_total": 66785.27,
+    "cpu_verify": 1.3,
+    "cpu_search": 66783.97,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "240": 307,
+      "192": 19,
+      "24": 1
+     },
+     "cyc": {
+      "240": 291,
+      "192": 14,
+      "24": 1
+     }
+    },
+    "epochs": 110,
+    "full_stored": 2
+   },
+   "hits": 2,
+   "verified": 2,
+   "verified_by_check": {
+    "absolute": 2
+   },
+   "distinct_rowspaces": 2,
+   "cands": 1,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:36",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 05:07:31",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 11:07:32",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 3,
+     "time": "2026-10-19 17:07:33",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 2,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k21b",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k21b",
+    "--k": "21",
+    "--widths": "12,12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "927945294",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 19535765,
+    "dup": 768821,
+    "tried": 18766944,
+    "cand_hit": 0,
+    "hits": {
+     "nega": 0,
+     "cyc": 0
+    },
+    "verified": 0,
+    "verify_fail": 0,
+    "distinct": 0,
+    "cpu_total": 63448.04,
+    "cpu_verify": 0.0,
+    "cpu_search": 63448.04,
+    "min_abs": {
+     "nega": 192,
+     "cyc": 192
+    },
+    "small": {
+     "nega": {
+      "240": 293,
+      "192": 6
+     },
+     "cyc": {
+      "192": 15,
+      "240": 265
+     }
+    },
+    "epochs": 96,
+    "full_stored": 0
+   },
+   "hits": 0,
+   "verified": 0,
+   "verified_by_check": {},
+   "distinct_rowspaces": 0,
+   "cands": 0,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:32",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-18 23:50:12",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 06:10:14",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 3,
+     "time": "2026-10-19 12:11:15",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 0,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k21c",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k21c",
+    "--k": "21",
+    "--widths": "12,12,12,6",
+    "--periods": "3",
+    "--r": "4",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "875260610",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 2960300,
+    "dup": 116047,
+    "tried": 2844253,
+    "cand_hit": 1,
+    "hits": {
+     "nega": 1,
+     "cyc": 1
+    },
+    "verified": 2,
+    "verify_fail": 0,
+    "distinct": 2,
+    "cpu_total": 8412.07,
+    "cpu_verify": 1.28,
+    "cpu_search": 8410.79,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "240": 41,
+      "192": 2,
+      "24": 1
+     },
+     "cyc": {
+      "240": 43,
+      "192": 3,
+      "24": 1
+     }
+    },
+    "epochs": 15,
+    "full_stored": 2
+   },
+   "hits": 2,
+   "verified": 2,
+   "verified_by_check": {
+    "signed": 2
+   },
+   "distinct_rowspaces": 2,
+   "cands": 1,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:40",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 15:29:57",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 2,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k6",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k6",
+    "--k": "6",
+    "--widths": "12",
+    "--periods": "3",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "20",
+    "--seed": "633077254",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 245019,
+    "dup": 64796,
+    "tried": 180223,
+    "cand_hit": 1467,
+    "hits": {
+     "nega": 759,
+     "cyc": 776
+    },
+    "verified": 1535,
+    "verify_fail": 0,
+    "distinct": 1535,
+    "cpu_total": 3544.27,
+    "cpu_verify": 97.13,
+    "cpu_search": 3447.14,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "96": 1241,
+      "192": 1379,
+      "144": 852,
+      "48": 975,
+      "168": 602,
+      "120": 608,
+      "72": 570,
+      "216": 755,
+      "240": 1208,
+      "24": 759
+     },
+     "cyc": {
+      "96": 1229,
+      "192": 1408,
+      "72": 616,
+      "216": 712,
+      "24": 776,
+      "120": 613,
+      "48": 942,
+      "144": 881,
+      "240": 1278,
+      "168": 632
+     }
+    },
+    "epochs": 9014,
+    "full_stored": 100
+   },
+   "hits": 1535,
+   "verified": 1535,
+   "verified_by_check": {
+    "absolute": 1535
+   },
+   "distinct_rowspaces": 1535,
+   "cands": 1467,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 05:07:42",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:07:30",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 01:57:35",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 04:47:40",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k7",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k7",
+    "--k": "7",
+    "--widths": "12,12,12,6",
+    "--periods": "1",
+    "--r": "3",
+    "--fast": "0",
+    "--metric2": "1",
+    "--max-minutes": "60",
+    "--seed": "788304641",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 7585788,
+    "dup": 298086,
+    "tried": 7287702,
+    "cand_hit": 72823,
+    "hits": {
+     "nega": 41014,
+     "cyc": 41003
+    },
+    "verified": 82017,
+    "verify_fail": 0,
+    "distinct": 82017,
+    "cpu_total": 10718.69,
+    "cpu_verify": 4577.92,
+    "cpu_search": 6140.77,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "48": 68916,
+      "168": 39732,
+      "240": 65771,
+      "120": 40918,
+      "144": 93398,
+      "72": 51903,
+      "96": 88537,
+      "24": 41014,
+      "192": 95811,
+      "216": 51801
+     },
+     "cyc": {
+      "72": 52055,
+      "216": 51992,
+      "240": 65960,
+      "144": 94039,
+      "120": 40677,
+      "192": 96152,
+      "24": 41003,
+      "96": 88702,
+      "48": 68894,
+      "168": 39531
+     }
+    },
+    "epochs": 39,
+    "full_stored": 100
+   },
+   "hits": 82017,
+   "verified": 82017,
+   "verified_by_check": {
+    "absolute": 82017
+   },
+   "distinct_rowspaces": 82017,
+   "cands": 72823,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 06:07:43",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:27:31",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 02:17:36",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 2,
+     "time": "2026-10-19 05:07:43",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_k9",
+   "engine": "bench_worker.py",
+   "opt": {
+    "--name": "bench3_k9",
+    "--k": "9",
+    "--widths": "12,6",
+    "--periods": "3",
+    "--r": "3",
+    "--fast": "1",
+    "--metric2": "1",
+    "--max-minutes": "360",
+    "--seed": "645903371",
+    "--exclude-bases": "A0",
+    "--s-refl": "2",
+    "--pool": "40",
+    "--refresh": "200000",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 28939684,
+    "dup": 8058083,
+    "tried": 20881601,
+    "cand_hit": 400,
+    "hits": {
+     "nega": 208,
+     "cyc": 192
+    },
+    "verified": 400,
+    "verify_fail": 0,
+    "distinct": 400,
+    "cpu_total": 15926.96,
+    "cpu_verify": 26.9,
+    "cpu_search": 15900.06,
+    "min_abs": {
+     "nega": 24,
+     "cyc": 24
+    },
+    "small": {
+     "nega": {
+      "240": 191970,
+      "192": 7527,
+      "96": 8175,
+      "120": 431,
+      "48": 4341,
+      "144": 2909,
+      "216": 456,
+      "24": 208,
+      "72": 284,
+      "168": 313
+     },
+     "cyc": {
+      "240": 191724,
+      "96": 8238,
+      "48": 4345,
+      "144": 2905,
+      "192": 7398,
+      "216": 468,
+      "120": 385,
+      "72": 267,
+      "168": 338,
+      "24": 192
+     }
+    },
+    "epochs": 26103,
+    "full_stored": 100
+   },
+   "hits": 400,
+   "verified": 400,
+   "verified_by_check": {
+    "absolute": 400
+   },
+   "distinct_rowspaces": 400,
+   "cands": 400,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 11:52:08",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 07:23:58",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_q8_k16",
+   "engine": "bench_q8.py",
+   "opt": {
+    "--name": "bench3_q8_k16",
+    "--k": "16",
+    "--max-minutes": "360",
+    "--seed": "636886387",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 16400738,
+    "dup": 1,
+    "tried": 16400737,
+    "screened": 4,
+    "cand_hit": 1,
+    "hits": {
+     "nega": 1,
+     "cyc": 0
+    },
+    "verified": 1,
+    "verify_fail": 0,
+    "distinct": 1,
+    "cpu_total": 15923.16,
+    "cpu_verify": 0.16,
+    "cpu_search": 15923.0,
+    "epochs": 4101,
+    "full_stored": 1
+   },
+   "hits": 1,
+   "verified": 1,
+   "verified_by_check": {
+    "absolute": 1
+   },
+   "distinct_rowspaces": 1,
+   "cands": 1,
+   "checks": [],
+   "status": "final",
+   "last_update": "2026-10-19 11:52:06",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 07:23:59",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 1,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_q8_k8",
+   "engine": "bench_q8.py",
+   "opt": {
+    "--name": "bench3_q8_k8",
+    "--k": "8",
+    "--max-minutes": "20",
+    "--seed": "567308225",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 3755864,
+    "dup": 22724,
+    "tried": 3733140,
+    "screened": 4791,
+    "cand_hit": 4791,
+    "hits": {
+     "nega": 2397,
+     "cyc": 2445
+    },
+    "verified": 4842,
+    "verify_fail": 0,
+    "distinct": 4842,
+    "cpu_total": 2372.23,
+    "cpu_verify": 391.09,
+    "cpu_search": 1981.14,
+    "epochs": 935,
+    "full_stored": 100
+   },
+   "hits": 4842,
+   "verified": 4842,
+   "verified_by_check": {
+    "absolute": 4842
+   },
+   "distinct_rowspaces": 4842,
+   "cands": 4791,
+   "checks": [],
+   "status": "paused",
+   "last_update": "2026-10-19 06:10:14",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-18 23:30:09",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 05:50:13",
+     "check": "absolute",
+     "start_reconciliation": null
+    }
+   ],
+   "signed": {
+    "match": 100,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  },
+  {
+   "name": "bench3_q8b_k16",
+   "engine": "bench_q8_blocks.py",
+   "opt": {
+    "--name": "bench3_q8b_k16",
+    "--k": "16",
+    "--max-minutes": "360",
+    "--seed": "226249959",
+    "--hits-max": "100",
+    "--global-stop": "<workspace>/claude/persistent/bench3_stop.flag"
+   },
+   "stats": {
+    "draws": 75080000,
+    "dup": 0,
+    "tried": 75080000,
+    "screened": 37,
+    "cand_hit": 9,
+    "hits": {
+     "nega": 4,
+     "cyc": 5
+    },
+    "verified": 9,
+    "verify_fail": 0,
+    "distinct": 9,
+    "cpu_total": 21289.99,
+    "cpu_verify": 1.64,
+    "cpu_search": 21288.35,
+    "epochs": 627,
+    "full_stored": 9
+   },
+   "hits": 9,
+   "verified": 9,
+   "verified_by_check": {
+    "absolute": 9
+   },
+   "distinct_rowspaces": 9,
+   "cands": 9,
+   "checks": [],
+   "status": "running",
+   "last_update": "2026-10-19 17:52:30",
+   "runs": [
+    {
+     "run": 0,
+     "time": "2026-10-19 11:52:09",
+     "check": "absolute",
+     "start_reconciliation": null
+    },
+    {
+     "run": 1,
+     "time": "2026-10-19 17:52:10",
+     "check": "signed",
+     "start_reconciliation": {}
+    }
+   ],
+   "signed": {
+    "match": 9,
+    "mismatch": 0,
+    "not_comparable": 0
+   }
+  }
+ ],
+ "audit_bundle_publication_edit": "process-ID fields (pid) removed from the JSON records (state.json, runs.jsonl) of the publication copy, 20 Oct 2026; timestamps and all other content unchanged"
+}

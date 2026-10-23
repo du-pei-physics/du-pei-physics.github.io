@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holomorphic SCFTs with minimal index: research notes, certificates and code</title>
+<meta name="description" content="Holomorphic N=1 SVOAs of central charge 12k with the TMF-predicted minimal nonzero absolute Witten index 24/gcd(24,k) for every k, including an index-1 theory at c=288: constructions, certificates, verification code and the status of every claim.">
+<link rel="stylesheet" href="style.css">
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']]},
+                  options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']}};
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+        onerror="var s=document.createElement('script');s.async=true;s.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js';document.head.appendChild(s);"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="site-tagline" href="https://du-pei-physics.github.io/">Du Pei &mdash; home</a>
+  <nav aria-label="Pages of this note">
+    <a href="index.html" aria-current="page">Summary</a>
+    <a href="details.html">Details</a>
+    <a href="#certificates">Certificates</a>
+    <a href="code/README.md">Code</a>
+  </nav>
+</header>
+<main id="main">
+<h1>Holomorphic SCFTs with minimal index</h1>
+<p class="subtitle">Research notes, certificates and code: holomorphic SVOAs of central charge \(12k\) whose Witten index has the
+TMF-predicted minimal nonzero absolute value \(24/\gcd(24,k)\), for every \(k\). An online companion to D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
+Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei.
+Version of 23 October 2026.
+<a href="#cite">How to cite</a>.</p>
+
+<ul class="toc">
+  <li><a href="#overview">Overview</a></li>
+  <li><a href="#table">One theory for every \(k\)</a></li>
+  <li><a href="#status">What is proved, what is computed, what is cited</a></li>
+  <li><a href="#fields">The index-1 theory, field by field</a></li>
+  <li><a href="#search">How the search worked, and what it cost</a></li>
+  <li><a href="#side">Things found along the way</a></li>
+  <li><a href="#verify">How to verify</a></li>
+  <li><a href="#certificates">Certificates and code</a></li>
+  <li><a href="#credits">Who did what</a></li>
+  <li><a href="#refs">References</a></li>
+  <li><a href="#cite">How to cite this note</a></li>
+</ul>
+
+<h2 id="overview">Overview</h2>
+<p>For every positive integer \(k\) there is a holomorphic \(\mathcal N=1\) superconformal vertex operator algebra
+(a holomorphic SCFT, or holomorphic SVOA) of central charge \(c=12k\) whose Witten index is \(\pm24/\gcd(24,k)\), the
+<em>TMF-predicted minimal nonzero absolute index</em>: if the Segal&ndash;Stolz&ndash;Teichner picture holds, the index of every
+holomorphic SCFT with \(c=12k\) is divisible by \(24/\gcd(24,k)\) (index 0 is not excluded), and Gaiotto and
+Johnson-Freyd [<a href="#refs">GJF</a>] asked whether this value
+is always attained. At \(k=24\) the minimum is 1: we have an explicit holomorphic SCFT \(T''\) with \(c=288\), a unique
+Neveu&ndash;Schwarz vacuum and index \(-1\) (index \(+1\) after stacking with the Arf theory), the candidate field theory for the
+periodicity class \(\Delta^{24}\in\pi_{576}\mathrm{TMF}\). All theories are built in the same way: a self-dual ternary
+code gives a lattice SCFT (GJF), a symmetry of the code is gauged, and the results are combined by symmetric squares
+and tensor products. The construction of \(T''\) from one code of length 72, the transfer-matrix trick and the
+\(D_4\) picture are explained in the paper; this page does not repeat them.</p>
+<p>What this page adds is the material behind the paper's tables: an explicit code (generator matrix and symmetry) for
+every \(k\) that needs one, in a uniform machine-readable format with a stand-alone verifier; the argument that the
+quaternion orbifolds used at \(k=8\) and \(k=16\) are free of anomalies, the new theoretical input behind the
+finite-case orbifold constructions; the field content of \(T''\) at low weight, and the full characters of the seed theories
+of all 8,748 \(k=6\) codes (at least 4,579 inequivalent ones); the Landau&ndash;Ginzburg material behind the paper's Claim 1, a
+gapping of the doubled seed and the refined elliptic-genus identity with its four-spin-structure check (which concern the
+doubled seed, not the gapping of \(\overline{T''}\otimes T''\)); a proof of GJF's Conjecture 1.4 on
+self-dual ternary codes (24 divides the index at every positive length divisible by 12, and index 24 occurs at every such
+length; standalone version: <a href="../gj-conjecture/index.html">../gj-conjecture/</a>); and a list of what is a theorem, what is an
+exact computation, what is quoted from the literature and what is still open. A companion page,
+<a href="details.html">details.html</a>, gives the full arguments with a status label on every statement; it is
+written to be checked line by line, by people or by other agents.</p>
+
+<h2 id="table">One theory for every \(k\)</h2>
+<p>\(T_k\) denotes a theory at \(c=12k\) with the TMF-predicted minimal nonzero absolute index. &ldquo;Code&rdquo; means a self-dual ternary code of length
+\(12k\) with index \(\pm24\), built as a closed chain of cells as in the paper; its lattice SCFT is gauged by the group in
+the fifth column, which by GJF's Theorem 5.6 (or its quaternion analogue, <a href="details.html#F">details &sect;F</a>)
+divides the index by the group order. Signs of indices are immaterial: stacking with the Arf theory flips them.</p>
+<div class="scroll"><table class="data">
+<thead><tr><th>\(k\)</th><th class="num">\(c\)</th><th class="num">TMF min. |index|</th><th>construction</th><th>gauged</th><th>found by</th><th>certificate</th></tr></thead>
+<tbody>
+<tr><td>1</td><td class="num">12</td><td class="num">24</td><td>Duncan's supermoonshine module</td><td>&ndash;</td><td>Duncan (2007)</td><td>&ndash;</td></tr>
+<tr><td>2&ndash;5</td><td class="num">24&ndash;60</td><td class="num">12, 8, 6, 24</td><td>codes of length 24&ndash;60 and their orbifolds</td><td>see GJF</td><td>GJF (2018)</td><td>&ndash;</td></tr>
+<tr><td>6</td><td class="num">72</td><td class="num">4</td><td>\((12,3)^3\): anti-periodic chain of three Hadamard&ndash;Paley cells (the paper's &sect;3)</td><td>\(\mathbb Z_6\) shifts</td><td>Codex (first seeds), Claude (this one, census)</td><td><a href="certificates/k06_claude_canonical.json">k06</a></td></tr>
+<tr><td>7</td><td class="num">84</td><td class="num">24</td><td>\(3\times(12,3)+(6,3)\)</td><td>&ndash;</td><td>Codex</td><td><a href="certificates/k07_codex.json">k07</a></td></tr>
+<tr><td>8</td><td class="num">96</td><td class="num">3</td><td>\(4\times(12,4)\), quaternion-equivariant cells</td><td>\(Q_8\)</td><td>Claude</td><td><a href="certificates/k08_claude_q8.json">k08</a></td></tr>
+<tr><td>9</td><td class="num">108</td><td class="num">8</td><td>\((18,5)^3\), one cell of width 18 repeated three times; independently \([(8,3)+(10,3)]^3\), a period of two cells of widths 8 and 10 repeated three times</td><td>\(\mathbb Z_3\) shifts</td><td>Claude; Codex</td><td><a href="certificates/k09_claude.json">k09</a>, <a href="certificates/k09_codex.json">k09&prime;</a></td></tr>
+<tr><td>10</td><td class="num">120</td><td class="num">12</td><td>\((12,4)^5\), one Hadamard&ndash;Paley cell repeated five times; independently \(5\times(12,3)\)</td><td>\(\mathbb Z_2=\langle-1\rangle\)</td><td>Claude; Codex</td><td><a href="certificates/k10_claude.json">k10</a>, <a href="certificates/k10_codex.json">k10&prime;</a></td></tr>
+<tr><td>11</td><td class="num">132</td><td class="num">24</td><td>\(5\times(12,3)+(6,3)\)</td><td>&ndash;</td><td>Codex</td><td><a href="certificates/k11_codex.json">k11</a></td></tr>
+<tr><td>12</td><td class="num">144</td><td class="num">2</td><td>\(T'=\mathrm{Sym}^2T_6\), with \(\mathcal I(T_6)=-4\) (index \(2\))</td><td>swap</td><td>(paper)</td><td>&ndash;</td></tr>
+<tr><td>13</td><td class="num">156</td><td class="num">24</td><td>\(6\times(12,3)+(6,3)\)</td><td>&ndash;</td><td>Claude</td><td><a href="certificates/k13_claude.json">k13</a></td></tr>
+<tr><td>14</td><td class="num">168</td><td class="num">12</td><td>\(7\times(12,3)\)</td><td>\(\mathbb Z_2=\langle-1\rangle\)</td><td>Claude</td><td><a href="certificates/k14_claude.json">k14</a></td></tr>
+<tr><td>15</td><td class="num">180</td><td class="num">8</td><td>\([2\times(12,3)+(6,3)]^3\)</td><td>\(\mathbb Z_3\) shifts</td><td>Claude</td><td><a href="certificates/k15_claude.json">k15</a></td></tr>
+<tr><td>16</td><td class="num">192</td><td class="num">3</td><td>\(8\times(12,4)\), quaternion-equivariant cells</td><td>\(Q_8\)</td><td>Claude</td><td><a href="certificates/k16_claude_antiperiodic.json">k16</a>, <a href="certificates/k16_claude_periodic.json">k16&prime;</a></td></tr>
+<tr><td>17</td><td class="num">204</td><td class="num">24</td><td>\(T_8\otimes T_9\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+<tr><td>18</td><td class="num">216</td><td class="num">4</td><td>\([3\times(12,4)]^3\)</td><td>\(\mathbb Z_6\) shifts</td><td>Codex</td><td><a href="certificates/k18_codex.json">k18</a></td></tr>
+<tr><td>19</td><td class="num">228</td><td class="num">24</td><td>\(T_{16}\otimes T_3\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+<tr><td>20</td><td class="num">240</td><td class="num">6</td><td>\(T_8\otimes T_{12}\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+<tr><td>21</td><td class="num">252</td><td class="num">8</td><td>\([3\times(12,4)+(6,4)]^3\)</td><td>\(\mathbb Z_3\) shifts</td><td>Claude (two codes); Codex (independently)</td><td><a href="certificates/k21_claude_antiperiodic.json">k21</a>, <a href="certificates/k21_claude_periodic.json">k21&prime;</a>, <a href="certificates/k21_codex.json">k21&Prime;</a></td></tr>
+<tr><td>22</td><td class="num">264</td><td class="num">12</td><td>\(T_{16}\otimes T_6\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+<tr><td>23</td><td class="num">276</td><td class="num">24</td><td>\(T_8\otimes T_{15}\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+<tr><td>24</td><td class="num">288</td><td class="num">1</td><td>\(T''=\mathrm{Sym}^2(T'\otimes\mathrm{Arf})\), index \(-1\) (\(+1\) after stacking with Arf): one twisted \(D_4\) orbifold of \(T_6^{\otimes4}\)</td><td>\(D_4\)</td><td>(paper)</td><td>uses k06</td></tr>
+<tr><td>&gt;24</td><td class="num">12k</td><td class="num">\(\tfrac{24}{\gcd(24,k)}\)</td><td>\(T_{k-24}\otimes T''\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+</tbody></table></div>
+<p class="small">Cell structures as in the paper's Tables 1&ndash;2: \((a,b)\) is a cell of width \(a\) with \(b\) boundary spins, &ldquo;\(\times\)&rdquo; and &ldquo;\(+\)&rdquo; join independently chosen cells, and an exponent repeats the block.</p>
+<p class="small">&ldquo;Codex&rdquo; is the OpenAI Codex team (GPT-6 Astra), &ldquo;Claude&rdquo; the Anthropic Claude Code team
+(Fable 5.1, Opus 5.5). Where two or three certificates are listed they are different codes; the two \(k=21\) codes of the
+Claude team are the periodic and anti-periodic chains of one random choice of cells, Codex's is independent. Counts of
+codes on this page are counts of distinct codes (distinct generator rowspaces, <a href="certificates/code_counts.json">certificates/code_counts.json</a>).
+For \(k=15\) the first search log recorded three hits, but they are one candidate re-tested three times: that
+certificate is one \(k=15\) code (the paper's Table 1 counts all 53 distinct \(k=15\) codes found later).</p>
+
+<h2 id="status">What is proved, what is computed, what is cited</h2>
+<p>The labels below are used throughout <a href="details.html">details.html</a>.</p>
+<ul>
+<li><span class="tag computed">computed</span> <strong>Every code fact.</strong> Self-duality, the code index \(\pm24\),
+  the symmetry (that it preserves the code, its order and cycle type) and the balance of its fixed words are exact
+  finite computations over \(\mathbb F_3\). Each certificate was checked by both teams with separately written code, and
+  once more by the stand-alone <a href="code/verify.py">verify.py</a> on this page. Exceptions: the two \(k=16\) codes
+  have been checked by the Claude team and by verify.py, not by Codex; Codex's \(k=7\) code by Codex and by
+  verify.py.</li>
+<li><span class="tag cited">cited</span> <strong>From codes to theories.</strong> That a self-dual ternary code gives a
+  holomorphic SCFT whose index is the code index, that monomial code automorphisms act on it preserving the
+  supercurrent, and that a cyclic symmetry of the right kind can be gauged to divide the index by its order
+  (Theorem 5.6), are theorems of GJF. We use them as published.</li>
+<li><span class="tag proved">proved, modulo cited theorems</span> <strong>The quaternion orbifolds at \(k=8,16\).</strong>
+  GJF's theorem is about cyclic groups. On that route \(k=8,16\) need a cyclic code symmetry \(g\) with \(g^4=-1\): shift
+  symmetries of chains of cells are excluded (proved), and all sampled codes with such a \(g\) satisfy the stronger
+  divisibility of Conjecture A (see below). The
+  quaternion group \(Q_8\) has the two properties GJF's index argument needs, so its orbifold has index
+  \(24/8=3\) <em>if</em> the \(Q_8\) action has no 't&nbsp;Hooft anomaly. Part of that anomaly is invisible to every
+  torus partition function, so it cannot be checked numerically. We prove it vanishes: at \(k=8\) the code is joined to 24 copies
+  of the tetracode by 23 \(Q_8\)-equivariant neighbour steps (an exact computation; at \(k=16\) a chain to 48 copies
+  exists by the general neighbour-chain argument and was not computed step by step); each step is a gauging that
+  preserves the anomaly (a &ldquo;gauging lemma&rdquo;, proved here from the algebra-object description of twisted
+  modules); at the end the theory is 192 (resp. 384) free fermions, whose anomaly is 24 (resp. 48) times that of eight
+  fermions, and the
+  anomaly group \(\mathrm{Hom}(\Omega^{\rm Spin}_3(BQ_8),U(1))\cong\mathbb Z_8\oplus\mathbb Z_4^2\) has exponent 8.
+  The argument relies on published theorems (GJF, Kirillov, Creutzig&ndash;Kanade&ndash;McRae, McRae,
+  Carnahan&ndash;Miyamoto, Davighi&ndash;Gripaios&ndash;Lohitsiri and others); it was reviewed in three rounds by the
+  Codex team, all of whose points were addressed, but it has not been refereed.
+  <a href="details.html#F">Details &sect;F</a>.</li>
+<li><span class="tag cited">cited</span> <strong>Symmetric squares and the \(D_4\) orbifold.</strong> The exchange
+  symmetry of \(T\otimes T\) has anomaly \(2c\bmod 8\) (Albert&ndash;Kaidi&ndash;Lin), which vanishes at \(c=72,144\);
+  the index formulas are elementary. Unique vacua follow from the positive ground energies of all twisted sectors.</li>
+<li><span class="tag computed">computed</span> <strong>Field content</strong> of
+  \(T\), \(T'\) and \(T''\) (next section), in the standard orbifold construction of GJF: the lift of the symmetry
+  (proved for the momentum states, and for the Ramond ground states from GJF's treatment of odd-order elements) and the
+  modular-covariant action on twisted sectors (details &sect;H.1).</li>
+<li><span class="tag computed">character level, conditional</span> <span class="tag open">open in equivariant tmf</span>
+  <strong>Compatibility with TMF.</strong> The topological counterpart of the symmetric square (the power operation
+  \(P_2\), a String Thom isomorphism and the transfer over commuting pairs) reproduces the index arithmetic
+  \(-4\Delta^6\mapsto2\Delta^{12}\mapsto-\Delta^{24}\) in Ganter's equivariant Tate K-theory at the level of characters
+  (\(q\)-expansions), under the stated assumptions on the Thom normalisation and on the second spin lift (details
+  &sect;I.1a&ndash;I.1b); an integral construction, as a transfer in genuine \(\Sigma_2\)-equivariant tmf, remains open. The
+  numerical chain itself is checked independently. Moreover
+  \(\pi_{144},\pi_{288},\pi_{576}\,\mathrm{tmf}\) are torsion-free (Bruner&ndash;Rognes), so these classes are
+  determined by their \(q\)-expansions. <a href="details.html#I">Details &sect;I</a>.</li>
+<li><span class="tag proved">proved</span> <strong>24 divides the index of every self-dual ternary code whose length
+  is a positive multiple of 12</strong>, the first half of GJF's Conjecture 1.4 (GJF proved it for lengths divisible by 24, and 12 | index
+  otherwise). The new part is the factor 8, by an elementary argument: two self-dual codes meeting in codimension one
+  have indices adding up to four times the index of their intersection, which is even, and every code is joined to a sum
+  of tetracodes, of index 0, by such steps. Checked numerically, by an adversarial referee (a separate AI agent with
+  its own code) and in the Codex team's audit, which found no gap; not yet refereed externally or reviewed by DP.
+  <a href="details.html#A7">Details &sect;A.7</a>; standalone version, cited by the paper:
+  <a href="../gj-conjecture/index.html#divisibility">../gj-conjecture/, Section 2</a>.</li>
+<li><span class="tag proved">proved</span> <strong>Every length \(12k\), \(k\ge1\), has a self-dual ternary code of index
+  24</strong>, the second half of GJF's Conjecture 1.4; with the first half, the whole conjecture. The code is an explicit
+  chain of \(k\) Golay codes coupled through two fixed vectors at each junction; its index \((-1)^k\,24\) follows from one
+  exact identity \(Tu=-u\) for an \(81\times81\) transfer matrix (changing a coordinate sign if needed gives \(+24\)). Checked by the two
+  programs used when it was found, by an independent recomputation, by a stand-alone script and in the Codex team's
+  audit; the finite identity is also published as a sparse certificate. Not yet refereed externally or reviewed by DP.
+  No higher-order symmetry is established for these codes, but they already give minimal-index theories for two infinite
+  families: for \(\gcd(k,24)=1\) the code theory itself has index 24, and for \(\gcd(k,24)=2\) gauging the scalar \(-1\)
+  (GJF Thm 5.6) gives index 12. The other \(k\) still need the constructions above.
+  <a href="details.html#A8">Details &sect;A.8</a>; standalone version, cited by the paper:
+  <a href="../gj-conjecture/index.html#existence">../gj-conjecture/, Section 3</a>.</li>
+<li><span class="tag assumed">physics</span> <strong>The link to TMF itself</strong> rests on the
+  Segal&ndash;Stolz&ndash;Teichner conjecture; the minimal nonzero index is a target, not a theorem about all SCFTs. TMF
+  motivates the target; its divisibility was checked after the exact computations.</li>
+</ul>
+<div class="note"><strong>Why not a cyclic group at \(k=8,16,24\)?</strong> On the route of GJF's Theorem 5.6 (an
+index-24 code with a cyclic code symmetry of order \(\gcd(24,k)\)), these \(k\) need a code symmetry \(g\) with
+\(g^4=-1\). For chains of cells whose symmetry is a shift, a 2-adic theorem
+(\(2^{v_2(L)+2}\mid\operatorname{Tr}JM^L\)) excludes it: shifts of order 8 or 24 never work (proved, details
+&sect;C.3&ndash;C.4). For arbitrary signed code automorphisms with \(g^4=-1\) we prove that the index is congruent to 8 times
+the number of &ldquo;mixed&rdquo; orbits of full-support codewords modulo 16, and in about 72,000 sampled codes with such a
+symmetry (70,447 of length 96 by Codex, 1,450 of lengths 16&ndash;48 by Claude) every index is divisible by 16, in fact by 48 at
+lengths divisible by 24. That such codes always have nonzero absolute index at least 48 is Conjecture A (details
+&sect;F.1.2), supported by these samples, not proved. This motivates the quaternions: a group of order 8 is needed on this
+quotient route, not for every conceivable construction of an index-3 theory.
+<a href="details.html#F1">Details &sect;F.1</a>.</div>
+
+<h2 id="fields">The index-1 theory, field by field</h2>
+<p>The paper (&sect;4.3, &ldquo;States and fields&rdquo;) states the main facts: none of \(T\), \(T'\), \(T''\) has fields
+of weight \(\tfrac12\) or 1, each has 113, 2,928 and 42,001 fields of weight \(\tfrac32\), 2 and \(\tfrac52\) (the
+supercurrent \(G\) among the first), the NS character of \(T\) is a polynomial of degree 6 in \(t=(\vartheta_3/\eta)^{12}\),
+and the Ramond ground states are far from unique. Here are the remaining numbers and where the fields come from.
+Graded dimensions of the Neveu&ndash;Schwarz sector by conformal weight \(h\), and the Ramond ground states:</p>
+<div class="scroll"><table class="data">
+<thead><tr><th>theory</th><th class="num">\(c\)</th><th class="num">index</th><th class="num">\(h=\tfrac12\)</th><th class="num">\(1\)</th><th class="num">\(\tfrac32\)</th><th class="num">\(2\)</th><th class="num">\(\tfrac52\)</th><th class="num">\(3\)</th><th class="num">Ramond ground states (even / odd)</th></tr></thead>
+<tbody>
+<tr><td>\(V=V_{\Lambda(C)}\) (the \(k=6\) code)</td><td class="num">72</td><td class="num">\(-24\)</td><td class="num">0</td><td class="num">72</td><td class="num">678</td><td class="num">15,012</td><td class="num">252,006</td><td class="num">5,834,120</td><td class="num">41,488 / 41,512</td></tr>
+<tr><td>\(T=V/\!\!/\mathbb Z_6\)</td><td class="num">72</td><td class="num">\(-4\)</td><td class="num">0</td><td class="num">0</td><td class="num">113</td><td class="num">2,928</td><td class="num">42,001</td><td class="num">962,444</td><td class="num">6,968 / 6,972</td></tr>
+<tr><td>\(T'=\mathrm{Sym}^2T\)</td><td class="num">144</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">113</td><td class="num">2,928</td><td class="num">42,001</td><td class="num">968,772</td><td class="num">48,587,870 / 48,587,868</td></tr>
+<tr><td>\(T''=\mathrm{Sym}^2(T'\otimes\mathrm{Arf})\)</td><td class="num">288</td><td class="num">\(-1\)</td><td class="num">0</td><td class="num">0</td><td class="num">113</td><td class="num">2,928</td><td class="num">42,001</td><td class="num">975,100</td><td class="num">2,360,781,062,549,029 / &hellip;030</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>Where the fields come from.</strong> Below weight 3 every field of \(T''\) is a symmetrised,
+  \(\mathbb Z_6^4\)-invariant lattice vertex operator of 288 chiral bosons on four copies of \(\Lambda(C)\). The 113 fields
+  of weight \(\tfrac32\) are the \(\mathbb Z_6\)-orbit sums of the 144 frame vectors \(\pm\sqrt3e_i\) (24 orbits, among them
+  the supercurrent \(G\)) and of the 534 minimal vectors, one per weight-9 codeword (89 orbits). The first twist fields
+  appear at weight 3: 16 + 16 from the \(g^{\pm2}\)-twisted sectors of \(T\). The swap-twisted sectors of \(T'\) and
+  \(T''\) start at weights 6 and 12.</li>
+<li><strong>Ramond partition function.</strong> Substituting \(t\mapsto-u\), \(u=(\vartheta_2/\eta)^{12}=4096\,q\prod_n(1+q^n)^{24}\)
+  (the Ramond character of 24 free fermions), in the paper's polynomial for \(Z^{\rm NS}_T\) gives the Ramond partition
+  function, with all coefficients positive:
+  \[Z^{\rm R}_T=13940+629867\,u+751404\,u^2+129679\,u^3+6984\,u^4+144\,u^5+u^6 ,\]
+  and similarly for \(T'\) (degree 12) and \(T''\) (degree 24, constant term \(4.7\cdot10^{15}\)). Bosonic and fermionic
+  parts are \(\tfrac12(Z^{\rm R}\pm\mathcal I)\).</li>
+<li><strong>What is assumed.</strong> The twisted sectors are computed from two standard inputs that are not re-derived:
+  GJF's lift of the symmetry and the modular-covariant action on twisted sectors. Consistency checks that a wrong phase
+  would most likely break (integrality, spin&ndash;statistics, level matching) all pass.
+  <a href="details.html#H">Details &sect;H</a>.</li>
+<li><strong>Open.</strong> \(T''\) has index \(-1\) and about \(4.7\cdot10^{15}\) Ramond ground states. Whether some index-1
+  theory at \(c=288\) has a <em>unique</em> Ramond ground state is not known.</li>
+</ul>
+
+<h2 id="search">How the search worked, and what it cost</h2>
+<p>The paper explains the basic device: a code built as a closed chain of small &ldquo;cells&rdquo; has an index equal to
+the trace of a product of small transfer matrices, so testing one candidate (one random choice of the cells in a chain)
+costs milliseconds instead of \(2^{6k}\) sign evaluations. Measured on one Apple-silicon core (Python 3.12, numpy 2.5, exact
+integer arithmetic; <a href="code/time_candidates.py">code/time_candidates.py</a>, <a href="notes/timings.json">notes/timings.json</a>):
+building the transfer matrix of one width-12 cell takes 10&nbsp;ms with 3 boundary spins (27&times;27) and 23&nbsp;ms with 4
+(81&times;81), once per cell of a pool; evaluating one candidate then takes 1.3&nbsp;ms for a \(k=13\) chain of seven cells with 3
+boundary spins, and 32&nbsp;ms for a \(k=21\) period of four cells with 4 boundary spins (cubed, both closures, exact). The
+\(k=18,21\) workers first screen candidates modulo two primes; in the earlier benchmark that brought the \(k=21\) lane to
+about 3&nbsp;ms per candidate, including pool building. The search sampled cell tuples at random: keep those whose trace is
+\(\pm24\) (and whose balance trace vanishes when a symmetry of order 3 or 6 is needed), and verify every hit from
+scratch on the expanded generator matrix. Codes are rare, between one in \(10^2\) candidates at \(k=6\) and one in
+\(10^6\)&ndash;\(10^7\) at \(k=18,21\). Three choices mattered more than raw speed:</p>
+<ul>
+<li><strong>Chains of different cells</strong> instead of one repeated cell: at \(k=14\) identical cells never got
+  below \(|\text{index}|=144\), while \(2\cdot10^6\) random candidates gave 17 codes.</li>
+<li><strong>Four boundary spins</strong> (81-state transfer matrices) instead of three at \(k=18,21\): \(3\cdot10^8\)
+  three-spin candidates by both teams never reached 24; the slower four-spin families did, after about \(10^7\)
+  candidates at \(k=18\) and \(2\)&ndash;\(4\cdot10^6\) at \(k=21\).</li>
+<li><strong>A &ldquo;second discriminant&rdquo;</strong> for the space of boundary spins (an idea from Codex's random
+  cells), which must be chosen for the whole chain, not cell by cell; in one-minute probes it gave two to three times
+  as many small nonzero indices.</li>
+</ul>
+<p>How many of the logged hits of the historical searches are different codes (distinct generator rowspaces;
+<a href="certificates/code_counts.json">certificates/code_counts.json</a>, rebuilt from the logs with the project's own
+generator builders):</p>
+<!-- CODES-TABLE:BEGIN -->
+<div class="scroll"><table class="data">
+<thead><tr><th>search (historical log)</th><th class="num">hits logged</th><th class="num">distinct rowspaces</th></tr></thead><tbody>
+<tr><td>k = 8: chains of four Q<sub>8</sub>-equivariant cells (Q8 survey)</td><td class="num">42</td><td class="num">42</td></tr>
+<tr><td>k = 16: chains of eight Q<sub>8</sub>-equivariant cells (worker q8_k16)</td><td class="num">20</td><td class="num">20</td></tr>
+<tr><td>k = 10: one Hadamard&ndash;Paley cell repeated five times (census scan)</td><td class="num">56</td><td class="num">56</td></tr>
+<tr><td>k = 10: chains of five different cells (chain worker)</td><td class="num">20</td><td class="num">20</td></tr>
+<tr><td>k = 14: chains of seven different cells (chain worker)</td><td class="num">17</td><td class="num">17</td></tr>
+<tr><td>k = 15: period chains (12,12,6) &times; 3</td><td class="num">3</td><td class="num">1</td></tr>
+<tr><td>k = 21: period chains (12,12,12,6) &times; 3, 4 boundary spins</td><td class="num">2</td><td class="num">2</td></tr>
+</tbody></table></div>
+<!-- CODES-TABLE:END -->
+<p>Cost with the final algorithms, rerun on one core each (Apple silicon, <code>nice 19</code>) by a benchmark that keeps
+running. It records separately the within-pool unique cell tuples tested, the successful candidates and the successful
+closures (one candidate can give two codes), the closures re-verified from the generator, the distinct rowspaces, and the
+CPU time of search and of verification. Lanes are summed only when they run the same engine with the same
+configuration; the two \(Q_8\) engines are separate rows. Runs launched with the revised worker count a hit as verified
+only if the verifier's signed index equals the signed transfer value, and reconcile their counters against their hit
+journals at start; earlier runs checked the absolute index. Which runs used which worker is read from the source hashes
+in their run records, not from the calendar. The table is recounted from an audit bundle in <code>data/</code>, frozen from
+one reconciled copy of every lane's state file, run records, pool RNG states, hit journal, rowspace list and stored full
+hit records (process-ID fields removed from the published copy, timestamps kept; <code>tools/cpu_table.py</code> in the
+workspace; bundle and file hashes in
+<a href="certificates/benchmark_v3_summary.json">certificates/benchmark_v3_summary.json</a>). The worker sources that
+produced the data, with a script that restores the sources of any recorded run for replay, are in
+<a href="code/bench_v3/README.md">code/bench_v3/</a>.</p>
+<p class="small">Cell structures (bold) are written as in the paper's Table 1: \((a,b)\) is a cell of width \(a\) with \(b\) boundary spins, &ldquo;\(\times\)&rdquo; and &ldquo;\(+\)&rdquo; join independently chosen cells, and an exponent repeats the block, e.g. \((12,3)^3\) at \(k=6\) and \([3\times(12,4)+(6,4)]^3\) at \(k=21\). As the paper's caption says, for each \(k\) the paper lists only the cell structure used for benchmarking, while several were used in the search; the frozen snapshot below has its own rows (e.g. two configurations at \(k=18\)).</p>
+<!-- CPU-TABLE:BEGIN -->
+<p class="small">Benchmark v3, snapshot of 2026-10-20 00:52 UTC, recounted from the audit bundle <a href="data/bench3_audit_20261020T005245Z.tar.gz">data/bench3_audit_20261020T005245Z.tar.gz</a> (state files, run records, pool RNG states, hit journals, rowspace lists and stored full hit records of every lane, from one reconciled copy, with the process-ID fields removed; summary and hashes in <a href="certificates/benchmark_v3_summary.json">certificates/benchmark_v3_summary.json</a>). Candidates are de-duplicated by cell tuple within each pool; hits are exact transfer computations, each re-verified from the expanded generator; distinct rowspaces are counted across pools and runs; distinct rowspaces do not establish inequivalent codes or SCFTs. A successful candidate can give two codes (its periodic and anti-periodic closures), so distinct rowspaces are not independent discoveries. A row with no hit is a censored observation: the table gives the CPU time spent, not a mean. Runs launched with the revised worker require equality of the signed transfer and generator-DP indices. Earlier worker versions checked the absolute index. All 866 retained full hit records in this snapshot agree in sign; the remaining earlier hits have not been retrospectively checked for signed agreement here.</p>
+<ul class="small"><li><strong>chain engine</strong>: <code>bench_worker.py</code>: exact transfer products of randomly chosen cells (with a modular pre-screen where noted)</li><li><strong>Q<sub>8</sub> full-matrix engine</strong>: <code>bench_q8.py</code>: full 81&times;81 products of Q<sub>8</sub>-equivariant cells, one candidate at a time, with a modular pre-screen</li><li><strong>Q<sub>8</sub> batched block engine</strong>: <code>bench_q8_blocks.py</code>, the engine of the old q8_k16 worker: transfer matrices split into blocks of their Q<sub>8</sub>-symmetry decomposition, stacked modular screens of 20,000 candidates; about 2.3&times; faster per candidate than the full-matrix engine at k = 8 in a test, and about 3,550 against 1,000 candidates per second at k = 16</li></ul>
+<div class="scroll"><table class="data">
+<thead><tr><th>k</th><th>engine and configuration</th><th>lanes</th><th>status</th><th class="num">within-pool unique tuples tested</th><th class="num">successful candidates</th><th class="num">successful closures</th><th class="num">verified closures</th><th class="num">distinct rowspaces</th><th>search CPU s per distinct rowspace</th><th>total CPU s (search + verification) per distinct rowspace</th><th>verification CPU</th></tr></thead><tbody>
+<tr><td>6</td><td><strong>(12,3)<sup>3</sup></strong>; chain engine: cells (12) repeated 3 times, 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k6</span></td><td>final</td><td class="num">1.8&middot;10<sup>5</sup></td><td class="num">1,467</td><td class="num">1,535</td><td class="num">1,535</td><td class="num">1,535</td><td>2.2</td><td>2.3</td><td>97 s</td></tr>
+<tr><td>7</td><td><strong>3&times;(12,3)+(6,3)</strong>; chain engine: cells (12,12,12,6), 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k7</span></td><td>final</td><td class="num">7.3&middot;10<sup>6</sup></td><td class="num">72,823</td><td class="num">82,017</td><td class="num">82,017</td><td class="num">82,017</td><td>0.075</td><td>0.13</td><td>4,578 s</td></tr>
+<tr><td>8</td><td><strong>4&times;(12,4)</strong>, Q<sub>8</sub>-equivariant; Q<sub>8</sub> full-matrix engine: chains of 4 Q<sub>8</sub>-equivariant width-12 cells, 4 boundary spins</td><td>1<br><span class="small">bench3_q8_k8</span></td><td>paused</td><td class="num">3.7&middot;10<sup>6</sup></td><td class="num">4,791</td><td class="num">4,842</td><td class="num">4,842</td><td class="num">4,842</td><td>0.41</td><td>0.49</td><td>391 s</td></tr>
+<tr><td>9</td><td><strong>[(12,3)+(6,3)]<sup>3</sup></strong>; chain engine: cells (12,6) repeated 3 times, 3 boundary spins, discriminant 2, modular pre-screen</td><td>1<br><span class="small">bench3_k9</span></td><td>final</td><td class="num">2.1&middot;10<sup>7</sup></td><td class="num">400</td><td class="num">400</td><td class="num">400</td><td class="num">400</td><td>40</td><td>40</td><td>27 s</td></tr>
+<tr><td>10</td><td><strong>5&times;(12,3)</strong>; chain engine: cells (12,12,12,12,12), 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k10</span></td><td>final</td><td class="num">5.9&middot;10<sup>6</sup></td><td class="num">4,522</td><td class="num">4,708</td><td class="num">4,708</td><td class="num">4,708</td><td>1.4</td><td>1.5</td><td>461 s</td></tr>
+<tr><td>11</td><td><strong>5&times;(12,3)+(6,3)</strong>; chain engine: cells (12,12,12,12,12,6), 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k11</span></td><td>final</td><td class="num">7.8&middot;10<sup>6</sup></td><td class="num">1,965</td><td class="num">2,208</td><td class="num">2,208</td><td class="num">2,208</td><td>4.8</td><td>4.9</td><td>208 s</td></tr>
+<tr><td>13</td><td><strong>6&times;(12,3)+(6,3)</strong>; chain engine: cells (12,12,12,12,12,12,6), 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k13</span></td><td>final</td><td class="num">9.3&middot;10<sup>6</sup></td><td class="num">328</td><td class="num">368</td><td class="num">368</td><td class="num">368</td><td>41</td><td>41</td><td>42 s</td></tr>
+<tr><td>14</td><td><strong>7&times;(12,3)</strong>; chain engine: cells (12,12,12,12,12,12,12), 3 boundary spins, discriminant 2</td><td>1<br><span class="small">bench3_k14</span></td><td>final</td><td class="num">6.9&middot;10<sup>6</sup></td><td class="num">163</td><td class="num">168</td><td class="num">168</td><td class="num">168</td><td>68</td><td>68</td><td>23 s</td></tr>
+<tr><td>15</td><td><strong>[2&times;(12,4)+(6,4)]<sup>3</sup></strong>; chain engine: cells (12,12,6) repeated 3 times, 4 boundary spins, discriminant 2, modular pre-screen</td><td>1<br><span class="small">bench3_k15</span></td><td>final</td><td class="num">1.7&middot;10<sup>7</sup></td><td class="num">23</td><td class="num">46</td><td class="num">46</td><td class="num">46</td><td>1,267</td><td>1,267</td><td>14 s</td></tr>
+<tr><td>16</td><td><strong>8&times;(12,4)</strong>, Q<sub>8</sub>-equivariant; Q<sub>8</sub> full-matrix engine: chains of 8 Q<sub>8</sub>-equivariant width-12 cells, 4 boundary spins</td><td>1<br><span class="small">bench3_q8_k16</span></td><td>final</td><td class="num">1.6&middot;10<sup>7</sup></td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>15,923</td><td>15,923</td><td>0.16 s</td></tr>
+<tr><td>16</td><td><strong>8&times;(12,4)</strong>, Q<sub>8</sub>-equivariant; Q<sub>8</sub> batched block engine: chains of 8 Q<sub>8</sub>-equivariant width-12 cells, 4 boundary spins</td><td>1<br><span class="small">bench3_q8b_k16</span></td><td>running</td><td class="num">7.5&middot;10<sup>7</sup></td><td class="num">9</td><td class="num">9</td><td class="num">9</td><td class="num">9</td><td>2,365</td><td>2,366</td><td>1.6 s</td></tr>
+<tr><td>18</td><td><strong>[3&times;(12,4)]<sup>3</sup></strong>; chain engine: cells (12,12,12) repeated 3 times, 4 boundary spins, discriminant 1, modular pre-screen</td><td>1<br><span class="small">bench3_k18m1</span></td><td>running</td><td class="num">4.1&middot;10<sup>7</sup></td><td class="num">3</td><td class="num">6</td><td class="num">6</td><td class="num">6</td><td>11,128</td><td>11,129</td><td>3.4 s</td></tr>
+<tr><td>18</td><td><strong>[3&times;(12,4)]<sup>3</sup></strong>; chain engine: cells (12,12,12) repeated 3 times, 4 boundary spins, discriminant 2, modular pre-screen</td><td>2<br><span class="small">bench3_k18, bench3_k18c</span></td><td>running</td><td class="num">6.8&middot;10<sup>7</sup></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td>no hit in 24.5 CPU-h (censored)</td><td>no hit in 24.5 CPU-h (censored)</td><td>&ndash;</td></tr>
+<tr><td>21</td><td><strong>[3&times;(12,4)+(6,4)]<sup>3</sup></strong>; chain engine: cells (12,12,12,6) repeated 3 times, 4 boundary spins, discriminant 2, modular pre-screen</td><td>3<br><span class="small">bench3_k21, bench3_k21b, bench3_k21c</span></td><td>running</td><td class="num">4.3&middot;10<sup>7</sup></td><td class="num">2</td><td class="num">4</td><td class="num">4<br><span class="small">2 with the signed check</span></td><td class="num">4</td><td>34,661</td><td>34,661</td><td>2.6 s</td></tr>
+</tbody></table></div>
+<p class="small">Consistency of this snapshot: the counters of every lane were recounted from its hit journal and compared with its state file and rowspace list (all agree). The check level of a hit is that of its run, read from the worker-source hash in the run record. Runs with the revised worker: bench3_k15 run 4, bench3_k18 run 3, bench3_k18c run 1, bench3_k18m1 run 3, bench3_k21 run 3, bench3_k21b run 3, bench3_k21c run 0, bench3_q8b_k16 run 1 (2 verified closures, shown per row in the column of verified closures); all other runs used earlier worker versions (96,310 verified closures). The 8 runs that record a start-up reconciliation of their counters against the journals logged no differences.</p>
+<p class="small">Historical values logged by the original searches (other configurations; kept for reference, not comparable as costs):</p>
+<div class="scroll"><table class="data"><thead><tr><th>k</th><th>search</th><th>yield</th><th>CPU s per code</th></tr></thead><tbody>
+<tr><td>8</td><td>chains of four Q<sub>8</sub>-equivariant cells (original survey)</td><td>42 codes in about 10<sup>5</sup> candidates</td><td>~10<sup>2</sup></td></tr>
+<tr><td>9</td><td>random Paley<sub>18</sub> cells, three copies of one cell (original search)</td><td>1 code in 8,714 candidates</td><td>~2&middot;10<sup>4</sup></td></tr>
+<tr><td>16</td><td>chains of eight Q<sub>8</sub>-equivariant cells (worker q8_k16)</td><td>20 codes in 1.8&middot;10<sup>8</sup> candidates (both closures), 17.5 h of one worker</td><td>~3&middot;10<sup>3</sup> (from wall-clock time)</td></tr>
+</tbody></table></div>
+<!-- CPU-TABLE:END -->
+
+<h2 id="side">Things found along the way</h2>
+<ul>
+<li>The family of Hadamard&ndash;Paley cells behind the paper's seed is <strong>finite</strong>: in the exhaustive census
+  with two to five boundary spins, 204,490 cells, of which exactly 298 inequivalent ones give \(k=6\) seeds, with a
+  selection rule for the boundary spins (inequivalent under the cell symmetries, not a classification up to code
+  equivalence or SCFT isomorphism; an incomplete six-spin phase adds 132 seeds in 60 more classes).
+  <a href="details.html#C">&sect;C</a> Together with a separate census of reflection cells (7,112 seed codes) and
+  1,636 benchmark hits there are 8,748 distinct \(k=6\) codes (the paper's Table 1). Their complete characters
+  (polynomials in \(t\), all published) distinguish at least <strong>4,579 inequivalent</strong> seed theories and as many
+  double symmetric squares; the low-weight NS spectra alone (the terms of the NS character from \(q^{-3}\) through
+  \(q^{-1/2}\)), which need only the untwisted sector, distinguish 4,563. For the census subset the counts are 2,961 and
+  2,958. <a href="details.html#G3">&sect;G.3</a></li>
+<li>A <strong>Landau&ndash;Ginzburg description of the doubled seed</strong> (the paper's Claim 1): \((\sum_i\Phi_i^3)/\!\!/C\)
+  flows to \(\overline V_{\Lambda(C)}\otimes V_{\Lambda(C)}\), given the standard LG/minimal-model and orbifold inputs. Proved
+  here: its Witten index \(\frac1{|C|}\sum_{c,c'}(-2)^{\#\{\text{common zeros}\}}=\mathrm{Index}(C)^2\), the refined identity
+  \(Z_{\mathrm{LG}/C}=\mathrm{Index}(C)\,\chi^{\rm R}\) (quintuple product), and the equality of all four spin-structure partition
+  functions of the IR orbifold and the double; a real superpotential gaps the double of one seed. It does not gap
+  \(\overline{T''}\otimes T''\), whose symmetries act on one chirality. <a href="details.html#L">&sect;L</a></li>
+<li>A <strong>2-adic theorem</strong>: for every anti-periodic chain of cells (any even widths, common boundary space),
+  \(2^{v_2(L)+2}\) divides the index of \(L\) periods, \(L\ge4\). It rules out shift symmetries of order 8 and 24. <a href="details.html#C3">&sect;C.3</a></li>
+<li>The simplest seed's \(9\times9\) transfer matrix can be <strong>derived by hand</strong> from seven integers fixed by
+  an \(\mathrm{SL}_2(\mathbb F_3)\) symmetry. <a href="details.html#D">&sect;D</a></li>
+<li><strong>Within the family of permutation orbifolds we searched</strong> (all subgroups of \(S_n\), \(n\le6\), and
+  \(S_N\), \(\mathbb Z_N\) for \(N=8,12,24\), with the spin twists of details &sect;E.4: the seed Arf sign, the Kitaev twists and
+  the discrete torsion restricted from the Pin cover), the chain \(4\to2\to1\) cannot be shortened. This is a statement
+  within this family, not an optimality theorem. An extended search (all subgroup classes of \(S_N\) for \(N\le8\) with all
+  twists, \(S_N\) and \(\mathbb Z_N\) up to \(N=23\), closure \(k\le23\)) finds only the step \(k=6\to12\); it uses
+  floating-point screening with exact fallback, so it is not a certified exclusion, and degrees 9&ndash;11 are still
+  running. The paper (&sect;5) summarises both as a search of &ldquo;all relevant choices of subgroups of \(S_N\)&rdquo;.
+  <a href="details.html#E">&sect;E</a></li>
+<li><strong>Conjecture A</strong> (index divisible by 16 whenever \(g^4=-1\)) and a reduction of it to a parity
+  statement. <a href="details.html#F1">&sect;F.1</a></li>
+<li>A proof of <strong>GJF's Conjecture 1.4</strong>: 24 divides the index of every self-dual ternary code whose
+  length is divisible by 12 (GJF had it for lengths divisible by 24), <a href="details.html#A7">&sect;A.7</a>; and every
+  length \(12k\) has a code of index 24, an explicit chain of Golay codes, <a href="details.html#A8">&sect;A.8</a>. Both are
+  also written up as a standalone note, <a href="../gj-conjecture/index.html">../gj-conjecture/</a>.</li>
+</ul>
+
+<h2 id="verify">How to verify</h2>
+<p>Everything a reader needs is in this folder. With Python 3 and numpy:</p>
+<pre><code>python3 code/verify.py --selftest      # transfer DP versus brute force on random small chains
+python3 code/verify.py                 # all certificates, about half a minute</code></pre>
+<p>For each certificate the verifier rebuilds the code from its generator alone, checks self-duality over
+\(\mathbb F_3\), computes the index and the number of Ramond ground states exactly by a banded transfer computation
+that uses nothing but the generator, checks that the stated symmetry preserves the code and satisfies the
+hypotheses of GJF's Theorem 5.6 (or the quaternion relations), computes the balance of the fixed codewords by
+contracting the fixed subcode, and prints the orbifold index next to the TMF-predicted minimum \(24/\gcd(24,k)\). It reports separately what it proves
+and what it does not: the finite checks (exact facts about the code and its symmetry) pass for all 17 codes; the orbifold
+index then rests on GJF's Theorem 5.6 (cited) for the 11 cyclic rows and on the anomaly argument for the 3 quaternion
+rows, and 3 rows need no orbifold; the rows without a code are cited constructions plus index arithmetic. The output of our run is
+in <a href="verify_output.txt">verify_output.txt</a>: 17 certificates, 17 distinct codes, finite checks passed for all. The same run
+recomputes the five \(D_4\) sectors of the paper's figure from the 40 commuting pairs of \(D_4\). The benchmark table above
+can be recounted from the audit bundle in <code>data/</code>, and <code>code/bench_v3/restore_run.py</code> restores the worker
+sources of any recorded benchmark run for replay. SHA-256 hashes of every file are
+in <a href="certificates/MANIFEST.json">certificates/MANIFEST.json</a>.</p>
+
+<h2 id="certificates">Certificates and code</h2>
+<p>Each <code>certificates/kNN_*.json</code> has one schema: <code>k</code>, <code>length</code>, the generator matrix
+\(R=(1\,|\,A)\) (rows as strings over \(\{0,1,2\}\), 2 meaning \(-1\)), <code>rowspace_sha256</code> (a hash of its
+reduced row echelon form: distinct hashes are distinct codes), <code>band_widths</code> (the cell widths,
+used only as a hint by the verifier), the symmetry as signed permutations, the claimed code and orbifold indices,
+<code>found_by</code>, <code>verified_by</code> and the original files in <code>certificates/original/</code> (copied
+unchanged, except one provenance phrase in <code>k14_certificate.json</code> reworded for publication).</p>
+<!-- CERT-TABLE:BEGIN -->
+<div class="scroll"><table class="data">
+<thead><tr><th>file</th><th class="num">k</th><th class="num">length</th><th class="num">code index</th><th>gauged</th><th class="num">orbifold index</th><th>found by</th><th>verify.py</th><th>SHA-256</th></tr></thead><tbody>
+<tr><td><a href="certificates/k06_claude_canonical.json">k06_claude_canonical.json</a></td><td class="num">6</td><td class="num">72</td><td class="num">-24</td><td>Z6</td><td class="num">-4</td><td>Claude</td><td>passed</td><td><code title="ae9ff06d212b449e7e1687ee85e67fdf5b37353500bf76a4e8342aab9377b42d">ae9ff06d212b&hellip;</code></td></tr>
+<tr><td><a href="certificates/k07_codex.json">k07_codex.json</a></td><td class="num">7</td><td class="num">84</td><td class="num">24</td><td>trivial</td><td class="num">24</td><td>Codex</td><td>passed</td><td><code title="c0907302423283b25a0affce24183b65154b75f920b84bfe2093bdecbe8dd1d4">c09073024232&hellip;</code></td></tr>
+<tr><td><a href="certificates/k08_claude_q8.json">k08_claude_q8.json</a></td><td class="num">8</td><td class="num">96</td><td class="num">24</td><td>Q8</td><td class="num">3</td><td>Claude</td><td>passed</td><td><code title="9401d70d1b8506450795e1df3332cf225ecd62794f30305b3641d0a1763965ac">9401d70d1b85&hellip;</code></td></tr>
+<tr><td><a href="certificates/k09_claude.json">k09_claude.json</a></td><td class="num">9</td><td class="num">108</td><td class="num">24</td><td>Z3</td><td class="num">8</td><td>Claude</td><td>passed</td><td><code title="9ae29747ad0caf5b9605e078eab0e22083024cc2dc351b68207503dd75ebb1d9">9ae29747ad0c&hellip;</code></td></tr>
+<tr><td><a href="certificates/k09_codex.json">k09_codex.json</a></td><td class="num">9</td><td class="num">108</td><td class="num">24</td><td>Z3</td><td class="num">8</td><td>Codex</td><td>passed</td><td><code title="9bc97a7c128c1e11a321882e072eacc1d045bef50b5594331fae70af3743463c">9bc97a7c128c&hellip;</code></td></tr>
+<tr><td><a href="certificates/k10_claude.json">k10_claude.json</a></td><td class="num">10</td><td class="num">120</td><td class="num">-24</td><td>Z2 = &lt;-1&gt;</td><td class="num">-12</td><td>Claude</td><td>passed</td><td><code title="581e6ca627ad96dfb5c5b31fcd0619011dac97897b3b0a811a875f00a1b333ab">581e6ca627ad&hellip;</code></td></tr>
+<tr><td><a href="certificates/k10_codex.json">k10_codex.json</a></td><td class="num">10</td><td class="num">120</td><td class="num">24</td><td>Z2 = &lt;-1&gt;</td><td class="num">12</td><td>Codex</td><td>passed</td><td><code title="161ec8b6a7f32f3ba8b3da92cb9f3ed4f16fc0e2dbdf2018710144669c0b70fc">161ec8b6a7f3&hellip;</code></td></tr>
+<tr><td><a href="certificates/k11_codex.json">k11_codex.json</a></td><td class="num">11</td><td class="num">132</td><td class="num">24</td><td>trivial</td><td class="num">24</td><td>Codex</td><td>passed</td><td><code title="c8cf26bac39a1bd6c88af82ac874db8bc6907b01822f4724a001b54c1da1484e">c8cf26bac39a&hellip;</code></td></tr>
+<tr><td><a href="certificates/k13_claude.json">k13_claude.json</a></td><td class="num">13</td><td class="num">156</td><td class="num">24</td><td>trivial</td><td class="num">24</td><td>Claude</td><td>passed</td><td><code title="5bbe0b4534da8f0eac603ce7c6cb3fb5a84aebb9c5a0df86111a7029bb750b1d">5bbe0b4534da&hellip;</code></td></tr>
+<tr><td><a href="certificates/k14_claude.json">k14_claude.json</a></td><td class="num">14</td><td class="num">168</td><td class="num">-24</td><td>Z2 = &lt;-1&gt;</td><td class="num">-12</td><td>Claude</td><td>passed</td><td><code title="968e5d90c081a387c18976c91bff1921771221801024c908ebba8fd3b918efa9">968e5d90c081&hellip;</code></td></tr>
+<tr><td><a href="certificates/k15_claude.json">k15_claude.json</a></td><td class="num">15</td><td class="num">180</td><td class="num">-24</td><td>Z3</td><td class="num">-8</td><td>Claude</td><td>passed</td><td><code title="1ae6a10b917a45c62e25d9e49d4cab88d0f719ace43464a1cb37b36c18faaffc">1ae6a10b917a&hellip;</code></td></tr>
+<tr><td><a href="certificates/k16_claude_antiperiodic.json">k16_claude_antiperiodic.json</a></td><td class="num">16</td><td class="num">192</td><td class="num">-24</td><td>Q8</td><td class="num">-3</td><td>Claude</td><td>passed</td><td><code title="56ba61dee2b45e7b9d67d7045d97f23069d8aee09659d4742606a39751d5009a">56ba61dee2b4&hellip;</code></td></tr>
+<tr><td><a href="certificates/k16_claude_periodic.json">k16_claude_periodic.json</a></td><td class="num">16</td><td class="num">192</td><td class="num">-24</td><td>Q8</td><td class="num">-3</td><td>Claude</td><td>passed</td><td><code title="1da5f00b93d770fdd2e835f476b538b9c71e9056149a4448b95317f55cccd7d3">1da5f00b93d7&hellip;</code></td></tr>
+<tr><td><a href="certificates/k18_codex.json">k18_codex.json</a></td><td class="num">18</td><td class="num">216</td><td class="num">24</td><td>Z6</td><td class="num">4</td><td>Codex</td><td>passed</td><td><code title="2f6c0639f2229dc349d6aec946c83787c6e434398adf76daa4138d0acf64dfdb">2f6c0639f222&hellip;</code></td></tr>
+<tr><td><a href="certificates/k21_claude_antiperiodic.json">k21_claude_antiperiodic.json</a></td><td class="num">21</td><td class="num">252</td><td class="num">-24</td><td>Z3</td><td class="num">-8</td><td>Claude</td><td>passed</td><td><code title="9faea3e917a9a7224816858d735c51db11c9418c6c97cca32d6c64d1fc4383b7">9faea3e917a9&hellip;</code></td></tr>
+<tr><td><a href="certificates/k21_claude_periodic.json">k21_claude_periodic.json</a></td><td class="num">21</td><td class="num">252</td><td class="num">-24</td><td>Z3</td><td class="num">-8</td><td>Claude</td><td>passed</td><td><code title="f99dc41660e22eb0827d075ba167af1b022262d50e9137a81ad0c973fc2a4a3f">f99dc41660e2&hellip;</code></td></tr>
+<tr><td><a href="certificates/k21_codex.json">k21_codex.json</a></td><td class="num">21</td><td class="num">252</td><td class="num">24</td><td>Z3</td><td class="num">8</td><td>Codex</td><td>passed</td><td><code title="8dda0ac88b908aa85370dbd1a69ad568a375b670fceac728ebf79c5015eae4e1">8dda0ac88b90&hellip;</code></td></tr>
+</tbody></table></div>
+<!-- CERT-TABLE:END -->
+<p>Code (<a href="code/README.md">code/README.md</a>): <a href="code/verify.py">verify.py</a> (stand-alone verifier);
+the transfer-cell machinery (<a href="code/cells_general.py">cells_general.py</a>,
+<a href="code/hpcell.py">hpcell.py</a>, <a href="code/mixed_products.py">mixed_products.py</a>,
+<a href="code/mixed_rings.py">mixed_rings.py</a>, <a href="code/q8_cells.py">q8_cells.py</a>);
+the anomaly chain (<a href="code/neighbour_chain.py">neighbour_chain.py</a>); the seed and its field content
+(<a href="code/canonical_seed_data.py">canonical_seed_data.py</a>, <a href="code/fc_weight_enum.py">fc_*.py</a>);
+permutation orbifolds and power operations (<a href="code/perm_orbifolds.py">perm_orbifolds.py</a>,
+<a href="code/power_operations_check.py">power_operations_check.py</a>).</p>
+<p>GJF's Conjecture 1.4 (<a href="details.html#A7">details &sect;A.7</a>, <a href="details.html#A8">&sect;A.8</a>;
+standalone note <a href="../gj-conjecture/index.html">../gj-conjecture/</a>):
+stand-alone checks in <a href="code/index24/README.md">code/index24/</a>, and the sparse certificate of the Golay-chain
+theorem, <a href="certificates/golay_chain_transfer.json">certificates/golay_chain_transfer.json</a> (state ordering, the
+non-zero entries of the \(81\times81\) transfer matrix \(T\) and of \(u=Ts\), the vector \(s\)), which
+<a href="code/index24/check_golay_chain_certificate.py">check_golay_chain_certificate.py</a> verifies from the file
+alone.</p>
+
+<h2 id="credits">Who did what</h2>
+<p>The search was carried out in October 2026 by two teams of AI coding agents working in a shared
+repository, each reading but never editing the other's files, and each re-verifying the other's results with its own
+code. The <strong>Codex</strong> team (OpenAI, GPT-6 Astra) built the first transfer-cell seeds at \(k=6\) and found the
+codes for \(k=7\), \(11\) and \(18\), an independent \(k=21\) code, independent \(k=9,10\) codes, and the survey of
+order-8 symmetries that pointed to an obstruction. The <strong>Claude</strong> team (Anthropic, Fable 5.1 and Opus 5.5)
+found the codes for \(k=9\), \(10\), \(13\), \(14\), \(15\) and \(21\), the quaternion constructions at \(k=8\) and
+\(16\) with the anomaly proof, the Hadamard&ndash;Paley census and the canonical seed. Du Pei posed the problem,
+supervised both teams and set the priorities.</p>
+<h2 id="refs">References</h2>
+<ul class="refs">
+  <li>[GJF] D.&nbsp;Gaiotto and T.&nbsp;Johnson-Freyd, <em>Holomorphic SCFTs with small index</em>, Canad. J. Math. 74 (2022) 573&ndash;601, <a href="https://doi.org/10.4153/S0008414X2100002X">doi:10.4153/S0008414X2100002X</a>, <a href="https://arxiv.org/abs/1811.00589">arXiv:1811.00589</a>.</li>
+</ul>
+
+<h2 id="cite">How to cite this note</h2>
+<pre><code>@misc{ClaudeNotes,
+    author       = "{Fable 5.1} and {GPT-6 Astra} and {Opus 5.5}",
+    title        = "{Holomorphic SCFTs with minimal index: research notes,
+                     certificates and code}",
+    howpublished = "\url{https://du-pei-physics.github.io/holomorphic-svoa/}",
+    year         = "2026",
+    note         = "AI-generated research note, supervised by D. Pei"
+}</code></pre>
+<p>The paper: D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).</p>
+</main>
+<footer>
+Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei; companion to
+D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
+Code: MIT. Text and data: CC BY 4.0 (<a href="LICENSE">LICENSE</a>).
+Agent-facing details: <a href="details.html">details.html</a>.
+</footer>
+</body>
+</html>

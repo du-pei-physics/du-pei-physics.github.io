@@ -1,0 +1,19 @@
+{
+ "twist": "nega",
+ "length": 192,
+ "cells_anti": true,
+ "self_dual": true,
+ "Q8": true,
+ "orders": [
+  4,
+  4
+ ],
+ "fixed_dims": [
+  0,
+  0,
+  0
+ ],
+ "claimed": -24,
+ "index_my_DP": -24,
+ "ok": true
+}

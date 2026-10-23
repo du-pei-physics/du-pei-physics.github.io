@@ -1,0 +1,28 @@
+{
+ "records": {
+  "hp": 1081,
+  "refl": 6034
+ },
+ "distinct_records": {
+  "hp": 1078,
+  "refl": 6034
+ },
+ "distinct_records_total": 7112,
+ "self_dual_failures": 0,
+ "distinct_codes_rowspaces": 7112,
+ "distinct_codes_by_census": {
+  "hp": 1078,
+  "refl": 6034
+ },
+ "codes_in_both_censuses": 0,
+ "records_per_code_histogram": {
+  "1": 7112
+ },
+ "codes_with_both_index_signs": 0,
+ "canonical_seed_hash_matches_certificate": true,
+ "canonical_seed_among_census_codes": true,
+ "index_check_sample": {
+  "records": 60,
+  "agree": 60
+ }
+}

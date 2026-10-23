@@ -1,0 +1,19 @@
+{
+ "k6_others_generators.jsonl.gz": {
+  "source": "claude/census_general/out/bench3_k6_generators.jsonl + claude/persistent/bench{,2}_k6/hits.jsonl (via run_k6_others.inputs)",
+  "sha256": "28165a2bcaac6c5e5192985f937d7bc953add05f3158cf1d135c08d127a5df60"
+ },
+ "k6_others_records.jsonl.gz": {
+  "source": "claude/census_general/out/k6_others.jsonl",
+  "source_sha256": "b617aaa5768b4df965d2f6fcf52637c11f7e57f9faee5bac1c954b52ba922715",
+  "sha256": "af6b45c179c614e1ef234a566363b43a7720f45fb9fc5d82ab026e49eb66dfbe"
+ },
+ "k6_union_polynomials.csv": {
+  "source": "this tool, from the two record sets",
+  "sha256": "e147b4202107f09cf933e9050693e46ee0a9a648bd04485860731db2fc8a3d72"
+ },
+ "k6_union_summary.json": {
+  "source": "this tool",
+  "sha256": "b0a1af98d80849f3df6312e5e3b359e6b58b3d10278bfe397babcf316a65213c"
+ }
+}

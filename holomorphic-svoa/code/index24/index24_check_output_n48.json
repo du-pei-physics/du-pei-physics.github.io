@@ -1,0 +1,48 @@
+{
+ "script": "index24_check.py",
+ "seed": 2,
+ "python": "3.12.15",
+ "numpy": "2.5.4",
+ "cpu_seconds": 75.0,
+ "lengths": {
+  "48": {
+   "neighbour_steps": 6,
+   "chains": 0,
+   "chain_lengths": []
+  }
+ },
+ "checks": {
+  "index routine: information set = plain enumeration": 200,
+  "Golay code self-dual": 1,
+  "Golay code |Index| = 24": 1,
+  "Golay + Golay Index = 576": 1,
+  "tetracode self-dual, nonzero weights all 3": 1,
+  "Lemma 1, n = 2 mod 4 (sign -1)": 168,
+  "(count) Lemma 1, n = 2 mod 4 with Index(W) != 0: the formula without the sign fails": 78,
+  "Lemma 3: Index even for even n": 298,
+  "Lemma 1, 4 | n": 130,
+  "Lemma 1, odd n: both indices vanish": 302,
+  "base: tetracode sum self-dual with Index 0": 1,
+  "neighbour: C' self-dual": 6,
+  "neighbour: D = C cap C' of dimension n/2 - 1": 6,
+  "Lemma 2: Index(C) + Index(C') = 4 Index(D)": 6,
+  "Lemma 3: Index(D) even": 6,
+  "Theorem: 8 | Index": 6,
+  "observed: 24 | Index": 6
+ },
+ "failures": [],
+ "indices_met": {
+  "48": {
+   "0": 4,
+   "216": 1,
+   "24": 1
+  }
+ },
+ "indices_of_D_met": {
+  "48": {
+   "0": 4,
+   "54": 1,
+   "60": 1
+  }
+ }
+}

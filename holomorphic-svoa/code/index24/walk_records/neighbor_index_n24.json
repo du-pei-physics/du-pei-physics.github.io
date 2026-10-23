@@ -1,0 +1,15 @@
+{
+ "n": 24,
+ "steps": 60,
+ "identity_failures": 0,
+ "mod8_failures": 0,
+ "mod24_failures": 0,
+ "indices": {
+  "0": 26,
+  "-24": 13,
+  "24": 12,
+  "48": 6,
+  "-48": 2,
+  "72": 1
+ }
+}

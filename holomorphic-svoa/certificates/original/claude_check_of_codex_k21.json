@@ -1,0 +1,30 @@
+{
+ "source": "docs/k21_index8_verified.json",
+ "rowspace_sha256_claimed": "9c25c854b357221e7d407b7b9abfb062f949e19449268a4ae5bc5a5e875b1aa4",
+ "verification": {
+  "length": 252,
+  "dim": 126,
+  "widths": [
+   12,
+   12,
+   12,
+   6
+  ],
+  "delayed": 4,
+  "cyclic": true,
+  "self_dual": true,
+  "rank": 126,
+  "index_banded_DP": 24,
+  "g_preserves": true,
+  "g_order": 3,
+  "g_cycle_type": {
+   "3": 84
+  },
+  "fixed_dim": 42,
+  "contracted_rank": 42,
+  "contracted_self_dual": true,
+  "fixed_index_banded_DP": 0,
+  "ok": true
+ },
+ "method": "claude/f3lib + generator-only banded DP (independent of Codex's code)"
+}

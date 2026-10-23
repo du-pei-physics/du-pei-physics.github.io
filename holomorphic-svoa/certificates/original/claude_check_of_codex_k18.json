@@ -1,0 +1,23 @@
+{
+ "source": "docs/k18_index4_verified.json",
+ "rowspace_sha256_claimed": "d895e3202e6918f54a6adbc60178eb0e1e73040e4017841345970f3ffd6c8fed",
+ "verification": {
+  "self_dual": true,
+  "rank": 108,
+  "systematic": true,
+  "index_banded_DP": 24,
+  "dp_seconds": 0.4,
+  "g_preserves": true,
+  "g_order": 6,
+  "g3_is_minus_1": true,
+  "h_cycle_type": {
+   "3": 72
+  },
+  "fixed_dim": 36,
+  "contracted_rank": 36,
+  "contracted_self_dual": true,
+  "fixed_index_banded_DP": 0,
+  "ok": true
+ },
+ "method": "claude/f3lib self-duality + generator-only banded DP (verify_mixed_hit.banded_index) + fixed subcode of g^2 contracted to one period, DP index"
+}

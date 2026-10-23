@@ -1,0 +1,143 @@
+{
+ "script": "index24_check.py",
+ "seed": 1,
+ "python": "3.12.15",
+ "numpy": "2.5.4",
+ "cpu_seconds": 28.2,
+ "lengths": {
+  "12": {
+   "neighbour_steps": 60,
+   "chains": 10,
+   "chain_lengths": [
+    5,
+    4,
+    6,
+    5,
+    3,
+    4,
+    4,
+    6,
+    5,
+    5
+   ]
+  },
+  "24": {
+   "neighbour_steps": 60,
+   "chains": 6,
+   "chain_lengths": [
+    10,
+    12,
+    11,
+    11,
+    12,
+    9
+   ]
+  },
+  "36": {
+   "neighbour_steps": 30,
+   "chains": 2,
+   "chain_lengths": [
+    17,
+    18
+   ]
+  }
+ },
+ "checks": {
+  "index routine: information set = plain enumeration": 200,
+  "Golay code self-dual": 1,
+  "Golay code |Index| = 24": 1,
+  "Golay + Golay Index = 576": 1,
+  "tetracode self-dual, nonzero weights all 3": 1,
+  "Lemma 1, n = 2 mod 4 (sign -1)": 159,
+  "Lemma 3: Index even for even n": 321,
+  "(count) Lemma 1, n = 2 mod 4 with Index(W) != 0: the formula without the sign fails": 65,
+  "Lemma 1, 4 | n": 162,
+  "Lemma 1, odd n: both indices vanish": 279,
+  "base: tetracode sum self-dual with Index 0": 3,
+  "neighbour: C' self-dual": 150,
+  "neighbour: D = C cap C' of dimension n/2 - 1": 150,
+  "Lemma 2: Index(C) + Index(C') = 4 Index(D)": 150,
+  "Lemma 3: Index(D) even": 150,
+  "Lemma 1 for D: Index(D^perp) = 3 Index(D)": 150,
+  "Lemma 2: Index(D^perp) = Index(C) + Index(C') - Index(D)": 150,
+  "Lemma 2: D^perp/D is a hyperbolic plane spanned by C/D and C'/D": 120,
+  "Lemma 2: anisotropic cosets have nonzero norm": 480,
+  "Lemma 2: anisotropic cosets have no full-support vector": 480,
+  "Theorem: 8 | Index": 150,
+  "observed: 24 | Index": 150,
+  "Lemma 4: C/E and C'/E have dimension n/2 - dim E": 18,
+  "Lemma 4: dual bases": 18,
+  "Lemma 4: chain ends at C and C'": 18,
+  "Lemma 4: every C_m self-dual": 165,
+  "Lemma 4: consecutive codes are neighbours": 147,
+  "Theorem: Index(C_m) + Index(C_m+1) = 0 mod 8": 147,
+  "Theorem: 8 | Index along the chain": 18,
+  "observed: 24 | Index along the chain": 18
+ },
+ "failures": [],
+ "indices_met": {
+  "12": {
+   "0": 109,
+   "-24": 2,
+   "24": 6
+  },
+  "24": {
+   "0": 84,
+   "-24": 23,
+   "-48": 5,
+   "24": 11,
+   "48": 6,
+   "72": 2
+  },
+  "36": {
+   "0": 43,
+   "216": 1,
+   "72": 1,
+   "120": 2,
+   "48": 6,
+   "-48": 4,
+   "24": 2,
+   "96": 1,
+   "-24": 2,
+   "144": 1,
+   "-120": 1,
+   "-96": 1,
+   "-72": 2
+  }
+ },
+ "indices_of_D_met": {
+  "12": {
+   "0": 48,
+   "-6": 2,
+   "6": 8,
+   "12": 2
+  },
+  "24": {
+   "0": 22,
+   "-6": 12,
+   "-12": 8,
+   "-18": 3,
+   "6": 6,
+   "18": 1,
+   "12": 3,
+   "24": 3,
+   "30": 1,
+   "-24": 1
+  },
+  "36": {
+   "0": 6,
+   "54": 1,
+   "72": 1,
+   "18": 3,
+   "30": 2,
+   "42": 3,
+   "12": 3,
+   "6": 3,
+   "36": 2,
+   "-6": 1,
+   "-36": 3,
+   "-42": 1,
+   "-12": 1
+  }
+ }
+}
