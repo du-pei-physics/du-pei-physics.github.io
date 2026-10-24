@@ -101,6 +101,13 @@ divides the index by the group order. Signs of indices are immaterial: stacking 
 <tr><td>24</td><td class="num">288</td><td class="num">1</td><td>\(T''=\mathrm{Sym}^2(T'\otimes\mathrm{Arf})\), index \(-1\) (\(+1\) after stacking with Arf): one twisted \(D_4\) orbifold of \(T_6^{\otimes4}\)</td><td>\(D_4\)</td><td>(paper)</td><td>uses k06</td></tr>
 <tr><td>&gt;24</td><td class="num">12k</td><td class="num">\(\tfrac{24}{\gcd(24,k)}\)</td><td>\(T_{k-24}\otimes T''\)</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
 </tbody></table></div>
+<figure class="matfig" id="fig-table1"><img src="figures/table1_overview.png" alt="Twelve square matrix diagrams, one per value of k in the table, each with a banded block pattern" width="1440" height="1204" loading="lazy">
+<figcaption>One structured representative code for each \(k\) of the table that needs a code (\(k=6,7,8,9,10,11,13,14,15,16,18,21\)):
+the matrix \(A\) of the systematic generator \(R=(I\,|\,A)\) of the certificate listed in the table, in the coordinate order of
+the certificate; each square is one entry: grey 0, red \(+1\), blue \(-1\). These are the codes before orbifolding (index \(\pm24\)), representatives, not canonical forms under code
+equivalence; at \(k=9,10,15\) they are the repeated-cell constructions. The band structure is that of a closed chain of cells:
+each cell couples only to its neighbours, and the off-diagonal corner block is the wrap of the chain. Diagram from the exact matrix by the Codex team (GPT-6 Astra); individual
+matrices (PNG and exact JSON) in <a href="figures/README.md">figures/</a> and in <a href="details.html#G1">details &sect;G.1</a>.</figcaption></figure>
 <p class="small">Cell structures as in the paper's Tables 1&ndash;2: \((a,b)\) is a cell of width \(a\) with \(b\) boundary spins, &ldquo;\(\times\)&rdquo; and &ldquo;\(+\)&rdquo; join independently chosen cells, and an exponent repeats the block.</p>
 <p class="small">&ldquo;Codex&rdquo; is the OpenAI Codex team (GPT-6 Astra), &ldquo;Claude&rdquo; the Anthropic Claude Code team
 (Fable 5.1, Opus 5.5). Where two or three certificates are listed they are different codes; the two \(k=21\) codes of the
@@ -195,6 +202,11 @@ quotient route, not for every conceivable construction of an index-3 theory.
 of weight \(\tfrac12\) or 1, each has 113, 2,928 and 42,001 fields of weight \(\tfrac32\), 2 and \(\tfrac52\) (the
 supercurrent \(G\) among the first), the NS character of \(T\) is a polynomial of degree 6 in \(t=(\vartheta_3/\eta)^{12}\),
 and the Ramond ground states are far from unique. Here are the remaining numbers and where the fields come from.
+<figure class="matfig narrow" id="fig-seed"><img src="figures/k06_claude_canonical.png" alt="A 36 by 36 matrix diagram made of a 3 by 3 pattern of 12 by 12 blocks" width="288" height="288" loading="lazy">
+<figcaption>The seed: the \(36\times36\) matrix \(A\) of the systematic generator \(R=(I\,|\,A)\) of the \(k=6\) seed code
+(certificate k06_claude_canonical, coordinate order as in the certificate); each square is one entry: grey 0, red \(+1\), blue \(-1\). For the anti-periodic chain of three
+identical cells \(A\) is \(3\times3\) block negacyclic: \(D\) on the diagonal, \(E\) coupling each cell to the next, and
+\(-E\) in the corner. Diagram from the exact matrix by the Codex team (GPT-6 Astra); exact matrix: <a href="figures/k06_claude_canonical.json">JSON</a>.</figcaption></figure>
 Graded dimensions of the Neveu&ndash;Schwarz sector by conformal weight \(h\), and the Ramond ground states:</p>
 <div class="scroll"><table class="data">
 <thead><tr><th>theory</th><th class="num">\(c\)</th><th class="num">index</th><th class="num">\(h=\tfrac12\)</th><th class="num">\(1\)</th><th class="num">\(\tfrac32\)</th><th class="num">\(2\)</th><th class="num">\(\tfrac52\)</th><th class="num">\(3\)</th><th class="num">Ramond ground states (even / odd)</th></tr></thead>
@@ -333,9 +345,11 @@ produced the data, with a script that restores the sources of any recorded run f
   \(S_N\), \(\mathbb Z_N\) for \(N=8,12,24\), with the spin twists of details &sect;E.4: the seed Arf sign, the Kitaev twists and
   the discrete torsion restricted from the Pin cover), the chain \(4\to2\to1\) cannot be shortened. This is a statement
   within this family, not an optimality theorem. An extended search (all subgroup classes of \(S_N\) for \(N\le8\) with all
-  twists, \(S_N\) and \(\mathbb Z_N\) up to \(N=23\), closure \(k\le23\)) finds only the step \(k=6\to12\); it uses
-  floating-point screening with exact fallback, so it is not a certified exclusion, and degrees 9&ndash;11 are still
-  running. The paper (&sect;5) summarises both as a search of &ldquo;all relevant choices of subgroups of \(S_N\)&rdquo;.
+  twists, \(S_N\) and \(\mathbb Z_N\) up to \(N=23\), closure \(k\le23\)) found no additional minimal-index construction
+  beyond \(k=6\to12\) within its families and index windows. It uses floating-point screening with exact fallback and
+  does not provide a complete numerical certificate of exclusion. Status of 24 October 2026: records for \(N=9\)&ndash;11
+  complete, \(N=9\) as a new step gave nothing; closure steps with \(N=10\), 11 and larger record sets are running
+  (details &sect;E.4). The paper (&sect;5) summarises both as a search of &ldquo;all relevant choices of subgroups of \(S_N\)&rdquo;.
   <a href="details.html#E">&sect;E</a></li>
 <li><strong>Conjecture A</strong> (index divisible by 16 whenever \(g^4=-1\)) and a reduction of it to a parity
   statement. <a href="details.html#F1">&sect;F.1</a></li>

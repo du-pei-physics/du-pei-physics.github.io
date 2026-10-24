@@ -1,0 +1,37 @@
+{
+  "title": "Ternary Golay code, native orientation",
+  "short_title": "Golay (native)",
+  "k": 1,
+  "family": "golay",
+  "code_index": -24,
+  "construction": "Printed 6 x 6 Golay seed",
+  "index_verification": "Independent exhaustive signed full-support enumeration.",
+  "id": "golay",
+  "dimension": 6,
+  "length": 12,
+  "A_rows": [
+    "011111",
+    "101221",
+    "110122",
+    "121012",
+    "122101",
+    "112210"
+  ],
+  "values": {
+    "0": "0",
+    "1": "+1",
+    "2": "-1"
+  },
+  "colors": [
+    "#d9d9d9",
+    "#c94343",
+    "#2d64ad"
+  ],
+  "counts": {
+    "0": 6,
+    "1": 20,
+    "2": 10
+  },
+  "independent_self_duality_check": true,
+  "rowspace_sha256": "bd92960cacaed2302a0f7107a04a8fca56f6353b9119831b7620eb26e32fbcac"
+}

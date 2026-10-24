@@ -51,6 +51,7 @@ table.grid td,table.grid th{text-align:right;font-variant-numeric:tabular-nums;w
 table.grid td.z{color:var(--faint)}
 ol.refs{padding-left:0;list-style:none}ol.refs li{margin:8px 0;padding-left:64px;text-indent:-64px}
 mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.matfig{margin:16px 0 22px}.matfig img{display:block;width:100%;height:auto;image-rendering:crisp-edges;image-rendering:pixelated;border:1px solid var(--line)}.matfig.narrow{max-width:420px}.matfig figcaption{font-size:14px;color:var(--muted);margin-top:6px}.matgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:12px 0 20px}.matgrid figure{margin:0}.matgrid img{display:block;width:100%;height:auto;image-rendering:crisp-edges;image-rendering:pixelated;border:1px solid var(--line)}.matgrid figcaption{font-size:13px;color:var(--muted);margin-top:4px}
 footer{max-width:860px;margin:0 auto;padding:18px 40px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 @media(max-width:640px){.site-header{padding:14px 16px;flex-direction:column;align-items:flex-start;gap:8px}main{padding:22px 16px 46px}footer{padding:16px 16px 34px}h1{font-size:27px}h2{font-size:21px}table.data{font-size:13.5px}ol.refs li{padding-left:0;text-indent:0}}
 @media print{.site-header nav{display:none}main{max-width:none;padding:10px}body{font-size:11pt}a{color:inherit}}
@@ -353,6 +354,22 @@ code. It maps full-support words bijectively to full-support words and changes t
 <span class="qed">&#8718;</span></p>
 
 <p>The proof gives no conceptual reason for the identity \(Tu=-u\); we do not know one.</p>
+
+<div class="matgrid" id="fig-golay">
+<figure><img src="figures/golay.png" alt="6 by 6 matrix diagram of the Golay code" width="48" height="48" loading="lazy"><figcaption>\(G\): the matrix \(A\) of Section 3.1 (index \(-24\)) (<a href="figures/golay.json">JSON</a>)</figcaption></figure>
+<figure><img src="figures/golay_chain_k01.png" alt="6 by 6 matrix diagram, Golay chain k = 1" width="48" height="48" loading="lazy"><figcaption>\(C_1\), sign-adjusted (<a href="figures/golay_chain_k01.json">JSON</a>)</figcaption></figure>
+<figure><img src="figures/golay_chain_k02.png" alt="12 by 12 matrix diagram, Golay chain k = 2" width="96" height="96" loading="lazy"><figcaption>\(C_2\) (<a href="figures/golay_chain_k02.json">JSON</a>)</figcaption></figure>
+<figure><img src="figures/golay_chain_k03.png" alt="18 by 18 matrix diagram, Golay chain k = 3" width="144" height="144" loading="lazy"><figcaption>\(C_3\), sign-adjusted (<a href="figures/golay_chain_k03.json">JSON</a>)</figcaption></figure>
+</div>
+<figure class="matfig" id="fig-golay-chains"><img src="figures/golay_chains_overview.png" alt="Contact sheet of 24 matrix diagrams of the Golay chains, k = 1 to 24" width="1440" height="2362" loading="lazy">
+<figcaption>The ternary Golay code \(G\) and the chains \(C_k\) of Theorem B for \(k=1,\dots,24\) (above: \(k=1,2,3\)): the matrix
+\(A\) of a systematic generator \((I\,|\,A)\), of size \(6k\times6k\); each square is one entry: grey 0, red \(+1\), blue \(-1\). The chains were rebuilt from the gluing data of
+Section 3.1 and brought to systematic form with the leftmost pivots of the cell-ordered construction; at odd \(k\), where
+\(\mathrm{Index}(C_k)=-24\), one coordinate is negated (as in the proof of Theorem B) so that every pictured code has index
+\(+24\), which is why \(C_1\) differs from \(G\) by one column sign. The coordinate permutation and the negated coordinate are
+recorded in each JSON. These are representatives, not canonical forms; the chains are coupled, not direct sums of copies of
+\(G\). Diagrams from the exact matrices by the Codex team (GPT-6 Astra), with the transfer matrix of Section 3.2 rebuilt
+independently.</figcaption></figure>
 
 <!-- ============================================================== 4 -->
 <h2 id="remarks">4. Remarks</h2>

@@ -17,6 +17,7 @@ agents), supervised by Du Pei.
 | `code/index24_check.py` | numpy. Checks the lemmas of Section 2 lemma by lemma |
 | `code/*_output.txt` | our runs (Python 3.12.15, numpy 2.5.4; certificate check with Python 3.9.6) |
 | `code/LICENSE` | MIT, for the code |
+| `figures/` | diagrams of the matrix A of the Golay code and of the chains C_k (PNG, exact JSON; Codex team), see `figures/README.md`; CC BY 4.0 |
 
 ```
 cd code

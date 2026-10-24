@@ -574,7 +574,7 @@ and \(t_{-w}=t_w\). \(\psi\) is also invariant
 under the diagonal \(Q_8\) (the operators inducing it commute with \(J\), and \(t\) is \(Q_8\)-invariant by step 1). \(T\) commutes
 with the diagonal \(Q_8\), and \(T^L=-\mathrm{id}\) is its central element \(-1\); so together they generate the central product
 \(G=Q_8\circ\langle T\rangle=(Q_8\times\mathbb Z_{2L})/\langle(-1,L)\rangle\), of order \(8\cdot2L/2=8L\). (The map
-\(R(w)=(-w_2,\dots,-w_L,w_1)\) used in earlier versions equals \(-T\) and satisfies \(R^L=(-1)^{L-1}\mathrm{id}\), so it has order
+\(R(w)=(-w_2,\dots,-w_L,w_1)\) equals \(-T\) and satisfies \(R^L=(-1)^{L-1}\mathrm{id}\), so it has order
 \(L\) for odd \(L\); with the diagonal \(Q_8\) it generates the same \(G\).)
 <em>Step 3, stabiliser lemma.</em> For \(w\in W^L\setminus\{0\}\) the 2-part of \(\mathrm{Stab}_G(w)\) has order at most 2.
 Write the elements of \(G\) as classes \([q,j]\), \(q\in Q_8\), \(j\in\mathbb Z_{2L}\), with \([q,j]=[-q,j+L]\).
@@ -703,35 +703,38 @@ cover), the only one-step solutions reaching the targets \((288,\pm1)\), \((144,
 Scope: this is a classification within that family, not an unrestricted optimality theorem: permutation orbifolds
 only; the spin twists are the seed Arf sign, the Kitaev twists and the discrete torsion restricted from the Pin cover (not
 every class of \(H^2(G,U(1))\) for exotic subgroups such as \(\mathbb Z_2^3\le S_6\)); degrees 8, 12, 24 only for symmetric
-and cyclic groups (the first search, 19&ndash;20 October; kept as it was).
-<br><span class="tag computed">computed</span> <em>Extended search: precise scope</em> (version 2; scope as of the runs listed
-below, to be updated as they finish).
+and cyclic groups (the first search).
+<br><span class="tag computed">computed</span> <em>Extended search: precise scope</em> (status of 24 October 2026).
 <br><em>Family.</em> Permutation orbifolds \(V^{\otimes N}/\!\!/G\), \(G\le S_N\) acting on the copies, with all twists in
 \(H^2(G,\mathrm U(1))\) and the Pin/Arf-type twists (the Arf sign and \(H^1(G,\mathbb Z_2)\)); the twists are exact for most
-groups and a Sylow-based superset for large non-solvable ones, so negative results remain exact. These steps are iterated
+groups and a Sylow-based superset for large non-solvable ones (conservative at the level of the group enumeration). These steps are iterated
 and combined with tensor products and mixed colourings (orbits carrying different theories), starting from seeds whose
 index is 1, 2 or 3 times the TMF minimum at each \(k\). The orbifold index depends only on the seed indices, the group and
 the twist (E.1), so each group is settled for all theories with those indices.
 <br><em>Done.</em> The closure for \(k\le23\) (run K23, about 41 hours on one thread): all conjugacy classes of subgroups
-for \(N\le8\) (483 classes) and \(S_N\), \(\mathbb Z_N\) for \(N\le23\). Records with twists for all subgroup classes with
-\(N=9\)&ndash;11 (3,094 at \(N=11\), 108 of them Sylow supersets), and \(N=9\) as new steps (nothing new). Result: the only
+for \(N\le8\) (483 classes) and \(S_N\), \(\mathbb Z_N\) for \(N\le23\). Record generation (subgroup classes with their twists)
+for \(N=9\)&ndash;11 is complete (3,094 records at \(N=11\), 108 of them Sylow supersets); as a new step, \(N=9\) from
+\(k_0\in\{1,2\}\) gave nothing. Result: the only
 steps that reach a minimal index are \(\mathrm{Sym}^2\) from \(k=6\) to \(12\) (seeds of index \(\pm4\)) and, at \(k=24\) (the
 earlier \(N\le6\) run above), \(\mathrm{Sym}^2\) from 12 to 24 and the twisted \(D_4\) orbifold from 6 to 24. No evaluation was
 non-integral.
-<br><em>Running.</em> \(N=10\), 11 as new steps; the records for \(N=12\) (all 10,723 subgroup classes); the transitive
-groups of degree 9&ndash;24 for \(k_0=1\). A full \(k\le24\) closure with a symmetry reduction is planned.
-<br><em>Exactness.</em> Floating-point FFT screening with an a-priori bound on the rounding error (as for FFT-based sums,
-e.g. N. J. Higham, <em>Accuracy and Stability of Numerical Algorithms</em>, Thm 24.2), pruning only with a margin of
-\(10^{-9}\times\) scale far above that bound, and exact verification in cyclotomic arithmetic of every surviving candidate.
+<br><em>Running on 24 October 2026.</em> Closure steps with \(N=10\), 11; record generation for \(N=12\) (all 10,723 subgroup
+classes) and for the transitive groups of degree 9&ndash;24 (\(k_0=1\)); a full \(k\le24\) closure with a symmetry reduction.
+These are not results.
+<br><em>Exactness.</em> Within the stated group families and seed-index windows, the implemented search found no additional
+minimal-index construction. It uses floating-point screening with exact fallback; the newer grid evaluator also verifies
+surviving values exactly in cyclotomic arithmetic, while the earlier window evaluator uses the rounded values directly when
+its tolerance is small. The pruning margin (\(10^{-9}\times\) scale) is far above the expected rounding error, but no
+end-to-end error bound for this implementation is documented, and the current release does not provide a complete
+numerical certificate of exclusion.
 <br><em>Not covered.</em> Intransitive subgroups acting diagonally on several orbits (subdirect products) for
 \(13\le N\le24\) beyond the families above; seeds outside the index windows; symmetries other than permutations of copies
 (code automorphisms, an internal symmetry combined with a permutation, orbifolds of non-product theories); non-invertible
 gaugings; and the anomaly-freedom of each evaluated orbifold: the search checks index arithmetic and integrality only, so a
 positive hit would need a separate check.
-<br>Code and records in the workspace, not yet packaged here: <code>claude/perm_orbifolds_v2.py</code> (engine) with
-<code>perm_orbifolds_v2_records.g</code> (GAP records), <code>perm_orbifolds_v2_n9to11.py</code>,
-<code>perm_orbifolds_v2_supervise.py</code>, <code>perm_orbifolds_v2_crosscheck.py</code>; results
-<code>claude/results/perm_orbifolds_v2_K23.json</code> and <code>claude/results/perm_v2_records/</code>. The paper (&sect;5,
+<br>This extended search is an unarchived computation: its engine, GAP record generator and records are not part of this
+release (only <code>code/perm_orbifolds.py</code> of the first search is), so the statements above cannot yet be replayed from
+this folder. The paper (&sect;5,
 &ldquo;Tensor products&rdquo;) states the conclusion as: the AI agents &ldquo;searched all relevant choices of subgroups of
 \(S_N\) using GAP, with various twists, applied repeatedly together with tensor products, but found no other way to reach
 the minimal indices for \(k\le24\)&rdquo;; the scope behind that sentence is the one of the two searches described here.</p>
@@ -773,6 +776,10 @@ such cells with a common invariant \(U\) (B.3, projection form) are \(Q_8\)-inva
 (resp. 192). Every \(i,j,k\) acts with 48 (resp. 96) negative 2-cycles. Found: 42 distinct codes of index \(\pm24\) at
 \(k=8\), 20 at \(k=16\) (from 19 distinct cell sets; distinct rowspaces, <a href="certificates/code_counts.json">code_counts.json</a>;
 <code>code/q8_cells.py</code>).</p>
+<figure class="matfig narrow" id="fig-q8"><img src="figures/k08_claude_q8.png" alt="A 48 by 48 matrix diagram made of a 4 by 4 pattern of 12 by 12 blocks" width="384" height="384" loading="lazy">
+<figcaption>The matrix \(A\) of the systematic generator \(R=(I\,|\,A)\) of the \(k=8\) code (certificate k08_claude_q8, an
+anti-periodic chain of four \(Q_8\)-equivariant cells; coordinate order as in the certificate); each square is one entry: grey 0, red \(+1\), blue \(-1\). Diagram from the exact matrix by the Codex team (GPT-6 Astra);
+exact matrix: <a href="figures/k08_claude_q8.json">JSON</a>.</figcaption></figure>
 
 <h3 id="F3">F.3 The anomaly vanishes</h3>
 <p>Notation: \(\widetilde{SH}{}^3(BG)\) is GJF's extended supercohomology (Majorana, Gu&ndash;Wen and bosonic layers), the
@@ -925,6 +932,23 @@ constructions plus index arithmetic. The modular matrix products assert their in
 <tr><td>21</td><td><a href="certificates/k21_claude_antiperiodic.json">k21_claude_antiperiodic</a>, <a href="certificates/k21_claude_periodic.json">_periodic</a></td><td>\([3\times(12,4)+(6,4)]^3\), \(r=4\), disc. 2</td><td class="num">&minus;24</td><td>\(\mathbb Z_3\): \(3^{84}\)</td><td>239,744 and 240,080 (balanced)</td><td class="num">&minus;8</td><td>Claude / Codex</td></tr>
 <tr><td>21</td><td><a href="certificates/k21_codex.json">k21_codex</a></td><td>periodic, \([3\times(12,4)+(6,4)]^3\), \(r=4\), disc. 2</td><td class="num">24</td><td>\(\mathbb Z_3\): \(3^{84}\)</td><td>229,912/229,912</td><td class="num">8</td><td>Codex / Claude</td></tr>
 </tbody></table></div>
+<div class="matgrid" id="fig-certificates">
+<figure><a href="certificates/k06_claude_canonical.json"><img src="figures/k06_claude_canonical.png" alt="matrix A of k06_claude_canonical" loading="lazy"></a><figcaption>\(k=6\): k06_claude_canonical (<a href="figures/k06_claude_canonical.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k07_codex.json"><img src="figures/k07_codex.png" alt="matrix A of k07_codex" loading="lazy"></a><figcaption>\(k=7\): k07_codex (<a href="figures/k07_codex.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k08_claude_q8.json"><img src="figures/k08_claude_q8.png" alt="matrix A of k08_claude_q8" loading="lazy"></a><figcaption>\(k=8\): k08_claude_q8 (<a href="figures/k08_claude_q8.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k09_claude.json"><img src="figures/k09_claude.png" alt="matrix A of k09_claude" loading="lazy"></a><figcaption>\(k=9\): k09_claude (<a href="figures/k09_claude.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k10_claude.json"><img src="figures/k10_claude.png" alt="matrix A of k10_claude" loading="lazy"></a><figcaption>\(k=10\): k10_claude (<a href="figures/k10_claude.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k11_codex.json"><img src="figures/k11_codex.png" alt="matrix A of k11_codex" loading="lazy"></a><figcaption>\(k=11\): k11_codex (<a href="figures/k11_codex.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k13_claude.json"><img src="figures/k13_claude.png" alt="matrix A of k13_claude" loading="lazy"></a><figcaption>\(k=13\): k13_claude (<a href="figures/k13_claude.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k14_claude.json"><img src="figures/k14_claude.png" alt="matrix A of k14_claude" loading="lazy"></a><figcaption>\(k=14\): k14_claude (<a href="figures/k14_claude.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k15_claude.json"><img src="figures/k15_claude.png" alt="matrix A of k15_claude" loading="lazy"></a><figcaption>\(k=15\): k15_claude (<a href="figures/k15_claude.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k16_claude_antiperiodic.json"><img src="figures/k16_claude_antiperiodic.png" alt="matrix A of k16_claude_antiperiodic" loading="lazy"></a><figcaption>\(k=16\): k16_claude_antiperiodic (<a href="figures/k16_claude_antiperiodic.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k18_codex.json"><img src="figures/k18_codex.png" alt="matrix A of k18_codex" loading="lazy"></a><figcaption>\(k=18\): k18_codex (<a href="figures/k18_codex.json">JSON</a>)</figcaption></figure>
+<figure><a href="certificates/k21_claude_antiperiodic.json"><img src="figures/k21_claude_antiperiodic.png" alt="matrix A of k21_claude_antiperiodic" loading="lazy"></a><figcaption>\(k=21\): k21_claude_antiperiodic (<a href="figures/k21_claude_antiperiodic.json">JSON</a>)</figcaption></figure>
+</div>
+<p class="small">The matrix \(A\) of the systematic generator \(R=(I\,|\,A)\) of one certificate per \(k\) (the one linked under each
+diagram, coordinate order as in the certificate; size \(6k\times6k\)); each square is one entry: grey 0, red \(+1\), blue \(-1\). Representatives, not canonical forms under code
+equivalence; each diagram is checked entry by entry against its certificate. Diagram from the exact matrix by the Codex team (GPT-6 Astra).</p>
 <p class="stmt" id="G2"><span class="label">G.2 (Remarks per row).</span>
 Cell structures: \((a,b)\) is a cell of width \(a\) with \(b\) boundary spins, \(\times\) and \(+\) join independently chosen cells, an exponent repeats the period (the paper's notation). \(k=6\): the paper's seed; \(T\) and the chain to \(T''\) are in the paper. \(k=10,14\): \(m=2\) and
 \(g=-1\) is an automorphism of every linear code, so only the index matters. \(k=7,11,13\): \(m=1\), the lattice SCFT
@@ -969,8 +993,9 @@ and at weight 6 (the first also returns \(N\), which agrees). The 1,636 added co
 \(n=6{,}968+6{,}972\) and \(D_1=2{,}579{,}935{,}232=4096\cdot629{,}867\), as in H.3 and H.4.
 <em>Symmetry.</em> The census seeds and the 809 anti-periodic added codes use the signed shift \(g\) of the anti-periodic
 chain; the 827 periodic added codes use \(g=-\)shift. Both are products of 24 signed 3-cycles with sign product \(-1\) and
-\(g^3=-1\), so \(g^2\) has type \(3^{24}\) and the oscillator traces, the fixed momenta and the twisted ground energies are the
-same; the formulas below use nothing else. Checked for every code: \(g\) preserves \(C\) and \(g^3=-1\); the \(g^2\)-fixed
+\(g^3=-1\). Both conventions have the same signed cycle type, hence the same oscillator factors and oscillator
+vacuum-energy shifts; fixed-momentum contributions are computed from each code's contracted fixed subcode using the same
+formulas. Checked for every code: \(g\) preserves \(C\) and \(g^3=-1\); the \(g^2\)-fixed
 subcode has dimension 12 and its contraction \(\bar C\) is self-dual; its full-support words are balanced; \(\bar C\) has no
 words of weight 1, 2, 4, 5 (no vectors of norm 1, 2, 4, 5 in \(L=\Lambda^{g^2}\)); \(D_1=-4096\,a_1\); all derived dimensions
 are non-negative. These are finite checks of the hypotheses of the formulas; the lift and twisted-sector inputs are those
@@ -1043,10 +1068,8 @@ lies in \(\hat\Lambda[2].\mathrm{Aut}(C)\), so \(\hat g^2\) multiplies each \(e^
 order 3, so the sign is \(+1\). <span class="tag cited">cited</span> for the Ramond ground states: in the proof of their
 Thm 5.6, GJF note that for an element of odd order there is no sign ambiguity when lifting its action, and that its action
 on the Ramond-sector ground states lifts the permutation action on the maximal (full-support) codewords; for
-\(h=g^2\), of order 3, this is A1 on the fixed ground states. (Earlier versions of this note listed this part as an
-assumed normalisation.) Separately, \(\hat g^3\) is the standard lift
-of \(-1\) (GJF Thm 3.1/5.6). (An earlier wording of A1 said \(\hat g\), which is false as stated; the computation always used
-\(\hat g^2\), and no number changes.) <strong>A2</strong>: the
+\(h=g^2\), of order 3, this is A1 on the fixed ground states. Separately, \(\hat g^3\) is the standard lift
+of \(-1\) (GJF Thm 3.1/5.6). <strong>A2</strong>: the
 \(\mathbb Z_6\) action on twisted sectors is the one of the anomaly-free orbifold construction (GJF &sect;4, Thm 5.6),
 fixed by modular covariance without extra phases; the choice of anomaly trivialisation (spin refinement) is part of the
 definition of the orbifold, and the one choice that could matter here changes no character (below). <span class="tag computed">checked</span> Consistency checks that would most likely fail
@@ -1153,8 +1176,7 @@ topological modular forms</em>, AMS Surveys 253 (2021), Thm 9.27 and Table 9.4 a
 these degrees are determined by their \(q\)-expansions. The smallest positive multiple of \(\Delta^k\) in the image of
 \(\pi_{24k}\mathrm{tmf}\to\mathrm{MF}_{12k}\) is \(\tfrac{24}{\gcd(24,k)}\,\Delta^k\) (Hopkins, math/0212397, Prop. 4.6): up to sign
 \(4\Delta^6\), \(2\Delta^{12}\), \(\Delta^{24}\), the classes of the chain, and \(\pm\Delta^{24}\) is the periodicity class.
-Torsion-freeness in these degrees does not construct the operation of I.1 on tmf. (An earlier remark in the project notes
-that there is torsion in these degrees was wrong.)</p>
+Torsion-freeness in these degrees does not construct the operation of I.1 on tmf.</p>
 <p class="stmt" id="I3"><span class="label">I.3 (Open point).</span> <span class="tag open">open</span>
 That the composite of I.1 is induced by an operation on integral tmf, i.e. by a transfer in genuine
 \(\Sigma_2\)-equivariant tmf (Lurie; Gepner&ndash;Meier, <a href="https://arxiv.org/abs/2004.10254">arXiv:2004.10254</a>), rather
@@ -1169,8 +1191,7 @@ the nonzero value for all SCFTs is conditional on the SST picture.</p>
 
 <!-- ============================================================== L -->
 <h2 id="L">L. Landau&ndash;Ginzburg orbifolds, the gapping test and refined elliptic genera</h2>
-<p>The paper's &sect;6.3&ndash;6.4 and Appendix A (Claim 1). Section L is new (21&ndash;23 October) and is lettered L so that the
-older anchors stay. Full proofs, conventions and the list of checks:
+<p>The paper's &sect;6.3&ndash;6.4 and Appendix A (Claim 1). Full proofs, conventions and the list of checks:
 <a href="notes/lg_elliptic_genus.md">notes/lg_elliptic_genus.md</a>; scripts: <a href="code/lg/README.md">code/lg/</a>. Here
 \(C\) is a self-dual ternary code of length \(n\) unless stated otherwise, \(\omega=e^{2\pi i/3}\), and \(\mathrm{Index}(C)\) is as
 in A.2.</p>
@@ -1203,7 +1224,7 @@ at theories with \(\mathrm U(1)\) R-currents, so the current-free \(T\), \(T'\),
 endpoints; this does not concern \((1,1)\) or \((0,1)\) UV theories, nor the many census codes whose \(T\) has weight-1 fields
 (G.3).</p>
 <p class="stmt" id="L3"><span class="label">L.3 (The index identity).</span> <span class="tag proved">proved</span>
-For every linear ternary code of length \(n\) and every full-support word \(w\),
+For every linear ternary code \(C\) of length \(n\) and every full-support codeword \(w\in C\),
 \(\sum_{c\in C,\ c\le w}(-1)^{n-\mathrm{wt}(c)}\) \(=(-1)^n\,\mathrm{sign}(w)\,\mathrm{Index}(C)\) (\(c\le w\): \(c_i\in\{0,w_i\}\)); for
 self-dual \(C\) this gives \(\frac1{|C|}\sum_{c,c'\in C}(-2)^{\#\{i:\,c_i=c'_i=0\}}\) \(=\mathrm{Index}(C)^2\), by Fourier transform
 over \(c'\) (projection onto \(C^\perp=C\)). Proofs: note, &sect;2. <span class="tag computed">checked</span> on 23 codes with

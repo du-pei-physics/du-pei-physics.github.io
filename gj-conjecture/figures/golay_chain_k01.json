@@ -1,0 +1,53 @@
+{
+  "title": "Golay chain k = 1, index +24",
+  "short_title": "Golay chain k = 1",
+  "k": 1,
+  "family": "golay_chain",
+  "code_index": 24,
+  "native_index": -24,
+  "construction": "C_k = (Golay^k intersect W-perp) + W, then systematicization",
+  "coordinate_permutation_zero_based": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "negated_original_coordinate_zero_based": 6,
+  "index_verification": "Independent exact 81-state transfer reconstruction: T(Ts)=-Ts and s.Ts=-24; brute force also checked k <= 3.",
+  "id": "golay_chain_k01",
+  "dimension": 6,
+  "length": 12,
+  "A_rows": [
+    "011111",
+    "201221",
+    "210122",
+    "221012",
+    "222101",
+    "212210"
+  ],
+  "values": {
+    "0": "0",
+    "1": "+1",
+    "2": "-1"
+  },
+  "colors": [
+    "#d9d9d9",
+    "#c94343",
+    "#2d64ad"
+  ],
+  "counts": {
+    "0": 6,
+    "1": 15,
+    "2": 15
+  },
+  "independent_self_duality_check": true,
+  "rowspace_sha256": "bd8ae9141178beb460256135f7ec4a66f31f467b57bc335da0627072f1557e99"
+}

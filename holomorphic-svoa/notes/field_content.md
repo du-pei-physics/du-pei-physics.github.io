@@ -175,11 +175,9 @@ L* + χ_L/2 has 80 vectors at its minimal norm 2/3.
   so the sign is +1. For the Ramond ground states: in the proof of their Thm 5.6, GJF note that for an element of odd
   order there is no sign ambiguity when lifting its action, and that its action on the Ramond ground states lifts the
   permutation action on the maximal (full-support) codewords; for h = g² this is triviality on the g²-fixed ground
-  states. (Earlier versions of this note called this part an assumed normalisation.) The consistency checks below
+  states. The consistency checks below
   pass. Separately, ĝ³ is the
   standard lift of −1 (GJF Thm 3.1/5.6).
-  *Correction (20 October, after Codex's audit):* an earlier wording said ĝ instead of ĝ², which is false as stated;
-  the computation always used ĝ² (code/fc_characters.py), and no number changes.
 * **A2 [cited: the standard anomaly-free orbifold construction, GJF §4, Thm 5.6].** The action of Z₆ on the twisted sectors
   is the one fixed by modular covariance, with no extra phases. Every function is then determined as follows.
   * Pairs generating Z₆: Z^{(a,b)} = Z^{(0,1)}(γτ) for any γ with second row ≡ (a,b) mod 6. The value uses
