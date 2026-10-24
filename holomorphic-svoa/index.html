@@ -28,7 +28,7 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 <p class="subtitle">Research notes, certificates and code: holomorphic SVOAs of central charge \(12k\) whose Witten index has the
 TMF-predicted minimal nonzero absolute value \(24/\gcd(24,k)\), for every \(k\). An online companion to D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
 Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei.
-Version of 23 October 2026.
+Version of 24 October 2026.
 <a href="#cite">How to cite</a>.</p>
 
 <ul class="toc">
@@ -192,8 +192,9 @@ index-24 code with a cyclic code symmetry of order \(\gcd(24,k)\)), these \(k\) 
 &sect;C.3&ndash;C.4). For arbitrary signed code automorphisms with \(g^4=-1\) we prove that the index is congruent to 8 times
 the number of &ldquo;mixed&rdquo; orbits of full-support codewords modulo 16, and in about 72,000 sampled codes with such a
 symmetry (70,447 of length 96 by Codex, 1,450 of lengths 16&ndash;48 by Claude) every index is divisible by 16, in fact by 48 at
-lengths divisible by 24. That such codes always have nonzero absolute index at least 48 is Conjecture A (details
-&sect;F.1.2), supported by these samples, not proved. This motivates the quaternions: a group of order 8 is needed on this
+lengths divisible by 24. Conjecture A (details &sect;F.1.2) asserts that 16 divides the index of every such code; at
+lengths divisible by 24, where 24 divides every index (GJF), the index would then be a multiple of 48, so a nonzero index
+would have absolute value at least 48 (index 0 does occur). The conjecture is supported by these samples, not proved. This motivates the quaternions: a group of order 8 is needed on this
 quotient route, not for every conceivable construction of an index-3 theory.
 <a href="details.html#F1">Details &sect;F.1</a>.</div>
 
@@ -201,13 +202,13 @@ quotient route, not for every conceivable construction of an index-3 theory.
 <p>The paper (&sect;4.3, &ldquo;States and fields&rdquo;) states the main facts: none of \(T\), \(T'\), \(T''\) has fields
 of weight \(\tfrac12\) or 1, each has 113, 2,928 and 42,001 fields of weight \(\tfrac32\), 2 and \(\tfrac52\) (the
 supercurrent \(G\) among the first), the NS character of \(T\) is a polynomial of degree 6 in \(t=(\vartheta_3/\eta)^{12}\),
-and the Ramond ground states are far from unique. Here are the remaining numbers and where the fields come from.
+and the Ramond ground states are far from unique. Here are the remaining numbers and where the fields come from.</p>
 <figure class="matfig narrow" id="fig-seed"><img src="figures/k06_claude_canonical.png" alt="A 36 by 36 matrix diagram made of a 3 by 3 pattern of 12 by 12 blocks" width="288" height="288" loading="lazy">
 <figcaption>The seed: the \(36\times36\) matrix \(A\) of the systematic generator \(R=(I\,|\,A)\) of the \(k=6\) seed code
 (certificate k06_claude_canonical, coordinate order as in the certificate); each square is one entry: grey 0, red \(+1\), blue \(-1\). For the anti-periodic chain of three
 identical cells \(A\) is \(3\times3\) block negacyclic: \(D\) on the diagonal, \(E\) coupling each cell to the next, and
 \(-E\) in the corner. Diagram from the exact matrix by the Codex team (GPT-6 Astra); exact matrix: <a href="figures/k06_claude_canonical.json">JSON</a>.</figcaption></figure>
-Graded dimensions of the Neveu&ndash;Schwarz sector by conformal weight \(h\), and the Ramond ground states:</p>
+<p>Graded dimensions of the Neveu&ndash;Schwarz sector by conformal weight \(h\), and the Ramond ground states:</p>
 <div class="scroll"><table class="data">
 <thead><tr><th>theory</th><th class="num">\(c\)</th><th class="num">index</th><th class="num">\(h=\tfrac12\)</th><th class="num">\(1\)</th><th class="num">\(\tfrac32\)</th><th class="num">\(2\)</th><th class="num">\(\tfrac52\)</th><th class="num">\(3\)</th><th class="num">Ramond ground states (even / odd)</th></tr></thead>
 <tbody>
