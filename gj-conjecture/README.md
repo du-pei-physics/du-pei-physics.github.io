@@ -4,8 +4,8 @@
 Theorem A: the index of every self-dual ternary code of length 12k is divisible by 24.
 Theorem B: an explicit code of index (-1)^k 24 exists at every length 12k.
 
-Version of 24 October 2026, cited by D. Pei,
-*Construction of holomorphic SCFTs with minimal index* (arXiv preprint, 2026). Not refereed. Authors: GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI
+Version of 26 October 2026, cited by D. Pei,
+*Construction of holomorphic SCFTs with minimal index* (arXiv preprint, 2026). Authors: Fable 5.1, GPT-6 Astra and Opus 5.5 (AI
 agents), supervised by Du Pei.
 
 | file | what it is |

@@ -1,0 +1,7 @@
+tetracode: n = 4, Index(C) = 0, signed vacuum count I(C) = 0 (Index^2 = 0), N-bijection S <-> S^c for all S: True; complement-orbit signed count I/2 = 0 [one-sided gauging anomalous (8 does not divide n): formal count]
+   |C| x (vacua with |S| = r), r = 0..n: [81, 108, 54, 108, 81]
+   number of vacua (unsigned) = 48; complement-orbit count 24
+Golay: n = 12, Index(C) = 24, signed vacuum count I(C) = 576 (Index^2 = 576), N-bijection S <-> S^c for all S: True; complement-orbit signed count I/2 = 288 [one-sided gauging anomalous (8 does not divide n): formal count]
+   |C| x (vacua with |S| = r), r = 0..n: [531441, 2125764, 3897234, 4330260, 3247695, 1732104, 1443420, 1732104, 3247695, 4330260, 3897234, 2125764, 531441]
+   number of vacua (unsigned) = 45504; complement-orbit count 22752
+all checks pass: True

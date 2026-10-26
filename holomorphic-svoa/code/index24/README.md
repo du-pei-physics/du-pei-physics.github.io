@@ -24,4 +24,4 @@ Citable standalone version of both proofs, with copies of these scripts and the 
 (to be published at https://du-pei-physics.github.io/gj-conjecture/); the paper cites that note.
 
 Status: both halves proved (A.7, A.8), checked numerically here, by the referee (A.7) and by independent
-recomputations (A.8); not yet refereed externally and not yet reviewed by DP. Licence: MIT (see `../LICENSE`).
+recomputations (A.8). Licence: MIT (see `../LICENSE`).

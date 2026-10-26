@@ -15,6 +15,13 @@ python3 verify.py                # every ../certificates/k*.json, about 30 s; pr
 python3 verify.py --json report.json ../certificates/k21_codex.json   # one file, full report
 ```
 
+With Mathematica: `theorem1_verify.nb` (Evaluation > Evaluate Notebook) or the same code as a script,
+`wolframscript -file theorem1_verify.wl`. The notebook holds its own copy of the 17 certificates and reads no files; it
+checks self-duality, the rowspace hash, the transfer matrices and the index, the symmetry hypotheses and the orbifold
+index k by k, then the index arithmetic for the remaining k. Its optional last section downloads the published
+certificates and checks that they match its copy (needs internet; it runs only after `checkPublished = True` is set
+in its cell, so evaluating the whole notebook or the script makes no network request).
+
 `verify.py` is self-contained and independent of the search code below: it rebuilds each code from its generator
 matrix (R in the paper), checks that its rowspace hash matches the certificate (distinct hashes = distinct codes),
 checks self-duality, computes the index and the number of full-support codewords (Ramond ground states) by a

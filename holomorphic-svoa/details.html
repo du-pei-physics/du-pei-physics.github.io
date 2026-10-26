@@ -26,7 +26,7 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 <main id="main">
 <h1>Details: statements, arguments, status</h1>
 <p class="subtitle">Agent-facing companion to the <a href="index.html">summary</a> and to D.&nbsp;Pei,
-<em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026). Numbered statements; every one carries a label. Version of 24 October 2026.</p>
+<em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026). Numbered statements; every one carries a label. Version of 26 October 2026.</p>
 
 <div class="note">
 <p><strong>Labels.</strong>
@@ -93,8 +93,8 @@ the number of full-support codewords; <code>verify.py</code> prints both numbers
 for all \(k\ge1\), and for every \(k\ge1\) some self-dual code of length \(12k\) has index 24. (Statements and numbers checked
 against the arXiv text of GJF on 19 Oct.) <span class="tag proved">proved</span> Both sentences of Conj. 1.4 hold: the first by
 A.7 (\(8\mid\mathrm{Index}(C)\) by an elementary argument, the factor 3 from GJF Thm 1.3), the second by A.8 (an explicit
-code of index \((-1)^k\,24\) at every length \(12k\)). Both proofs are also written up as a standalone note,
-<a href="../gj-conjecture/index.html">../gj-conjecture/</a>, which the paper cites.</p>
+code of index \((-1)^k\,24\) at every length \(12k\)). Both proofs are also written up as the note
+<a href="../gj-conjecture/index.html"><em>The index of self-dual ternary codes</em></a>, which the paper cites.</p>
 
 <p class="stmt" id="A4"><span class="label">A.4 (Code automorphisms act).</span>
 <span class="tag cited">cited</span> GJF Thm 3.1: the group of monomial automorphisms of \(C\) (signed permutations
@@ -141,7 +141,7 @@ here.</p>
 are given in full below; the corollary A.7.6 takes the factor 3 from GJF Thm 1.3 (<span class="tag cited">cited</span>).
 As additional checks (A.7.8), the statements were tested numerically, an adversarial referee (a separate AI agent with
 its own code) found no gap, and the Codex team's audit of 20 October 2026 reviewed the four lemmas directly and found no
-gap. None of this is external refereeing: not yet refereed externally and not yet reviewed by DP. A standalone version with
+gap. A standalone version with
 the complete proof is Section 2 of the note on GJF Conjecture 1.4,
 <a href="../gj-conjecture/index.html#divisibility">../gj-conjecture/index.html#divisibility</a>; the paper cites that
 version.</p>
@@ -284,8 +284,7 @@ enumeration in 100 neighbour steps at \(n=12\) confirmed the identities of Lemma
 exact identity between an \(81\times81\) integer matrix and an integer vector (A.8.5), which is also given as a sparse
 machine-readable certificate. As additional checks (A.8.6), the identity and the theorem were verified by the two programs
 used when the construction was found, by an independent recomputation written only from the stated vectors, by the stand-alone script of this folder, and in the Codex team's audit of 20 October 2026, which rebuilt
-the finite certificate with its own code and found no missing step in the argument. None of this is external refereeing:
-not yet refereed externally and not yet reviewed by DP. A standalone version with the complete proof is Section 3 of the
+the finite certificate with its own code and found no missing step in the argument. A standalone version with the complete proof is Section 3 of the
 note on GJF Conjecture 1.4, <a href="../gj-conjecture/index.html#existence">../gj-conjecture/index.html#existence</a>;
 the paper cites that version.</p>
 <p><strong>What is proved.</strong> The second sentence of GJF Conj. 1.4: for every \(k\ge1\) there is a self-dual
@@ -398,8 +397,8 @@ the signed counts of full-support words over the nine cosets of such a coupling 
 81 numbers) turns attachment into a state machine, and a search over couplings found states that are mapped to minus
 themselves. The quadruple \(p,r,v,w\) above is one of six sparse loops found, all of total weight 12 and sign \(-1\).
 <em>One coupling vector is not enough:</em> every neighbour of a direct sum of two self-dual codes whose lengths are
-divisible by 12 has index divisible by 72 (proved in Section 4.3 of the standalone note,
-<a href="../gj-conjecture/index.html#onevector">../gj-conjecture/index.html#onevector</a>: Lemmas 10 and 11, Proposition
+divisible by 12 has index divisible by 72 (proved in Section 4.3 of the note
+<a href="../gj-conjecture/index.html#onevector"><em>The index of self-dual ternary codes</em></a>: Lemmas 10 and 11, Proposition
 12), so a single neighbour step from a decomposable code never reaches \(\pm24\).
 <em>SCFTs</em> (<span class="tag proved">proved, given GJF Thm 5.6</span>). Every linear code is preserved by the
 scalar \(-1\); no automorphism of \(C_k\) of higher order with the properties required by GJF Thm 5.6 (A.5) is
@@ -704,7 +703,7 @@ Scope: this is a classification within that family, not an unrestricted optimali
 only; the spin twists are the seed Arf sign, the Kitaev twists and the discrete torsion restricted from the Pin cover (not
 every class of \(H^2(G,U(1))\) for exotic subgroups such as \(\mathbb Z_2^3\le S_6\)); degrees 8, 12, 24 only for symmetric
 and cyclic groups (the first search).
-<br><span class="tag computed">computed</span> <em>Extended search: precise scope</em> (status of 24 October 2026).
+<br><span class="tag computed">computed</span> <em>Extended search: precise scope</em> (status of 26 October 2026).
 <br><em>Family.</em> Permutation orbifolds \(V^{\otimes N}/\!\!/G\), \(G\le S_N\) acting on the copies, with all twists in
 \(H^2(G,\mathrm U(1))\) and the Pin/Arf-type twists (the Arf sign and \(H^1(G,\mathbb Z_2)\)); the twists are exact for most
 groups and a Sylow-based superset for large non-solvable ones (conservative at the level of the group enumeration). These steps are iterated
@@ -718,17 +717,28 @@ for \(N=9\)&ndash;11 is complete (3,094 records at \(N=11\), 108 of them Sylow s
 steps that reach a minimal index are \(\mathrm{Sym}^2\) from \(k=6\) to \(12\) (seeds of index \(\pm4\)) and, at \(k=24\) (the
 earlier \(N\le6\) run above), \(\mathrm{Sym}^2\) from 12 to 24 and the twisted \(D_4\) orbifold from 6 to 24. No evaluation was
 non-integral.
-<br><em>Running on 24 October 2026.</em> Closure steps with \(N=10\), 11; record generation for \(N=12\) (all 10,723 subgroup
-classes) and for the transitive groups of degree 9&ndash;24 (\(k_0=1\)); a full \(k\le24\) closure with a symmetry reduction.
-These are not results.
+<br><em>Status of 26 October 2026.</em> Record generation is complete for all subgroup classes with \(N\le12\) (1,593,
+3,094 and 10,723 classes at \(N=10\), 11, 12) and for the transitive groups of degree 9&ndash;19 (\(k_0=1\)), except 12 groups (one of degree 16,
+eleven of degree 18) whose GAP runs timed out and which are skipped; degrees 20&ndash;23 were resumed on 25 October
+(degree 24 is not scheduled). A full \(k\le24\) closure with a symmetry reduction,
+using all of these records, is complete through \(k=11\) and found no new minimal-index route. Level 11 had run for
+17 hours on two threads without finishing. Profiling showed that almost all of the time went into exact verification
+of every twist at grid points where the floating-point error budget is exceeded. Those points are now evaluated exactly
+by modular arithmetic with a certified bound. On the grids tested, this gave output identical to the per-twist
+verification, about 300 times faster; with it, level 11 finished in 8 minutes on 25 October. Level 12 then stalled
+when a worker ran out of memory on one of the records with very large twist groups listed below; it was restarted on
+26 October with memory limits and with those records skipped. The levels \(k\ge12\) and the degrees 20&ndash;23 are
+not results yet.
 <br><em>Exactness.</em> Within the stated group families and seed-index windows, the implemented search found no additional
 minimal-index construction. It uses floating-point screening with exact fallback; the newer grid evaluator also verifies
 surviving values exactly in cyclotomic arithmetic, while the earlier window evaluator uses the rounded values directly when
 its tolerance is small. The pruning margin (\(10^{-9}\times\) scale) is far above the expected rounding error, but no
 end-to-end error bound for this implementation is documented, and the current release does not provide a complete
 numerical certificate of exclusion.
-<br><em>Not covered.</em> Intransitive subgroups acting diagonally on several orbits (subdirect products) for
-\(13\le N\le24\) beyond the families above; seeds outside the index windows; symmetries other than permutations of copies
+<br><em>Not covered.</em> Records whose twist groups are too large to scan, more than about \(8\cdot10^6\)
+twists (29 records: four subgroup classes of degree 12 and 25 transitive groups of degree 14&ndash;20, the largest with
+about \(10^{11}\) twists); the closure skips them and lists them in its checkpoint as each level completes. Intransitive subgroups acting
+diagonally on several orbits (subdirect products) for \(13\le N\le24\) beyond the families above; seeds outside the index windows; symmetries other than permutations of copies
 (code automorphisms, an internal symmetry combined with a permutation, orbifolds of non-product theories); non-invertible
 gaugings; and the anomaly-freedom of each evaluated orbifold: the search checks index arithmetic and integrality only, so a
 positive hit would need a separate check.
@@ -892,7 +902,7 @@ arXiv:2107.09400 (Thms 3.10, 3.11; regularity in the general case only); Davighi
 them [C&deg;] (Galois correspondence, lattice fusion, Lin). Review: three rounds by the Codex team
 (<code>docs/gauging_lemma_*review*.md</code>, workspace, not published); every point was addressed. Codex's last assessment: the
 categorical route is appropriate and McRae's Remark 4.16 is not an obstruction; it is &ldquo;not an independent
-verification of every cited theorem&rdquo;. Not refereed.</p>
+verification of every cited theorem&rdquo;.</p>
 
 <!-- ============================================================== G -->
 <h2 id="G">G. Every \(k\): constructions, certificates, verification</h2>
@@ -1262,6 +1272,22 @@ ordinary orbifold, of index \((-2+8)/3=2\) by the formula of L.2, but no descrip
 not self-dual \(C\) the paper proposes the diagonal pairing over \(C^\perp/C\) (the zero code \(C=\{0\}\) gives \(n\) copies of
 the minimal model); nothing beyond L.3's first identity is claimed here for that case, and the paper's remarks on
 \((\ell+2)\)-nary codes are speculative.</p>
+<p class="stmt" id="L6"><span class="label">L.6 (Beyond the doubled seed).</span> The gapping problem for
+\(\overline T\otimes T\) and \(\overline{T''}\otimes T''\) is treated in the note
+<a href="../gapping-doubles/index.html"><em>Gapping the non-chiral doubles of holomorphic SCFTs</em></a>.</p>
+<ul>
+  <li><span class="tag proved">proved</span> Rigidity: no relevant or marginal supersymmetric operator at a double with
+    nonzero index.</li>
+  <li><span class="tag conj">argument</span> The obstruction found in every Lagrangian description.</li>
+  <li><span class="tag computed">computed</span> The duality line behind the chiral sign flip is fermion-odd: the
+    \(c=1\) theory is \(\mathbb Z_3\)-self-dual up to Arf.</li>
+  <li><span class="tag conj">argument</span> Conditional on the proposed spin refinement of the duality category, the
+    code-plus-duality gauging is unobstructed at the fusion level exactly for even \(k\).</li>
+  <li><span class="tag proved">proved, given four assumptions</span> The 576-fold periodicity in the framework of
+    Johnson-Freyd and Yamashita (arXiv:2404.06333). It assumes torsion-free \(\pi_0\mathrm{SQFT}\), torsion kernel of
+    the genus in degree \(\pm576\), and L.1 for the Golay chain of length 288; the gapping of L.2 provides the missing
+    relation.</li>
+</ul>
 
 <!-- ============================================================== J -->
 <h2 id="J">J. Open problems and conjectures</h2>
@@ -1284,6 +1310,11 @@ census gcds; a hexad-free count of the weight-6 terms in D.2.</li>
 <li><span class="tag open">open</span> <strong>Genuine equivariant tmf</strong> (I.3).</li>
 <li><span class="tag open">not tried</span> <strong>Non-cyclic abelian symmetries with discrete torsion</strong>
 (e.g. \(\mathbb Z_2\times\mathbb Z_6\), \(\mathbb Z_3^2\)) could replace the balance condition; not needed after \(k=18,21\) were found.</li>
+<li><span class="tag open">open</span> <strong>Invertibility of \(T''\).</strong> A supersymmetric gapping of
+\(\overline{T''}\otimes T''\) to one vacuum would give the upper bound of the 576-fold periodicity with no further
+assumption. Alternatively, the deformation equivalence \([V_{\Lambda(C_{288})}]=-24[T'']\) would give it under the
+remaining assumptions of L.6, the role played there by (A4). Neither is known (L.6;
+<a href="../gapping-doubles/index.html#periodicity"><em>Gapping the non-chiral doubles of holomorphic SCFTs</em>, &sect;5</a>).</li>
 </ol>
 
 <!-- ============================================================== K -->
@@ -1328,7 +1359,7 @@ confirmed before publication.</p>
 </ul>
 </main>
 <footer>
-Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei; companion to
+Written by Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei; companion to
 D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
 Code: MIT. Text and data: CC BY 4.0 (<a href="LICENSE">LICENSE</a>).
 Human-readable summary: <a href="index.html">index.html</a>.

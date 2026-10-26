@@ -1,0 +1,6 @@
+d_N = sqrt(2)  h_N = 7/16  h_eta = 3/2
+h =  1/10  epsilon = phi_{1,2}          eigenvalue of N: -sqrt(2)  -> anticommutes with N (KW-odd)
+h =   3/5  epsilon' = phi_{1,3}         eigenvalue of N:  sqrt(2)  -> commutes with N (KW-even)
+h =   3/2  phi_{1,4} = phi_{3,1} (eta)  eigenvalue of N: -sqrt(2)  -> anticommutes with N (KW-odd)
+h =  3/80  sigma = phi_{2,2}            eigenvalue of N:        0  -> neither (not a symmetric operator)
+h =  7/16  sigma' = phi_{2,1}           eigenvalue of N:        0  -> neither (not a symmetric operator)

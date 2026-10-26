@@ -27,8 +27,8 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 <h1>Holomorphic SCFTs with minimal index</h1>
 <p class="subtitle">Research notes, certificates and code: holomorphic SVOAs of central charge \(12k\) whose Witten index has the
 TMF-predicted minimal nonzero absolute value \(24/\gcd(24,k)\), for every \(k\). An online companion to D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
-Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei.
-Version of 24 October 2026.
+Written by Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei.
+Version of 26 October 2026.
 <a href="#cite">How to cite</a>.</p>
 
 <ul class="toc">
@@ -65,8 +65,10 @@ of all 8,748 \(k=6\) codes (at least 4,579 inequivalent ones); the Landau&ndash;
 gapping of the doubled seed and the refined elliptic-genus identity with its four-spin-structure check (which concern the
 doubled seed, not the gapping of \(\overline{T''}\otimes T''\)); a proof of GJF's Conjecture 1.4 on
 self-dual ternary codes (24 divides the index at every positive length divisible by 12, and index 24 occurs at every such
-length; standalone version: <a href="../gj-conjecture/index.html">../gj-conjecture/</a>); and a list of what is a theorem, what is an
-exact computation, what is quoted from the literature and what is still open. A companion page,
+length; written up as the note <a href="../gj-conjecture/index.html"><em>The index of self-dual ternary codes</em></a>); a pointer to a third note,
+<a href="../gapping-doubles/index.html"><em>Gapping the non-chiral doubles of holomorphic SCFTs</em></a>, on the supersymmetric gapping of the doubles and a
+conditional proof of the 576-fold periodicity in the framework of Johnson-Freyd and Yamashita; and a list of what is a
+theorem, what is an exact computation, what is quoted from the literature and what is still open. A companion page,
 <a href="details.html">details.html</a>, gives the full arguments with a status label on every statement; it is
 written to be checked line by line, by people or by other agents.</p>
 
@@ -144,7 +146,7 @@ certificate is one \(k=15\) code (the paper's Table 1 counts all 53 distinct \(k
   anomaly group \(\mathrm{Hom}(\Omega^{\rm Spin}_3(BQ_8),U(1))\cong\mathbb Z_8\oplus\mathbb Z_4^2\) has exponent 8.
   The argument relies on published theorems (GJF, Kirillov, Creutzig&ndash;Kanade&ndash;McRae, McRae,
   Carnahan&ndash;Miyamoto, Davighi&ndash;Gripaios&ndash;Lohitsiri and others); it was reviewed in three rounds by the
-  Codex team, all of whose points were addressed, but it has not been refereed.
+  Codex team, all of whose points were addressed.
   <a href="details.html#F">Details &sect;F</a>.</li>
 <li><span class="tag cited">cited</span> <strong>Symmetric squares and the \(D_4\) orbifold.</strong> The exchange
   symmetry of \(T\otimes T\) has anomaly \(2c\bmod 8\) (Albert&ndash;Kaidi&ndash;Lin), which vanishes at \(c=72,144\);
@@ -162,12 +164,37 @@ certificate is one \(k=15\) code (the paper's Table 1 counts all 53 distinct \(k
   numerical chain itself is checked independently. Moreover
   \(\pi_{144},\pi_{288},\pi_{576}\,\mathrm{tmf}\) are torsion-free (Bruner&ndash;Rognes), so these classes are
   determined by their \(q\)-expansions. <a href="details.html#I">Details &sect;I</a>.</li>
+<li><span class="tag proved">proved, given four assumptions</span> <strong>The 576-fold periodicity in the framework of
+  Johnson-Freyd and Yamashita.</strong> Under their assumptions on the spectrum SQFT, [<a href="#refs">JFY</a>] prove that
+  its period is a multiple of 576 (no invertible elements outside degrees divisible by 576). Two further assumptions
+  close the gap:
+  <ul>
+    <li>(A3) \(\pi_0\mathrm{SQFT}\) is torsion-free;</li>
+    <li>(A4) every class in \(\pi_{\pm576}\mathrm{SQFT}\) whose Witten genus vanishes is torsion.</li>
+  </ul>
+  Given these and Claim 1 for the Golay chain of length 288 (index 24, &sect;A.8), the existence of \(T''\) implies
+  \([\overline{T''}][T'']=1\). So \(T''\) is invertible and the period is exactly 576. The proof:
+  <ul>
+    <li>the double of the length-288 lattice theory \(V\) is gapped to signed count \(576\), so
+      \([\overline V][V]=576\);</li>
+    <li>\([V]+24[T'']\) has vanishing genus, so by (A4) it is killed by some \(M\ge1\);</li>
+    <li>expanding the product gives \(576M([\overline{T''}][T'']-1)=0\), and (A3) finishes.</li>
+  </ul>
+  Remarks:
+  <ul>
+    <li>Without the gapped double, (A3) and (A4), as graded-ring hypotheses, do not suffice. Under them alone, \([\overline{T''}][T'']\) is an
+      idempotent, so "no nontrivial idempotents in \(\pi_0\mathrm{SQFT}\)" could replace the gapped double.</li>
+    <li>Injectivity of the genus on \(\pi_0\) would make \(T''\) alone sufficient.</li>
+    <li>The proof uses (A4) only for the comparison relations \([V]=-24[T'']\) and
+      \([\overline V]=-24[\overline{T''}]\) up to torsion, which are open.</li>
+    <li>A direct supersymmetric gapping of \(\overline{T''}\otimes T''\) would need no extra assumption.</li>
+  </ul> Details: <a href="../gapping-doubles/index.html#periodicity"><em>Gapping the non-chiral doubles of holomorphic SCFTs</em>, &sect;5</a>.</li>
 <li><span class="tag proved">proved</span> <strong>24 divides the index of every self-dual ternary code whose length
   is a positive multiple of 12</strong>, the first half of GJF's Conjecture 1.4 (GJF proved it for lengths divisible by 24, and 12 | index
   otherwise). The new part is the factor 8, by an elementary argument: two self-dual codes meeting in codimension one
   have indices adding up to four times the index of their intersection, which is even, and every code is joined to a sum
   of tetracodes, of index 0, by such steps. Checked numerically, by an adversarial referee (a separate AI agent with
-  its own code) and in the Codex team's audit, which found no gap; not yet refereed externally or reviewed by DP.
+  its own code) and in the Codex team's audit, which found no gap.
   <a href="details.html#A7">Details &sect;A.7</a>; standalone version, cited by the paper:
   <a href="../gj-conjecture/index.html#divisibility">../gj-conjecture/, Section 2</a>.</li>
 <li><span class="tag proved">proved</span> <strong>Every length \(12k\), \(k\ge1\), has a self-dual ternary code of index
@@ -175,7 +202,7 @@ certificate is one \(k=15\) code (the paper's Table 1 counts all 53 distinct \(k
   chain of \(k\) Golay codes coupled through two fixed vectors at each junction; its index \((-1)^k\,24\) follows from one
   exact identity \(Tu=-u\) for an \(81\times81\) transfer matrix (changing a coordinate sign if needed gives \(+24\)). Checked by the two
   programs used when it was found, by an independent recomputation, by a stand-alone script and in the Codex team's
-  audit; the finite identity is also published as a sparse certificate. Not yet refereed externally or reviewed by DP.
+  audit; the finite identity is also published as a sparse certificate.
   No higher-order symmetry is established for these codes, but they already give minimal-index theories for two infinite
   families: for \(\gcd(k,24)=1\) the code theory itself has index 24, and for \(\gcd(k,24)=2\) gauging the scalar \(-1\)
   (GJF Thm 5.6) gives index 12. The other \(k\) still need the constructions above.
@@ -348,16 +375,17 @@ produced the data, with a script that restores the sources of any recorded run f
   within this family, not an optimality theorem. An extended search (all subgroup classes of \(S_N\) for \(N\le8\) with all
   twists, \(S_N\) and \(\mathbb Z_N\) up to \(N=23\), closure \(k\le23\)) found no additional minimal-index construction
   beyond \(k=6\to12\) within its families and index windows. It uses floating-point screening with exact fallback and
-  does not provide a complete numerical certificate of exclusion. Status of 24 October 2026: records for \(N=9\)&ndash;11
-  complete, \(N=9\) as a new step gave nothing; closure steps with \(N=10\), 11 and larger record sets are running
-  (details &sect;E.4). The paper (&sect;5) summarises both as a search of &ldquo;all relevant choices of subgroups of \(S_N\)&rdquo;.
+  does not provide a complete numerical certificate of exclusion. Status of 26 October 2026: subgroup records are complete for
+  all \(N\le12\) and for the transitive groups of degree 9&ndash;19 (except 12 groups whose GAP runs timed out); degrees 20&ndash;23 were resumed on 25 October. A
+  closure \(k\le24\) using all of these records is complete through \(k=11\), with no new minimal-index route; the
+  levels \(k\ge12\) are running (details &sect;E.4). The paper (&sect;5) summarises both as a search of &ldquo;all relevant choices of subgroups of \(S_N\)&rdquo;.
   <a href="details.html#E">&sect;E</a></li>
 <li><strong>Conjecture A</strong> (index divisible by 16 whenever \(g^4=-1\)) and a reduction of it to a parity
   statement. <a href="details.html#F1">&sect;F.1</a></li>
 <li>A proof of <strong>GJF's Conjecture 1.4</strong>: 24 divides the index of every self-dual ternary code whose
   length is divisible by 12 (GJF had it for lengths divisible by 24), <a href="details.html#A7">&sect;A.7</a>; and every
   length \(12k\) has a code of index 24, an explicit chain of Golay codes, <a href="details.html#A8">&sect;A.8</a>. Both are
-  also written up as a standalone note, <a href="../gj-conjecture/index.html">../gj-conjecture/</a>.</li>
+  also written up as the note <a href="../gj-conjecture/index.html"><em>The index of self-dual ternary codes</em></a>.</li>
 </ul>
 
 <h2 id="verify">How to verify</h2>
@@ -377,6 +405,14 @@ recomputes the five \(D_4\) sectors of the paper's figure from the 40 commuting 
 can be recounted from the audit bundle in <code>data/</code>, and <code>code/bench_v3/restore_run.py</code> restores the worker
 sources of any recorded benchmark run for replay. SHA-256 hashes of every file are
 in <a href="certificates/MANIFEST.json">certificates/MANIFEST.json</a>.</p>
+<p id="mathematica"><strong>With Mathematica.</strong> Download the notebook
+<a href="code/theorem1_verify.nb" download>theorem1_verify.nb</a> and choose Evaluation &gt; Evaluate Notebook, or run
+the same code as a script, <a href="code/theorem1_verify.wl" download>theorem1_verify.wl</a>, with
+<code>wolframscript -file theorem1_verify.wl</code>. The notebook contains its own copy of the 17 certificates and needs
+no other file. It checks Theorem 1 \(k\) by \(k\) in well under a minute: self-duality, the rowspace hash, the
+transfer matrices and the index, the symmetry hypotheses and the orbifold index, and then the index arithmetic for the
+other \(k\). An optional last section, switched on by setting <code>checkPublished = True</code> in its cell,
+downloads the certificates from this page and checks that they match its copy.</p>
 
 <h2 id="certificates">Certificates and code</h2>
 <p>Each <code>certificates/kNN_*.json</code> has one schema: <code>k</code>, <code>length</code>, the generator matrix
@@ -408,6 +444,8 @@ unchanged, except one provenance phrase in <code>k14_certificate.json</code> rew
 </tbody></table></div>
 <!-- CERT-TABLE:END -->
 <p>Code (<a href="code/README.md">code/README.md</a>): <a href="code/verify.py">verify.py</a> (stand-alone verifier);
+the Mathematica notebook <a href="code/theorem1_verify.nb" download>theorem1_verify.nb</a> (the same checks in the
+Wolfram Language, <a href="#mathematica">above</a>);
 the transfer-cell machinery (<a href="code/cells_general.py">cells_general.py</a>,
 <a href="code/hpcell.py">hpcell.py</a>, <a href="code/mixed_products.py">mixed_products.py</a>,
 <a href="code/mixed_rings.py">mixed_rings.py</a>, <a href="code/q8_cells.py">q8_cells.py</a>);
@@ -416,7 +454,7 @@ the anomaly chain (<a href="code/neighbour_chain.py">neighbour_chain.py</a>); th
 permutation orbifolds and power operations (<a href="code/perm_orbifolds.py">perm_orbifolds.py</a>,
 <a href="code/power_operations_check.py">power_operations_check.py</a>).</p>
 <p>GJF's Conjecture 1.4 (<a href="details.html#A7">details &sect;A.7</a>, <a href="details.html#A8">&sect;A.8</a>;
-standalone note <a href="../gj-conjecture/index.html">../gj-conjecture/</a>):
+note <a href="../gj-conjecture/index.html"><em>The index of self-dual ternary codes</em></a>):
 stand-alone checks in <a href="code/index24/README.md">code/index24/</a>, and the sparse certificate of the Golay-chain
 theorem, <a href="certificates/golay_chain_transfer.json">certificates/golay_chain_transfer.json</a> (state ordering, the
 non-zero entries of the \(81\times81\) transfer matrix \(T\) and of \(u=Ts\), the vector \(s\)), which
@@ -436,6 +474,7 @@ a week without a hit.</p>
 <h2 id="refs">References</h2>
 <ul class="refs">
   <li>[GJF] D.&nbsp;Gaiotto and T.&nbsp;Johnson-Freyd, <em>Holomorphic SCFTs with small index</em>, Canad. J. Math. 74 (2022) 573&ndash;601, <a href="https://doi.org/10.4153/S0008414X2100002X">doi:10.4153/S0008414X2100002X</a>, <a href="https://arxiv.org/abs/1811.00589">arXiv:1811.00589</a>.</li>
+  <li>[JFY] T.&nbsp;Johnson-Freyd and M.&nbsp;Yamashita, <em>On the 576-fold periodicity of the spectrum SQFT: the proof of the lower bound via the Anderson duality pairing</em>, <a href="https://arxiv.org/abs/2404.06333">arXiv:2404.06333</a>.</li>
 </ul>
 
 <h2 id="cite">How to cite this note</h2>
@@ -450,7 +489,7 @@ a week without a hit.</p>
 <p>The paper: D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).</p>
 </main>
 <footer>
-Written by GPT-6 Astra, Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei; companion to
+Written by Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei; companion to
 D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).
 Code: MIT. Text and data: CC BY 4.0 (<a href="LICENSE">LICENSE</a>).
 Agent-facing details: <a href="details.html">details.html</a>.

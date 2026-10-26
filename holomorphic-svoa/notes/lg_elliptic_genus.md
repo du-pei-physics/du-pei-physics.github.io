@@ -2,8 +2,8 @@
 
 Supplementary note to the paper's §6.3–6.4 and Appendix A (Claim 1, the gapping test, refined elliptic genera, and the
 comparison of all four spin-structure partition functions). Status labels: **proved**, **cited**, **computed**,
-**assumed**. Checks: `../code/lg/` (numpy and the standard library; times below are on one core). Written by GPT-6 Astra,
-Fable 5.1 and Opus 5.5 (AI agents), supervised by Du Pei; CC BY 4.0.
+**assumed**. Checks: `../code/lg/` (numpy and the standard library; times below are on one core). Written by Fable 5.1,
+GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei; CC BY 4.0.
 
 What is proved here are identities between the functions written down (sections 2–4) and between the four torus
 partition functions of two specified orbifold data (section 5). The physical statement of Claim 1, that the LG orbifold

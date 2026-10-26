@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gapping non-chiral doubles</title>
+<meta name="description" content="Can one show that the index-1 holomorphic SCFT at c = 288 is a periodic element by gapping its non-chiral double supersymmetrically? What is established, where the obstruction sits, a conditional proof of the 576-fold periodicity, and the open lanes.">
+<style>
+/* plain style after du-pei-physics.github.io (Arial, white, blue links); dark mode by prefers-color-scheme */
+:root{--bg:#ffffff;--fg:#212121;--muted:#666;--faint:#767676;--line:#e6e6e6;--link:#1565c0;--link-hover:#0d47a1;--code-bg:#f5f5f5;--table-head:#fafafa;--note-bg:#f3f7fc;--note-line:#bcd3ee;--thm-line:#90a4ae;
+  --tag-proved:#1b5e20;--tag-proved-bg:#e8f5e9;--tag-cited:#0d47a1;--tag-cited-bg:#e3f2fd;--tag-computed:#4a148c;--tag-computed-bg:#f3e5f5;--tag-open:#b71c1c;--tag-open-bg:#ffebee;--tag-conj:#37474f;--tag-conj-bg:#eceff1;--tag-assumed:#8d4b00;--tag-assumed-bg:#fff3e0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121416;--fg:#e4e6e8;--muted:#a8adb2;--faint:#8f959b;--line:#2c3136;--link:#82b1ff;--link-hover:#b3cfff;--code-bg:#1d2125;--table-head:#191c1f;--note-bg:#16202b;--note-line:#2f4a68;--thm-line:#546e7a;
+  --tag-proved:#a5d6a7;--tag-proved-bg:#1b2a1d;--tag-cited:#90caf9;--tag-cited-bg:#152434;--tag-computed:#ce93d8;--tag-computed-bg:#2a1d2e;--tag-open:#ef9a9a;--tag-open-bg:#331b1b;--tag-conj:#b0bec5;--tag-conj-bg:#22282b;--tag-assumed:#ffcc80;--tag-assumed-bg:#2e2416}}
+:root[data-theme="dark"]{--bg:#121416;--fg:#e4e6e8;--muted:#a8adb2;--faint:#8f959b;--line:#2c3136;--link:#82b1ff;--link-hover:#b3cfff;--code-bg:#1d2125;--table-head:#191c1f;--note-bg:#16202b;--note-line:#2f4a68;--thm-line:#546e7a;
+  --tag-proved:#a5d6a7;--tag-proved-bg:#1b2a1d;--tag-cited:#90caf9;--tag-cited-bg:#152434;--tag-computed:#ce93d8;--tag-computed-bg:#2a1d2e;--tag-open:#ef9a9a;--tag-open-bg:#331b1b;--tag-conj:#b0bec5;--tag-conj-bg:#22282b;--tag-assumed:#ffcc80;--tag-assumed-bg:#2e2416}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 Arial,Helvetica,sans-serif}
+a{color:var(--link);text-decoration:underline;text-underline-offset:2px}a:hover{color:var(--link-hover)}a:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:17px 36px;border-bottom:1px solid var(--line)}
+.site-tagline{color:var(--faint);font-size:12px;line-height:1.5;text-decoration:none}.site-tagline:hover{color:var(--muted)}
+nav{display:flex;gap:24px;flex-wrap:wrap}nav a{color:var(--muted);font-size:14px;text-decoration:none}nav a:hover{color:var(--link)}
+main{max-width:860px;margin:0 auto;padding:30px 40px 60px}
+h1{font-size:34px;font-weight:400;line-height:1.25;margin:10px 0 10px}
+.subtitle{color:var(--muted);margin:0 0 6px;font-size:18px}
+.byline{margin:14px 0 4px}.dateline{color:var(--muted);font-size:14px;margin:0 0 24px}
+h2{font-size:24px;font-weight:400;line-height:1.35;margin:42px 0 14px;padding-top:6px;border-top:1px solid var(--line)}
+h3{font-size:18px;font-weight:600;line-height:1.4;margin:28px 0 10px}
+p{margin:12px 0}ul,ol{padding-left:28px;margin:10px 0 18px}li{margin:6px 0}
+code,pre{font-family:Menlo,Consolas,"Liberation Mono",monospace;font-size:0.88em}
+code{background:var(--code-bg);padding:1px 4px;border-radius:3px;overflow-wrap:anywhere}
+pre{background:var(--code-bg);padding:12px 14px;border-radius:4px;overflow-x:auto;line-height:1.45}
+pre code{background:none;padding:0}
+.small{font-size:14px;color:var(--muted)}
+.abstract{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:6px 0;margin:0 0 24px}
+.abstract p{margin:10px 0}
+.note{background:var(--note-bg);border-left:3px solid var(--note-line);padding:10px 14px;margin:16px 0;border-radius:2px}
+.thm{margin:20px 0 10px;padding:2px 0 2px 14px;border-left:3px solid var(--thm-line)}
+.thm > p:first-child{margin-top:4px}.thm .label{font-weight:600}
+.proof{margin:8px 0 18px}.proof > p:first-child::before{content:"Proof. ";font-style:italic}
+.qed{float:right;margin-left:10px}.proof p::after,.thm p::after{content:"";display:table;clear:both}
+.tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.02em;padding:0 6px;border-radius:3px;margin-left:6px;vertical-align:2px;white-space:nowrap}
+.tag.proved{color:var(--tag-proved);background:var(--tag-proved-bg)}.tag.cited{color:var(--tag-cited);background:var(--tag-cited-bg)}
+.tag.computed{color:var(--tag-computed);background:var(--tag-computed-bg)}.tag.open{color:var(--tag-open);background:var(--tag-open-bg)}
+.tag.conj{color:var(--tag-conj);background:var(--tag-conj-bg)}.tag.assumed{color:var(--tag-assumed);background:var(--tag-assumed-bg)}
+.toc{font-size:15px;padding-left:20px}.toc li{margin:3px 0}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0 18px}
+table.data{border-collapse:collapse;font-size:14.5px}
+table.data th,table.data td{border-bottom:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top}
+table.data th{background:var(--table-head);font-weight:600;white-space:nowrap}
+table.grid td,table.grid th{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;padding:4px 8px}
+table.grid td.z{color:var(--faint)}
+ol.refs{padding-left:0;list-style:none}ol.refs li{margin:8px 0;padding-left:64px;text-indent:-64px}
+mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}
+.matfig{margin:16px 0 22px}.matfig img{display:block;width:100%;height:auto;image-rendering:crisp-edges;image-rendering:pixelated;border:1px solid var(--line)}.matfig.narrow{max-width:420px}.matfig figcaption{font-size:14px;color:var(--muted);margin-top:6px}.matgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin:12px 0 20px}.matgrid figure{margin:0}.matgrid img{display:block;width:100%;height:auto;image-rendering:crisp-edges;image-rendering:pixelated;border:1px solid var(--line)}.matgrid figcaption{font-size:13px;color:var(--muted);margin-top:4px}
+footer{max-width:860px;margin:0 auto;padding:18px 40px 40px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media(max-width:640px){.site-header{padding:14px 16px;flex-direction:column;align-items:flex-start;gap:8px}main{padding:22px 16px 46px}footer{padding:16px 16px 34px}h1{font-size:27px}h2{font-size:21px}table.data{font-size:13.5px}ol.refs li{padding-left:0;text-indent:0}}
+@media print{.site-header nav{display:none}main{max-width:none;padding:10px}body{font-size:11pt}a{color:inherit}}
+</style>
+<script>
+window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']]},
+                  options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']}};
+</script>
+<script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"
+        onerror="var s=document.createElement('script');s.async=true;s.src='https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js';document.head.appendChild(s);"></script>
+</head>
+<body>
+<header class="site-header">
+  <a class="site-tagline" href="https://du-pei-physics.github.io/">Du Pei &mdash; home</a>
+  <nav aria-label="Sections of this note">
+    <a href="#established">Established</a>
+    <a href="#obstruction">Obstruction</a>
+    <a href="#periodicity">Periodicity</a>
+    <a href="#lanes">Open lanes</a>
+    <a href="#code">Code</a>
+  </nav>
+</header>
+<main id="main">
+<h1>Gapping the non-chiral doubles of holomorphic SCFTs</h1>
+<p class="subtitle">Can one show that the index-1 theory \(P\) at \(c=288\) is a periodic element by gapping its
+non-chiral double \(\overline P\otimes P\) supersymmetrically?</p>
+<p class="byline">Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei</p>
+<p class="dateline">Version of 26 October 2026.</p>
+
+<div class="abstract">
+<p><strong>Abstract.</strong> Suppose the double \(\overline P\otimes P\) of the index-1 theory \(P\) at \(c=288\)
+[<a href="#ref-Pei">Pei</a>] admits a deformation that preserves \((0,1)\) supersymmetry and ends in a gapped phase with
+one vacuum. Then \(P\) is invertible up to deformation, without any appeal to the Segal&ndash;Stolz&ndash;Teichner
+conjecture. Together with the lower bound of Johnson-Freyd and Yamashita [<a href="#ref-JFY">JFY</a>], the spectrum of
+supersymmetric field theories would then have period exactly \(576\). This note reports what an attempt to find such a
+deformation established.</p>
+<p>Assume the flow of the Landau&ndash;Ginzburg orbifold \((\sum_i\Phi_i^3)/C\) to the double of the code theory
+(Claim 1 of [<a href="#ref-Pei">Pei</a>]; its Witten index and refined elliptic genus have been checked). Then the
+doubles of the lattice SVOAs \(V_{\Lambda(C)}\) are gapped along a supersymmetric path by a Morse function. Every double
+with nonzero index is supersymmetrically rigid: it has no relevant or marginal supersymmetry-preserving operator, so a
+gapping path has to start in an ultraviolet description.</p>
+<p>The orbifolds that lead from lattice theories to \(T\) and \(P\) gauge symmetries of two kinds. Their diagonal half is
+geometric in the Landau&ndash;Ginzburg description. Their chiral half is not: the chiral sign flip corresponds to a
+duality line that is exact only at the fixed point, and the chiral permutation is an infrared automorphism. In every
+Lagrangian description found, the same dichotomy appears. Either supersymmetry is manifest and the chiral half of the
+symmetry is emergent, or the chiral action is exact and supersymmetry is emergent, with no relevant supersymmetric
+operator.</p>
+<p>The tricritical Ising model shows that this dichotomy is not a theorem for theories defined as a conformal field
+theory plus a relevant perturbation. The open problem becomes the existence of a "tricritical partner" of the double.
+Three lanes remain open. Side results:</p>
+<ul>
+  <li>every holomorphic \(\mathcal N=1\) SVOA at \(c=24\) without fields of weight \(\tfrac12\) or 1 has index \(\pm24\)
+    and is the fermionization
+    of the Leech lattice theory;</li>
+  <li>the per-factor duality line of the Landau&ndash;Ginzburg model is fermion-odd. Conditional on the proposed spin
+    refinement of its fusion category, the code-plus-duality gauging is unobstructed at the fusion level exactly when
+    \(k\) is even;</li>
+  <li>on a lattice, the fermionized self-dual \(\mathbb Z_6\) clock chain appears to realize the \(c=1\)
+    \(\mathcal N=2\) point with the duality exact and supersymmetry emergent (numerical, and explained in the
+    continuum by a simple-current extension);</li>
+  <li>a conditional proof of the 576-fold periodicity in the framework of [<a href="#ref-JFY">JFY</a>]. Assume their
+    axioms, Claim 1, that \(\pi_0\mathrm{SQFT}\) is torsion-free, and that every class of degree \(\pm576\) with
+    vanishing Witten genus is torsion. Then the index-1 theory is invertible, because the double of one lattice theory
+    at \(c=288\) is gapped. The period is therefore exactly 576 (Section 5).</li>
+</ul>
+</div>
+
+<div class="note">
+<p><strong>Status.</strong> This is an independent attempt at the gapping problem, made alongside
+[<a href="#ref-Pei">Pei</a>] and not cited there. It summarizes what was tried. The dichotomy of Section 3 is a structured
+record of the descriptions examined, not a no-go theorem. Several statements rest on unpublished working notes of the
+project; they are labelled <span class="tag conj">argument</span> unless the reasoning is given here. The theories,
+certificates and Landau&ndash;Ginzburg results used below are in the companion notes [<a href="#ref-Notes">Notes</a>],
+[<a href="#ref-LG">LG</a>] and [<a href="#ref-GJConj">GJConj</a>].</p>
+<p>Labels: <span class="tag proved">proved</span> complete argument written down (here or in the cited note);
+<span class="tag computed">computed</span> exact or certified computation, reproducible from the code folder or the
+cited note (<span class="tag computed">numerical</span> marks floating-point or diagonalization evidence); <span class="tag cited">cited</span> checked against the source;
+<span class="tag assumed">assumed</span> an input taken as given, such as Claim 1 of [<a href="#ref-Pei">Pei</a>];
+<span class="tag conj">conjecture</span> supported by evidence; <span class="tag conj">argument</span> physical
+reasoning without a complete proof; <span class="tag open">open</span> not settled.</p>
+</div>
+
+<ol class="toc">
+  <li><a href="#question">The question</a></li>
+  <li><a href="#established">What is established</a></li>
+  <li><a href="#obstruction">The obstruction</a></li>
+  <li><a href="#tqft">The gapped phase and the duality line</a></li>
+  <li><a href="#periodicity">Relation to the 576-fold periodicity</a></li>
+  <li><a href="#lanes">Open lanes</a></li>
+  <li><a href="#change">What would change the picture</a></li>
+  <li><a href="#code">Code</a></li>
+  <li><a href="#credits">Who did what</a></li>
+  <li><a href="#references">References</a></li>
+</ol>
+
+<!-- ============================================================== 1 -->
+<h2 id="question">1. The question</h2>
+<p>Let \(V\) be a holomorphic \(\mathcal N=1\) SVOA and \(\overline V\otimes V\) its double: a non-chiral
+\((0,1)\) superconformal theory with the conjugate \(\overline V\) on the left-moving side and \(V\) on the
+supersymmetric right-moving side. Its
+Witten index is \(\mathrm{Index}(V)^2\).</p>
+<p>For the theories of [<a href="#ref-Pei">Pei</a>] the chain is:</p>
+<ul>
+  <li>the seed \(V=V_{\Lambda(C)}\) of a self-dual ternary code \(C\) of length 72 (\(c=72\), index \(-24\));</li>
+  <li>\(T=V/\!\!/\mathbb Z_6\) (\(c=72\), index \(-4\), no fields of weight \(\tfrac12\) or 1);</li>
+  <li>\(T'=\mathrm{Sym}^2T\) (\(c=144\), index 2);</li>
+  <li>\(P=\mathrm{Sym}^2(T'\otimes\mathrm{Arf})\) (\(c=288\), index \(-1\)), called \(T''\) in
+    [<a href="#ref-Notes">Notes</a>].</li>
+</ul>
+<p><em>Definition of done.</em> For a given double, either an explicit deformation path preserving \((0,1)\)
+supersymmetry to a gapped phase whose signed vacuum count equals the index, or a proved obstruction.</p>
+<ul>
+  <li>Invariance of the Witten index and of the elliptic genus under such deformations is used freely.</li>
+  <li>The Segal&ndash;Stolz&ndash;Teichner conjecture and results on topological modular forms are not used as inputs,
+    because they are what such a path would test.</li>
+  <li>One vacuum for \(\overline P\otimes P\) would make \(P\) invertible in the ring of deformation classes
+    (Section 5).</li>
+</ul>
+
+<!-- ============================================================== 2 -->
+<h2 id="established">2. What is established</h2>
+<div class="scroll"><table class="data">
+<tr><th>Statement</th><th>Status</th><th>Where</th></tr>
+<tr><td>The Landau&ndash;Ginzburg orbifold \((\sum_{i=1}^n\Phi_i^3)/C\) has Witten index \(\mathrm{Index}(C)^2\) for
+every self-dual ternary code \(C\):
+\(\frac1{|C|}\sum_{c,c'\in C}(-2)^{\#\{i:\,c_i=c'_i=0\}}=\mathrm{Index}(C)^2\).</td>
+<td><span class="tag proved">proved</span></td><td>[<a href="#ref-Notes">Notes</a>, &sect;L.2&ndash;L.3]</td></tr>
+<tr><td>With the left \(U(1)\) fugacity, the elliptic genus of \((\sum\Phi_i^3)/C\) equals \(\mathrm{Index}(C)\) times
+the Ramond character of \(V_{\Lambda(C)}\), to all orders (a per-field identity from the quintuple product).</td>
+<td><span class="tag proved">proved</span></td><td>[<a href="#ref-LG">LG</a>]</td></tr>
+<tr><td>All four spin-structure partition functions of the proposed infrared theory, the orbifold of the
+\(c=1\) minimal models by \(C\), agree with those of \(\overline V_{\Lambda(C)}\otimes V_{\Lambda(C)}\), with the
+orbifold phases written out. This checks the proposed infrared identification, not a renormalization-group-invariant
+quantity. Tetracode: all 390,625 points of
+the box \([-2,2]^8\). Golay code: 20,000 random points.</td>
+<td><span class="tag computed">computed</span></td><td>[<a href="#ref-LG">LG</a>]</td></tr>
+<tr><td>The flow of \((\sum\Phi_i^3)/C\) to the double is Claim 1 of [<a href="#ref-Pei">Pei</a>]. The first two rows
+above are its protected consequences; the third checks the proposed infrared theory.</td>
+<td><span class="tag assumed">assumed</span></td><td>[<a href="#ref-Pei">Pei</a>], [<a href="#ref-Notes">Notes</a>, &sect;L.1]</td></tr>
+<tr><td>Given Claim 1, lattice doubles are gapped by the \(C\)-invariant Morse function
+\(h=\sum_i\big(\mathrm{Re}\,\Phi_i^3+\tfrac32|\Phi_i|^2\big)\). Per field there is one minimum (Hessian determinant 9)
+and three saddles permuted by \(\mathbb Z_3\) (Hessian determinant \(-27\)). After the orbifold the signed count is
+\(\mathrm{Index}(C)^2\).</td>
+<td><span class="tag computed">computed</span></td><td>[<a href="#ref-Notes">Notes</a>, &sect;L.2]; Section 4</td></tr>
+<tr><td>Supersymmetric rigidity: if \(V_{1/2}=0\), the double has no relevant and no marginal deformation preserving
+\((0,1)\) supersymmetry.</td>
+<td><span class="tag proved">proved</span></td><td>&sect;2.1</td></tr>
+<tr><td>Two-step gauging: the diagonal half of every gauging is geometric in the Landau&ndash;Ginzburg frame.
+<ul>
+  <li>\(Y_T=(\overline V\otimes V)/\mathbb Z_6^{\rm diag}\) gaps to signed count 96.</li>
+  <li>\(Y_P=(\overline V\otimes V)^{\otimes4}/(\mathbb Z_6\wr D_4)^{\rm diag}\) gaps to signed count 11,297,880, given
+    Claim 1.</li>
+</ul>
+What remains is the chiral \(\mathbb Z_6\) for \(\overline T\otimes T\). For \(\overline P\otimes P\) it is a non-invertible
+symmetry, the Arf-twisted flux algebra of the Drinfeld center of \(\mathrm{Vec}_G\).</td>
+<td><span class="tag computed">computed</span> <span class="tag conj">argument</span></td><td>working notes</td></tr>
+<tr><td>Residue formula of Bao&ndash;Yamazaki&ndash;Zhou [<a href="#ref-BYZ">BYZ</a>] for flavored elliptic genera of
+\((0,1)\) gauge theories, implemented exactly at rank one and validated on their worked example (13 checks). Without
+flavor fugacities every admissible rank-one chamber has genus 0.</td>
+<td><span class="tag computed">computed</span> <span class="tag conj">argument</span></td><td>working notes</td></tr>
+<tr><td>Orbifolds by elements of order 3 keep a frame \(\mathcal N=2\) structure with integral charges: the theories at
+\(k=9,15,21\) and the intermediates \(V/\!\!/\langle g^2\rangle\) at \(k=6,18\), checked on every certificate of
+[<a href="#ref-Notes">Notes</a>].
+<ul>
+  <li>The full elliptic genera of the \(k=6\) intermediate (index \(-8\)) and of the \(k=9\) theory (index 8) are
+    weight-0 weak Jacobi forms, determined exactly. Each is fitted from the lowest orders and confirmed at higher ones.</li>
+  <li>Every even-order step contains \(-1\), which reverses every frame \(\mathcal N=2\) structure.</li>
+  <li>\(P\) has no \(\mathcal N=2\) structure at all, since it has no field of weight 1.</li>
+</ul></td>
+<td><span class="tag computed">computed</span> <span class="tag conj">argument</span></td><td>working notes</td></tr>
+<tr><td>Every holomorphic \(\mathcal N=1\) SVOA with \(c=24\) and no fields of weight \(\tfrac12\) or 1 has index
+\(\pm24\) and is the fermionization \(V_\Lambda^+\oplus V_\Lambda^{T,-}\) of the Leech lattice theory. With \(d\)
+currents, \(d>0\) implies \(3d\ge24+|\mathrm{Index}|\).</td>
+<td><span class="tag conj">argument</span> (inputs <span class="tag cited">cited</span>)</td><td>&sect;2.2</td></tr>
+</table></div>
+
+<h3 id="rigidity">2.1 Rigidity</h3>
+<div class="thm"><p><span class="label">Proposition 1.</span> <span class="tag proved">proved</span> Let \(V\) be a
+holomorphic \(\mathcal N=1\) SVOA with \(V_{1/2}=0\). The double \(\overline V\otimes V\), with the supercharge on the side
+of \(V\), has no relevant and no marginal deformation that preserves \((0,1)\) supersymmetry.</p></div>
+<div class="proof"><p>A deformation preserving the supercharge is the integral of \(G_{-1/2}\mathcal O\) for a local
+operator \(\mathcal O=\bar a\otimes b\), with \(\bar a\in\overline V\) of left weight \(h_L\) and \(b\in V\) of right
+weight \(h_R\). The integrand has weights \((h_L,h_R+\tfrac12)\) and must be a Lorentz scalar, so \(h_L=h_R+\tfrac12\),
+and its scaling dimension is \(2h_L\). The weights of \(V\) lie in \(\tfrac12\mathbb Z_{\ge0}\).</p>
+<ul>
+  <li><em>Relevant</em> means \(h_L<1\). Then \(h_L=0\) would need \(h_R=-\tfrac12\), and \(h_L=\tfrac12\) needs
+    \(\bar a\in\overline V_{1/2}=0\).</li>
+  <li><em>Marginal</em> means \(h_L=1\), hence \(h_R=\tfrac12\) and \(b\in V_{1/2}=0\).</li>
+</ul>
+<p><span class="qed">&#8718;</span></p></div>
+<p>If \(V_{1/2}\ne0\), the free fermions it contains have zero modes in the Ramond sector, and the index vanishes. So
+every double with nonzero index is rigid, whether or not a symmetry is imposed. A gapping path cannot start at the double
+itself. It must start in an ultraviolet description that flows to it.</p>
+
+<h3 id="c24">2.2 The current-free theory at \(c=24\)</h3>
+<p><span class="tag conj">argument</span> (inputs <span class="tag cited">cited</span>) Let \(W\) be a holomorphic
+\(\mathcal N=1\) SVOA with \(c=24\), \(W_{1/2}=0\) and \(d=\dim W_1\). Assume, as usual, that its even part and its two
+bosonic neighbours are unitary and strongly rational.</p>
+<ol>
+  <li><strong>NS character.</strong> It is a polynomial of degree 2 in \(t=(\theta_3/\eta)^{12}\). The vacuum and the two
+    conditions on weights \(\tfrac12\) and 1 fix it as \(t^2-48t+24+d\).</li>
+  <li><strong>Ramond ground states.</strong> The modular transformation to the unsigned Ramond character sends \(t\) to
+    \(-(\theta_2/\eta)^{12}\), which vanishes at the cusp. So \(W\) has \(n_++n_-=24+d\) Ramond ground states, and its
+    index is \(n_+-n_-\).</li>
+  <li><strong>Neighbours.</strong> Adjoining the two parity components of the Ramond sector to the even part gives two
+    holomorphic VOAs \(B_\pm\), with \(\dim(B_\pm)_1=d+n_\pm\).</li>
+  <li><strong>Dong&ndash;Mason.</strong> A holomorphic \(c=24\) VOA has either no currents, 24 abelian currents (and is
+    then the Leech lattice theory), or semisimple currents of dimension greater than 24, because
+    \(h^\vee_i/k_i=(\dim V_1-24)/24\) [<a href="#ref-DM">DM</a>].</li>
+  <li><strong>Consequence.</strong> Hence \(d=0\) forces \(\{n_+,n_-\}=\{0,24\}\) and \(\mathrm{Index}(W)=\pm24\). If
+    \(d>0\), both neighbours contain \(W_1\), and \((24+3d\mp|\mathrm{Index}|)/2\ge24\) gives
+    \(3d\ge24+|\mathrm{Index}(W)|\).</li>
+</ol>
+<p>In particular, index 12 at \(c=24\) needs at least 12 currents. For example, the Golay chain \(C_2\) of
+[<a href="#ref-GJConj">GJConj</a>] has index 24. The orbifold of its lattice theory by \(-1\) has index 12, by the theorem
+of [<a href="#ref-GJF">GJF</a>] used in [<a href="#ref-Notes">Notes</a>, &sect;A.8]. It has \(A_6(C_2)/2=44\) currents
+<span class="tag computed">computed</span>.</p>
+<p>For \(d=0\) the neighbour with 24 currents is the Leech lattice theory \(V_\Lambda\).</p>
+<ul>
+  <li>The even part of \(W\) is the fixed subalgebra of an involution of \(V_\Lambda\) that acts as \(-1\) on the
+    currents, so it is a lift \(\theta t\) of \(-1\) (\(t\) in the torus).</li>
+  <li>All such lifts are conjugate: \(s\,\theta t\,s^{-1}=\theta ts^{-2}\), and the torus is divisible.</li>
+  <li>Hence \(W=V_\Lambda^+\oplus V_\Lambda^{T,-}\), the even part plus the half-integral part of the twisted module.
+    The \(2^{12}=4096\) twisted ground states are its fields of weight \(\tfrac32\).</li>
+  <li>The other neighbour is \(V_\Lambda^+\oplus V_\Lambda^{T,+}=V^\natural\) [<a href="#ref-FLM">FLM</a>].</li>
+</ul>
+<p>The NS character is \(\chi_{V^{f\natural}}^2-552\), with dimensions \(1,0,0,4096,98580,1228800,\dots\)
+<span class="tag computed">computed</span> (code: <code>t_poly_check.py</code>). It agrees with a direct orbifold
+computation for \(W_{24}=V_{\Lambda(P_{24})}/\!\!/\langle-1\rangle\). So \(W_{24}\) from either extremal code of
+length 24 is this theory, and at \(c=24\) the NS character does not distinguish current-free theories.</p>
+<p>Dixon, Ginsparg and Harvey argued that this theory has an \(\mathcal N=1\) superconformal structure
+[<a href="#ref-DGH">DGH</a>]. Moore and Singh constructed explicit supercurrents from twist fields
+[<a href="#ref-MS">MS</a>]. Whether the frame supercurrents of the two extremal codes are conjugate to such a structure,
+or to each other, is <span class="tag open">open</span>; [<a href="#ref-GJF">GJF</a>, Example 4.5] distinguish two
+structures on the parent theory and leave their equivalence on the orbifold open. At \(c=12\) the analogous statement is Duncan's uniqueness theorem for
+the Conway module [<a href="#ref-Dun">Dun</a>].</p>
+
+<!-- ============================================================== 3 -->
+<h2 id="obstruction">3. The obstruction</h2>
+<p>Every route from a lattice double to \(\overline T\otimes T\) or \(\overline P\otimes P\) gauges a symmetry of the double
+that acts on one chiral half only. For the seed these are the order-3 signed permutation \(g^2\) (after a sign change of
+coordinates, a pure permutation) and the sign flip \(g^3=-1\). In the infrared they are honest automorphisms of \(V\).
+The question is where they are exact in an ultraviolet description that also has a supersymmetry-preserving relevant
+operator. The table lists every class examined.</p>
+<div class="scroll"><table class="data">
+<tr><th>Ultraviolet class</th><th>Supersymmetry</th><th>Chiral half of the symmetry</th><th>Verdict</th></tr>
+<tr><td>Landau&ndash;Ginzburg orbifold \((\sum\Phi^3)/C\)</td><td>manifest; relevant Morse deformation</td>
+<td>Emergent:
+<ul>
+  <li>the sign flip corresponds to the duality line \(N\) of Section 4, exact only at the fixed point;</li>
+  <li>the permutation is an infrared automorphism;</li>
+  <li>the symmetries realized chirally are torus elements, whose orbifolds are again code theories, with index
+    divisible by 24 [<a href="#ref-GJConj">GJConj</a>].</li>
+</ul></td>
+<td>excluded for the chiral step <span class="tag conj">argument</span></td></tr>
+<tr><td>Geometric orbifolds of \((2,2)\) Landau&ndash;Ginzburg models</td><td>manifest</td><td>the operator
+\(J_LJ_R\) survives every such orbifold, while \(T\) and \(P\) have no currents</td><td>excluded
+<span class="tag conj">argument</span></td></tr>
+<tr><td>Torus (Narain) and level-1 WZW frames of the lattice double</td><td>emergent from the lattice; no relevant
+supersymmetric operator</td><td>exact (asymmetric orbifold; left multiplication)</td><td>no path
+<span class="tag proved">proved</span> (Proposition 1)</td></tr>
+<tr><td>\((0,1)\) gauge theories (scalar, Fermi and vector multiplets), with the chiral action on Fermi multiplets
+only</td><td>manifest</td><td>exact on Fermi multiplets; without \(J\)-terms they decouple as free fermions unless
+gauge-charged; charged ones become sections of a bundle, and a symmetric section has no nondegenerate zero</td><td>no
+symmetric semiclassical gapping <span class="tag conj">argument</span>; the flavored residue formula is a screen for
+candidates, of which there are none</td></tr>
+<tr><td>Code presentations, constant-mode localization, mirror and twisted-chiral doubles, gauged \((2,2)\) models,
+non-abelian inner gaugings</td><td>various</td><td>various</td><td>excluded or void (working notes; &sect;2.2 for
+\(c=24\))</td></tr>
+<tr><td>Lattice (spin-chain) realizations with exact Kramers&ndash;Wannier duality</td><td>in the tricritical Ising
+benchmark, emergent at a multicritical point, where the duality grades the supercharges; on the self-dual
+\(\mathbb Z_6\) chain, emergent at the \(c=1\) \(\mathcal N=2\) point</td><td>exact</td><td>the self-dual
+\(\mathbb Z_6\) chain appears to reach the \(c=1\) \(\mathcal N=2\) point, an attractive fixed point, with
+supersymmetry emergent; no local supercharge pair was found; consistent with the dichotomy, not a proof
+<span class="tag computed">numerical</span> (Section 4)</td></tr>
+</table></div>
+<div class="thm"><p><span class="label">The dichotomy.</span> <span class="tag conj">argument</span> In every Lagrangian
+ultraviolet description found, either supersymmetry is manifest and the chiral half of the gauged symmetry is emergent,
+or the chiral action is exact and supersymmetry is emergent, with no relevant supersymmetric operator. Both atomic steps,
+the chiral sign flip and the chiral permutation, can therefore be carried out in the infrared and at the level of the
+gapped phase (Section 4), but not along a deformation that is known.</p></div>
+<div class="note"><p><strong>Not a theorem.</strong> The tricritical Ising model \(M(4,5)\) has exact \((1,1)\)
+supersymmetry and an exact Kramers&ndash;Wannier line \(N=\phi_{2,1}\) (\(h=\tfrac7{16}\), \(N\times N=1+\phi_{3,1}\)). Its
+fermionic form is the first \(\mathcal N=1\) minimal model, and there \(N\) becomes the chiral fermion parity
+[<a href="#ref-KTT">KTT</a>].</p>
+<ul>
+  <li><strong>Action of \(N\)</strong> <span class="tag computed">computed</span>. A local operator commutes with a
+    Verlinde line \(L_a\) iff \(S_{ab}/S_{1b}\) equals its quantum dimension [<a href="#ref-CLSWY">CLSWY</a>]. So \(N\)
+    acts on \(\varepsilon=\phi_{1,2}\) by \(-\sqrt2\) (odd), on \(\varepsilon'=\phi_{1,3}\) by \(+\sqrt2\) (even), and on
+    \(\sigma,\sigma'\) by 0.</li>
+  <li><strong>The \(\varepsilon'\) deformation.</strong> Since \(\varepsilon'\) is the top component of the superfield of
+    \(\varepsilon\), this deformation preserves both supersymmetry and \(N\). One sign gives the massless flow to the
+    Ising model [<a href="#ref-KMS">KMS</a>, <a href="#ref-Zam">Zam</a>]. The other gives a massive phase with one
+    disordered and two ordered vacua, exchanged by \(N\): the regular module of \(TY(\mathbb Z_2)\), the \(\mathbb Z_2\)
+    analogue of the per-field Morse phase.</li>
+  <li><strong>Lattice realization.</strong> An exact lattice supercharge exists on the Kramers&ndash;Wannier self-dual
+    chain of O'Brien and Fendley [<a href="#ref-OF">OF</a>]. At the tricritical point the duality grades the two
+    supercharges oppositely.</li>
+</ul>
+<p>So the dichotomy is a statement about Lagrangian descriptions. What stops the mechanism for the doubles is rigidity:
+there is no relevant supersymmetric operator at the double itself, symmetric or not.</p></div>
+
+<!-- ============================================================== 4 -->
+<h2 id="tqft">4. The gapped phase and the duality line</h2>
+<p><strong>Per field.</strong> <span class="tag computed">computed</span> The Morse phase has one \(\mathbb Z_3\)-fixed
+minimum (even) and three permuted saddles (odd). Its Ramond&ndash;Ramond twisted-twined table is
+\(Z(a,b)=1-3\delta_{a,0}\delta_{b,0}\). In a spin structure with Arf sign \(s\) the table is
+\(1+3s\,\delta_{a,0}\delta_{b,0}\), and its \(\mathbb Z_3\) Fourier transform is \(s\) times itself. The same holds at
+the critical point:</p>
+<ul>
+  <li>for the \(c=1\) \(\mathcal N=2\) minimal model that \(\Phi^3\) flows to, gauging the Landau&ndash;Ginzburg
+    \(\mathbb Z_3\) gives back the same Neveu&ndash;Schwarz partition functions for all nine backgrounds
+    <span class="tag proved">proved</span>. With \(\Theta_s=\sum_{m\in\mathbb Z}q^{(3m+s)^2/6}\) and the common
+    \(\eta\) factors omitted, \(Z(a,b)=\sum_{j\in\mathbb F_3}\omega^{b(j+2a)}\Theta_{j+a}\overline{\Theta_j}\). Summing
+    over \(b\) in the Fourier transform sets \(j=r+a\), and \(\Theta_{-s}=\Theta_s\) then gives \(\widehat Z=Z\)
+    identically in \(\tau\) (code: <code>u13_duality.py</code>, exact over \(\mathbb Z[\omega]\));</li>
+  <li>the periodic&ndash;periodic table is protected and changes sign.</li>
+</ul>
+<p>So, at the level of partition functions, the per-field Greene&ndash;Plesser [<a href="#ref-GP">GP</a>] duality line \(N_1\) is self-dual only up to Arf: it is fermion-odd. For an even
+number of fields the Arf factors cancel.</p>
+<p><strong>After the code orbifold.</strong> <span class="tag proved">proved</span>
+<span class="tag computed">computed</span> The vacua are labelled by three pieces of data:</p>
+<ul>
+  <li>the set \(S\) of fields at the minimum;</li>
+  <li>a \(C\)-orbit of saddle labels on the complement;</li>
+  <li>a character of the stabilizer \(C_S=\{c\in C:\mathrm{supp}(c)\subseteq S\}\).</li>
+</ul>
+<p>There are \(N_S=3^{\,n-|S|}|C_S|^2/|C|\) vacua of type \(S\), of parity \((-1)^{n-|S|}\). The signed count
+\(\sum_S(-1)^{n-|S|}N_S\) equals \(\mathrm{Index}(C)^2\). The number of vacua is larger:</p>
+<ul>
+  <li>48 for the tetracode, with index 0;</li>
+  <li>45,504 for the Golay code, with signed count 576;</li>
+  <li>for \(P_{24}\) the types \(S=\emptyset\) and \(S=\{1,\dots,24\}\) alone contribute \(3^{12}\) each.</li>
+</ul>
+<p>The line \(N=N_1^{\otimes n}\) maps vacua of type \(S\) to type \(S^c\). For a self-dual code this is a bijection,
+because \(\dim C_{S^c}-\dim C_S=n/2-|S|\). When the one-sided gauging is consistent, which requires \(8\mid n\) (see
+below), it gives signed count \(\mathrm{Index}(C)^2/2\). Gauging on both sides gives \((\mathrm{Index}(C)/2)^2\), the
+index of the double of \(V/\!\!/\langle-1\rangle\). The number of vacua remains much larger than the signed count.
+For the tetracode and the Golay code (\(n=4,12\)) the one-sided gauging is anomalous, and the halved numbers printed
+by <code>mirror_tqft.py</code> are formal complement-orbit counts only.</p>
+<p><strong>Fusion-level existence, conditional on the spin refinement.</strong> <span class="tag cited">cited</span>
+<span class="tag conj">argument</span></p>
+<ul>
+  <li><em>Tambara's criterion</em> (as restated in [<a href="#ref-TW">TW</a>]). For an abelian group \(A\) of odd order,
+    the Tambara&ndash;Yamagami category \(TY(A,\chi,\tau)\) admits a fiber functor iff \(\tau>0\) and \(\chi\) is
+    hyperbolic [<a href="#ref-Tam">Tam</a>]. For \(A=\mathbb F_3^n\) with \(\chi(a,b)=\omega^{a\cdot b}\), hyperbolicity
+    holds iff \(4\mid n\).</li>
+  <li><em>The algebra.</em> The object \(A_C\oplus N\) with \(A_C=\bigoplus_{c\in C}c\) is a separable algebra iff \(C\) is
+    self-dual and \(\tau>0\). It is then unique: the twist compatible with the \(N\) summand is a coboundary.</li>
+  <li><em>The sign.</em> Carrying the fermion-odd lines through, with the proposed spin refinement of the duality
+    category, gives \(\tau_{\rm eff}=(-1)^{n/4}3^{-n/2}\) at length \(n\). Under that identification the
+    code-plus-duality gauging at \(n=12k\) is unobstructed exactly for even \(k\).</li>
+  <li><em>Consistency.</em> This matches the lattice condition that the chiral \(-1\) is gaugeable only for
+    \(8\mid n\) (twisted energy \(n/16\)), and the fact that [<a href="#ref-GJF">GJF</a>] gauge \(-1\) only at even
+    \(k\). The agreement is evidence for the spin refinement, not a derivation of the super-associators or of the
+    transparency of the supercurrent.</li>
+</ul>
+<p><strong>A lattice test.</strong> <span class="tag computed">computed</span> (exact for the solution spaces; numerical
+diagonalization for the spectra) One can look for a local odd supercharge
+\(Q=\sum_jq_j\) on a Z3 clock chain with Majorana fermions, commuting with the global \(\mathbb Z_3\) and with the
+Kramers&ndash;Wannier duality \(D\).</p>
+<ul>
+  <li><em>The symmetry condition admits many local solutions.</em> Set \(A_{2j}=X_j\) and
+    \(A_{2j+1}=Z_j^\dagger Z_{j+1}\). The \(\mathbb Z_3\) Kramers&ndash;Wannier map combined with Majorana translation
+    is then the unit shift on \((A_k,\gamma_k)\), so \(D(Q)=Q\) amounts to shift invariance. The solution spaces have
+    dimension 1, 30, 1080 and 38880 for supports of 1 to 4 sites (30 inside an ansatz of dimension 210 at two sites). The
+    only one-site solution gives a constant \(Q^2\).</li>
+  <li><em>Benchmark.</em> On O'Brien and Fendley's chain [<a href="#ref-OF">OF</a>], \(H=2Q^2\) holds only on its chiral
+    lines, which do not flow to the tricritical point. There \(H=Q_+^2+Q_-^2\), with \(Q_\pm\) even and odd under the
+    duality.</li>
+  <li><em>A small scan.</em> We sampled 17 points in two two-site families, at four and five sites, and followed three of
+    them to six sites. We did not identify convincing \(c=1\) scaling. The one six-site charge sector whose iterative
+    diagonalization had not converged was recomputed densely: its low levels are tiny, non-degenerate and spread over all
+    momenta, and do not display the expected two-sided conformal tower.</li>
+  <li><em>Duality-graded pairs</em> <span class="tag computed">computed</span>. The bilinear map
+    \((Q_+,Q_-)\mapsto\{Q_+,Q_-\}\) on the two-site spaces of \(D\)-even and \(D\)-odd operators is an exact integer
+    tensor. Every anticommuting pair found from 1200 starts (198 converged) is degenerate: either one supercharge is
+    \(\sum_k(\pm1)^k\gamma_k\), with constant square, or the pair lies in a family for which \(\alpha^2Q_+^2+Q_-^2\) is
+    an exact constant. That these are all the pairs is numerical evidence only, and the search does not show that no
+    other pair exists. Pairs of O'Brien&ndash;Fendley type,
+    \(Q_-=R(Q_+)\) for either reflection centre, and a least-squares fit by \(Q_+^2+Q_-^2\), did not reach a \(c=1\)
+    phase at up to seven sites.</li>
+  <li><em>An emergent \(\mathcal N=2\) point</em> <span class="tag computed">numerical</span>. The simplest
+    \(D\)-symmetric chain,
+    \(H_6=\sum_k i\gamma_k\gamma_{k+1}(A_k+A_k^\dagger)\), is the fermionization of the self-dual \(\mathbb Z_6\) clock
+    chain. Without tuning, its low-lying spectrum matches the \(c=1\) \(\mathcal N=2\) minimal model in all eight
+    sectors: Neveu&ndash;Schwarz and Ramond, \(\mathbb Z_3\) twist 0 and 1, and both fermion parities, with all three
+    charges in each; twist 2 is the charge conjugate of twist 1.
+    <ul>
+      <li>At eight sites the scaled dimensions are 0.330 and 0.813 (expected \(\tfrac13\), \(\tfrac56\)), 0.085 for
+        the Ramond ground states (\(\tfrac1{12}\)), and 0.171 and 0.420 in the twisted sectors (\(\tfrac16\),
+        \(\tfrac5{12}\)). The deviations are a few percent, up to about 2.5%.</li>
+      <li>The low-lying states occupy the sectors with the expected fractional spins. Fits of the ground-state energy
+        give \(c=1.018\), 1.012 and 1.009 from five to nine sites; each fit has as many parameters as points, so it
+        carries no error estimate.</li>
+    </ul>
+    On the lattice \(D\) maps \(\mathbb Z_3\)-charge sectors to twisted sectors and is fermion-odd in the Ramond
+    sector, as the line \(N_1\) is. Our searches found no representation of \(H_6\) as a sum of squares of two-site
+    supercharges. Nearly conserved two-site candidate operators of opposite \(D\)-parity show tentative opposite
+    chirality at up to six sites (fit residuals about 0.5), as in the O'Brien&ndash;Fendley grading; they have not been
+    shown to realize the supersymmetry algebra. So the spectrum is consistent with the dichotomy again: the duality is
+    exact, and supersymmetry appears to be emergent.</li>
+  <li><em>Why the chain lands there.</em> The self-dual \(\mathbb Z_6\) clock chain flows to the compact boson whose
+    chiral algebra is the lattice algebra of \(\sqrt{12}\,\mathbb Z\) <span class="tag cited">cited</span>, numerical
+    evidence [<a href="#ref-LYTC">LYTC</a>, <a href="#ref-YCRT">YCRT</a>]. Its module \(r=6\) is a simple current of
+    weight \(\tfrac32\), and extending by it gives <span class="tag proved">proved</span>
+    \[V_{\sqrt{12}\,\mathbb Z}\oplus V_{\sqrt{12}\,\mathbb Z+\sqrt3}=V_{\sqrt3\,\mathbb Z},\]
+    the \(c=1\) \(\mathcal N=2\) algebra with \(J=\tfrac{i}{\sqrt3}\partial X\) and
+    \(G^\pm=\sqrt{2/3}\,e^{\pm i\sqrt3X}\). The even modules become Neveu&ndash;Schwarz and the odd ones Ramond, and
+    \(\mathbb Z_6=\mathbb Z_2\times\mathbb Z_3\), with the \(\mathbb Z_3\) the Landau&ndash;Ginzburg symmetry. The
+    \(\mathcal N=2\) identification of \(H_6\) follows, conditional on that bosonic assignment and on a
+    lattice-to-continuum dictionary (boundary conditions, charge labels, the Ramond parity convention) that is still to
+    be written.</li>
+  <li><em>Stability</em> <span class="tag conj">argument</span>. Apart from the identity, the only
+    \(\mathbb Z_3\)-neutral bosonic local scalar of dimension at most 2 in the \(c=1\) theory is \(J\bar J\)
+    <span class="tag computed">computed</span>. In the continuum \(D\) is &ldquo;gauge \(\mathbb Z_6\), then
+    T-dualize&rdquo;, which reverses \(J\bar J\). So no \(D\)-symmetric relevant or marginal scalar exists, and the
+    point is attractive rather than multicritical like the tricritical Ising model. This is a local statement within the
+    stated symmetries; perturbations at up to seven sites are consistent with it. The lattice is evidence that the line
+    exists, not a gapping path: on it supersymmetry is emergent and the index is not protected. A brief literature
+    search found no statement of the \(\mathcal N=2\) identification; no novelty is claimed.</li>
+</ul>
+<p>None of this shows that \(N\) survives a deformation. In the Landau&ndash;Ginzburg frame \(N\) is a symmetry of the
+infrared, not of the Lagrangian.</p>
+
+<!-- ============================================================== 5 -->
+<h2 id="periodicity">5. Relation to the 576-fold periodicity</h2>
+<p><strong>What Johnson-Freyd and Yamashita prove</strong> <span class="tag cited">cited</span>. They assume that SQFT is an
+\(E_\infty\) ring spectrum compatible with the Witten genera, giving a ring map \(\Phi:\pi_*\mathrm{SQFT}\to
+\mathrm{MF}_{*/2}\), together with an assumption on the heterotic anomaly. Under these assumptions they show that
+\(\pi_n\mathrm{SQFT}\) has no invertible elements unless \(576\mid n\) [<a href="#ref-JFY">JFY</a>, Theorem 1.6], and
+that \(k\Delta^{-1}\) lies in the image of \(\Phi\) only if \(24\mid k\) [<a href="#ref-JFY">JFY</a>,
+Proposition 1.13]. The upper bound, that 576 is a period, is left to a forthcoming paper. No comparison with TMF and no
+Segal&ndash;Stolz&ndash;Teichner input is used.</p>
+<p><strong>Conventions.</strong> A holomorphic \(\mathcal N=1\) SVOA of central charge \(c\) on the supersymmetric side has
+degree \(-2c\) and \(\Phi=\mathrm{Index}\cdot\Delta^{-c/12}\); its conjugate has degree \(2c\) and
+\(\Phi=\mathrm{Index}\cdot\Delta^{c/12}\). The tensor product of theories is the ring product, and the double
+\(\overline X\otimes X\) has class \([\overline X][X]\). Hence \(\Phi([P])=-\Delta^{-24}\) and
+\(\Phi([\overline P][P])=1\), while the upper bound needs \([\overline P][P]=1\) in \(\pi_0\mathrm{SQFT}\). JFY's
+assumptions place \([\overline P][P]-1\) only in \(\ker\Phi\).</p>
+
+<div class="thm"><p><span class="label">Proposition 2 (576-fold periodicity, conditional).</span>
+<span class="tag proved">proved, given (A1)&ndash;(A4)</span> Assume:</p>
+<ul>
+  <li>(A1) the assumptions of [<a href="#ref-JFY">JFY</a>] on the spectrum SQFT; deformation classes are invariant
+    along renormalization-group flows; and a gapped phase represents its signed number of vacua, an even vacuum
+    representing \(1\) and an odd one \(-1\);</li>
+  <li>(A2) Claim 1 of [<a href="#ref-Pei">Pei</a>] for the Golay-chain code \(C=C_{288}\) of length 288, which has index
+    \(+24\) [<a href="#ref-GJConj">GJConj</a>];</li>
+  <li>(A3) \(\pi_0\mathrm{SQFT}\) is torsion-free;</li>
+  <li>(A4) every class in \(\pi_{\pm576}\mathrm{SQFT}\) with vanishing Witten genus is torsion.</li>
+</ul>
+<p>Then \([\overline P][P]=1\): the index-1 theory \(P\) of [<a href="#ref-Pei">Pei</a>] is invertible, and the
+spectrum SQFT has period exactly 576.</p></div>
+<div class="proof"><ol>
+  <li>Put \(V=V_{\Lambda(C_{288})}\), of central charge 288 and index 24. Then \(\Phi([V])=24\Delta^{-24}
+    =-24\,\Phi([P])\), so \(x=[V]+24[P]\) has vanishing genus. Likewise \(\bar x=[\overline V]+24[\overline P]\).</li>
+  <li>By (A4) there is \(M\ge1\) with \(Mx=M\bar x=0\). Expanding
+    \([\overline V][V]=(\bar x-24[\overline P])(x-24[P])\), every term except \(576[\overline P][P]\) contains \(x\)
+    or \(\bar x\). So \(M[\overline V][V]=576M[\overline P][P]\).</li>
+  <li>By (A2) the double \(\overline V\otimes V\) is the infrared of \((\sum_{i=1}^{288}\Phi_i^3)/C_{288}\). The Morse
+    deformation of Section 2 gaps it to signed count \(\mathrm{Index}(C_{288})^2=576\). By (A1),
+    \([\overline V][V]=576\).</li>
+  <li>Hence \(576M([\overline P][P]-1)=0\), and (A3) gives \([\overline P][P]=1\).</li>
+  <li>So \([P]\in\pi_{-576}\mathrm{SQFT}\) is invertible with inverse \([\overline P]\), and multiplication by
+    \([P]\) makes the homotopy groups 576-periodic. By [<a href="#ref-JFY">JFY</a>, Theorem 1.6] no smaller period
+    exists.</li>
+</ol>
+<p><span class="qed">&#8718;</span></p></div>
+
+<p><strong>Remarks on the assumptions</strong> <span class="tag conj">argument</span>.</p>
+<ul>
+  <li><em>(A4) is where the content lies.</em> The proof uses (A4) only to obtain the comparison relations
+    \([V_{\Lambda(C_{288})}]=-24[P]\) and \([\overline V_{\Lambda(C_{288})}]=-24[\overline P]\) up to torsion; (A4)
+    itself is a much stronger, global statement. These relations compare holomorphic theories at \(c=288\) and involve
+    no double; nothing is known about them.</li>
+  <li><em>Degree 0 versus degree \(\pm576\).</em> If one assumes instead that \(\Phi\) is injective on \(\pi_0\)
+    (equivalently, \(\ker\Phi\) on \(\pi_0\) is torsion, given (A3)), then the existence of \(P\) alone gives the
+    upper bound. The doubles are not needed, and their gappability is only evidence for that axiom. Torsion-freeness
+    alone does not lift \(\Phi([\overline P][P])=1\) to \([\overline P][P]=1\).</li>
+  <li><em>The norm of \(P\) is an idempotent</em> <span class="tag proved">proved</span>. Put
+    \(q=[\overline P][P]\), so \(\Phi(q)=1\). The class \([P](q-1)\) in degree \(-576\) has vanishing genus, so it
+    is torsion by (A4). Multiplying by \([\overline P]\), \(q(q-1)\) is torsion in degree 0, and (A3) gives
+    \(q^2=q\). So under (A3) and (A4) alone, (A2) can be replaced by the assumption that \(\pi_0\mathrm{SQFT}\) has no
+    nontrivial idempotents: then \(q\ne0\), because \(\Phi(q)=1\), forces \(q=1\). The open question becomes whether
+    degree-0 theories can split into sectors invisible to the genus.</li>
+  <li><em>The gapping step is not implied by (A3) and (A4).</em> A graded-ring illustration (not a spectrum with the
+    full structure of [<a href="#ref-JFY">JFY</a>]):
+    <ul>
+      <li>take \(R=\mathbb Z[z,z^{-1}]\times\mathbb Z\), with \(\deg z=576\) and the second factor in degree 0;</li>
+      <li>let \(\Phi\) be the projection to the first factor;</li>
+      <li>set \(P=(z^{-1},0)\) and \(\overline P=(z,0)\).</li>
+    </ul>
+    Then (A3) and (A4) hold, but \([\overline P][P]=(1,0)=1-e\) with \(e=(0,1)\) is a nontrivial idempotent, not the
+    unit. The gapped lattice double, or the absence of nontrivial idempotents, excludes it.</li>
+  <li><em>The modular forms.</em> The target of \(\Phi\) is the ring of weakly holomorphic modular forms,
+    \(\mathrm{MF}_*=\mathbb Z[c_4,c_6,\Delta^{\pm1}]/(c_4^3-c_6^2-1728\Delta)\), so \(\mathrm{MF}_0=\mathbb Z[j]\)
+    [<a href="#ref-JFY">JFY</a>]. Within this framework \(\pi_{576}\) is not of rank one: \(c_4^{72}\) and \(\Delta^{24}\)
+    are independent elements of the image of \(\Phi\) in weight 288, as Witten genera of string manifolds
+    [<a href="#ref-JFY">JFY</a>, Fact 3.95]. Multiplying lifts of them by \([P]^2\) gives classes in degree \(-576\)
+    with genera \(c_4^{72}\Delta^{-48}\) and \(\Delta^{-24}\), so \(\pi_{-576}\) is not of rank one either. This is why (A4) is stated as a torsion condition on the
+    kernel of the genus.</li>
+  <li><em>Other codes.</em> Any Golay-chain code of length \(12k\) with \(k\mid24\) works the same way, using the power
+    \(24/k\) of its class.</li>
+  <li><em>A degree-0 form</em> <span class="tag proved">proved</span>. Let \(C\) be any self-dual code of length 288
+    with \(I=\mathrm{Index}(C)\ne0\), \(V=V_{\Lambda(C)}\), and assume Claim 1 of [<a href="#ref-Pei">Pei</a>] for
+    \(C\), so that \([\overline V][V]=I^2\) as in step 3 of the proof. Replace
+    (A4) by the gappability of the two mixed doubles \(\overline V\otimes P\) and \(V\otimes\overline P\) to their
+    indices: \([\overline V][P]=[V][\overline P]=-I\). Since classes of even degree commute,
+    \(([\overline V][P])([V][\overline P])=([\overline V][V])([\overline P][P])\) gives \(I^2=I^2[\overline P][P]\),
+    and (A3) gives \([\overline P][P]=1\). Given \([\overline V][V]=I^2\) and (A3), the mixed-double relations are
+    equivalent to the
+    comparison relations up to torsion. So no assumption outside degree 0 is needed, at the price of two gappings that
+    are each a chiral step: for the fourth power of the seed code, \(\overline V\otimes P\) is the one-sided orbifold
+    of a lattice double by \(\mathbb Z_6\wr D_4\). This isolates the chiral obstruction; it does not remove it.</li>
+  <li><em>Without any extra axiom.</em> A direct supersymmetric gapping of \(\overline P\otimes P\) to one vacuum gives
+    \([\overline P][P]=1\), which is the objective of this note.</li>
+</ul>
+<p><strong>Free quotients</strong> <span class="tag open">open</span>. The natural physical mechanism behind the comparison
+relations is the free quotient.</p>
+<ul>
+  <li>If \(H\) acts on \(X\) with all twisted-twined Ramond ground-state traces zero except the trivial one, one
+    expects \([X]=|H|\,[X/\!\!/H]\). The traces prove the corresponding relation of Witten genera; the relation of
+    deformation classes is a proposed principle.</li>
+  <li>\(T=V/\!\!/\mathbb Z_6\) and \(W_{24}\) are such quotients. \(P\) is not one: in the wreath product the factor
+    permutations have nonzero twined traces.</li>
+  <li>A free quotient \(Q=X/\!\!/H\) of a length-288 code theory \(X\) by a group \(H\) of order 24, with index
+    \(\pm1\), would be an index-1 theory as good as \(P\). For it the free-quotient relation would supply the comparison
+    relations needed in the proof, without the global assumption (A4): from \([X]=\pm24[Q]\),
+    \([\overline X]=\pm24[\overline Q]\) and, by (A1) and Claim 1 for its code, \([\overline X][X]=576\), one gets
+    \(576([\overline Q][Q]-1)=0\), so \([\overline Q][Q]=1\) by (A3).</li>
+  <li>Proving the free-quotient relation needs the chiral group to be a symmetry along a path, which is the same wall as
+    before.</li>
+</ul>
+
+<!-- ============================================================== 6 -->
+<h2 id="lanes">6. Open lanes</h2>
+<h3>(a) A tricritical partner of the double <span class="tag open">open</span></h3>
+<p>The tricritical Ising example fixes what is needed:</p>
+<ul>
+  <li>a \((0,1)\) superconformal theory \(U\) with the chiral symmetry exact and supersymmetry manifest;</li>
+  <li>a symmetric relevant supersymmetry-preserving operator \(O\) such that \(U+\lambda O\) flows to the double and
+    \(U+\lambda'O\) flows to a gapped phase. A direct sum with massive vacua is acceptable, since deformation classes add
+    and points are invertible.</li>
+</ul>
+<p>If the target is the double alone, the constraints are:</p>
+<ul>
+  <li>\(c_L=c_R\) above the value of the double;</li>
+  <li>an elliptic genus equal to the index identically;</li>
+  <li>no chiral fields of weight \(\tfrac12\);</li>
+  <li>an operator of right weight strictly between 0 and \(\tfrac12\).</li>
+</ul>
+<p>With additional massive sectors the index of the target changes, since even and odd vacua contribute with opposite
+signs, and the condition on weight-\(\tfrac12\) fields does not follow automatically. Proposition 1 rules out starting
+at the factorized double itself. It does not by itself exclude every rational partner, or the double extended by free
+multiplets, which changes the low-weight spectrum; these need separate arguments. In short, the partner has to lie
+outside the rigid factorized class. No candidate is known.</p>
+<p>A test family for the order-3 step is the \(\mathcal N=2\) minimal model \(MM_k\) with \(k+2\equiv0\pmod3\). Its
+\(\mathbb Z_{k+2}\) and its mirror line are exact; the \(\mathbb Z_{k+2}\) orbifold is the mirror
+[<a href="#ref-GP">GP</a>]. The deformation is the \((1,1)\)-descendant
+\(O=G^1_{-1/2}\bar G^1_{-1/2}\Phi\) of the neutral primary \(\Phi=(l,m,\bar m)=(2,0,0)\), with \(G^1=(G^++G^-)/\sqrt2\).
+It has dimension \((k+6)/(k+2)\) and is relevant for \(k\ge3\).</p>
+<ul>
+  <li><em>The sign on \(\Phi\)</em> <span class="tag computed">computed</span>. Take a mirror line \(N\) that commutes
+    with the left \(\mathcal N=2\) algebra, acts on the right by \(\bar J\to-\bar J\), \(\bar G^\pm\to\bar G^\mp\), and
+    satisfies \(N^2=\sum_{g\in\mathbb Z_{k+2}}g\). For \(k=4,7,10\) every such line acts on the neutral primaries
+    \((l,0,0)\) by \((-1)^{l/2}\sqrt{k+2}\), so \(\Phi\) is odd. Two independent exact routes agree.
+    <ul>
+      <li>In the twisted-sector bootstrap exactly one sign choice is consistent.</li>
+      <li>In the coset description of \(MM_k\) and of its orbifold inside the parent \(SU(2)_k\) theory with a Dirac
+        fermion, the sign is a ratio of matrix elements. By the sign-reversal symmetry of Clebsch&ndash;Gordan
+        coefficients, the ratio of \(C(\tfrac l2,0;j,-\mu\mid j,-\mu)\) to \(C(\tfrac l2,0;j,\mu\mid j,\mu)\) is
+        \((-1)^{l/2}\) at every level. The coset and orbifold identifications are standard input and are not re-derived here.</li>
+    </ul>
+    The same bootstrap reproduces the known parities in the
+    Ising, tricritical Ising and parafermion (\(k=2,\dots,6\)) models. Its twisted sector has degeneracies \(\sqrt2\)
+    times integers, so the line is fermion-odd, as at \(k=1\).</li>
+  <li><em>The sign on \(O\)</em> <span class="tag computed">computed</span>. It is not intrinsic. The line \(N_0\) that
+    commutes with \(G^1\) and \(\bar G^1\) acts on \(O\) by \(-\sqrt{k+2}\). It exchanges the couplings \(\lambda\) and
+    \(-\lambda\) and does not survive the deformation. The line \(N_\pi=N_0\,e^{i\pi\bar J_0}\) acts on \(O\) by
+    \(+\sqrt{k+2}\) and survives for both signs, but it anticommutes with \(\bar G^1\). This is the tricritical Ising
+    pattern, where the duality grades the supercharges. Write \(R_\alpha=e^{i\alpha\bar J_0}\). The mirror relation
+    \(N_0R_\alpha=R_{-\alpha}N_0\) gives \(N_\pi=R_{-\pi/2}N_0R_{\pi/2}\), so \(N_\pi\) is \(N_0\) conjugated by a
+    right R-symmetry. Whatever categorical structure is established for \(N_0\) is transported to \(N_\pi\), up to the
+    choice of junction bases. The conjugation rotates the chosen right \(\mathcal N=1\) subalgebra, which is why the two
+    lines treat \(\bar G^1\) differently.</li>
+  <li><em>One chiral supersymmetry survives</em> <span class="tag conj">argument</span>. \(N_\pi\) commutes with the
+    left supercharge \(G^1\), and the deformation preserves both \(G^1\) and \(\bar G^1\). So the symmetric
+    deformation is a candidate for a gauging that preserves one chiral supersymmetry, \((1,0)\) in this convention;
+    parity reflection gives the \((0,1)\) version. Applied to a prescribed chiral action, one has to track which
+    chirality carries it.</li>
+  <li><em>Still open.</em> A spin gauging that preserves the commuting chiral supercharge, the Ramond-sector twisted
+    partition functions, and the infrared of both signs of \(\lambda\). A truncated-conformal-space computation would
+    give evidence for the flows.</li>
+</ul>
+<h3>(b) Gauge theories with a left-moving lattice sector <span class="tag open">open</span></h3>
+<p>Linear sigma models with torsion [<a href="#ref-QS">QS</a>, <a href="#ref-MQSS">MQSS</a>] couple compact chiral
+multiplets to the gauge field through Green&ndash;Schwarz terms. So a chiral action on a left-moving lattice sector can be
+exact there while supersymmetry is manifest.</p>
+<ul>
+  <li><em>Target.</em> The mixed object \(\overline V_L\otimes T_R\): index 96, with the chiral \(\mathbb Z_6\) acting on
+    the lattice side only.</li>
+  <li><em>Counting.</em> The field content has \(n_s\) scalar multiplets, \(n_f\) Fermi multiplets, a left-moving
+    lattice sector of rank \(r\), and the \(\dim G\) left-moving gauginos of the vector multiplets
+    [<a href="#ref-BYZ">BYZ</a>, &sect;2]. Its gravitational anomaly is \(c_L-c_R=r+(n_f+\dim G-n_s)/2\). Cancellation
+    requires \(n_f+\dim G=n_s-2r\), so carrying all of \(\overline V\) on chiral bosons (\(r=72\)) needs
+    \(n_s\ge144\).</li>
+  <li><em>Right-movers.</em> In the decoupled flat-boson ansatz, the right-moving parts of the non-chiral bosons stay
+    free, while \(T\) has no right-moving current. Interactions can change this.</li>
+  <li><em>Screen (proposed).</em> Extend the residue formula [<a href="#ref-BYZ">BYZ</a>] by a lattice theta factor. This
+    still needs a defined coupled model, anomaly cancellation, and a derivation of its determinant and residue
+    prescription. The targets are unflavored genus 96, \(\mathbb Z_6\)-twined genera 0, and flavored genus \(-4\) times
+    the Ramond supercharacter of \(V\).</li>
+</ul>
+<h3>(c) Sigma models with flux and a strongly coupled infrared <span class="tag open">open</span></h3>
+<p><span class="tag conj">argument</span> A direct ultraviolet description of \(\overline T\otimes T\) needs no chiral
+orbifold, and \((1,1)\) supersymmetry suffices.</p>
+<ul>
+  <li><em>Topology.</em> For a \((1,1)\) sigma model on a compact \(X\) the Ramond&ndash;Ramond index is \(\chi(X)\)
+    [<a href="#ref-Wit">Wit</a>]. So \(\chi(X)=16\) for \(\overline T\otimes T\) and \(\chi(X)=1\) for
+    \(\overline P\otimes P\), and \(\dim X\) is even.</li>
+  <li><em>Dimension.</em> By the \(c\)-theorem a nontrivial flow from the free ultraviolet needs \(\dim X\ge50\), resp.
+    \(\ge194\).</li>
+  <li><em>Fixed points.</em> At one loop, with constant dilaton and closed \(H\), the fixed-point equations are
+    \(\mathrm{Ric}(\nabla^+)=0\) with \(H\) co-closed [<a href="#ref-BCZ">BCZ</a>, <a href="#ref-CFMP">CFMP</a>].
+    Flat connections with torsion (\(R^{\nabla^+}=0\)) are a much stronger condition. Their classification (compact
+    simple Lie groups and \(S^7\), the latter with non-closed torsion [<a href="#ref-AF">AF</a>, Prop. 2.1,
+    Thm. 2.2]) does not classify the one-loop fixed points.</li>
+  <li><em>What is excluded.</em> Group-manifold WZW constructions and the elementary parallelizing ansatz do not yield
+    the desired current-free doubles: their infrared theories carry currents (non-abelian ones from the simple factors,
+    abelian ones from flat factors).</li>
+  <li><em>What is not.</em> This does not classify all weakly curved fixed points. A strongly coupled attractor, an
+    "up and down" flow in the sense of [<a href="#ref-GJFW">GJFW</a>], is a plausible route, not a consequence
+    established here. With the tools at hand such a description is constrained only by \(\chi(X)\) and the constant
+    genus.</li>
+</ul>
+
+<!-- ============================================================== 7 -->
+<h2 id="change">7. What would change the picture</h2>
+<ul>
+  <li>A superconformal theory with an exact Tambara&ndash;Yamagami line of type \(TY(\mathbb Z_3)\), manifest \((1,1)\)
+  supersymmetry, and a line-even relevant supersymmetric operator whose massless flow ends at the \(c=1\) \(\mathcal N=2\)
+  minimal model, possibly with massive vacua. This is the per-field building block of lane (a).</li>
+  <li>A \((0,1)\) gauge theory, in the class of [<a href="#ref-BYZ">BYZ</a>] or with a lattice sector, whose flavored
+  genus matches the target data of a double or of the mixed object.</li>
+  <li>A compact \((X,g,H)\) with \(\chi(X)=\mathrm{Index}^2\), no continuous isometries and an isolated rational
+  infrared point: lane (c).</li>
+  <li>A deformation equivalence \([V_{C_{288}}]=-24[P]\), or any free order-24 quotient of a length-288 code theory with
+  index \(\pm1\) (Section 5).</li>
+  <li>A proof that a rigid double is never the infrared of a theory with a symmetric relevant supersymmetric operator.
+  That would turn the dichotomy into an obstruction for all descriptions, not only Lagrangian ones.</li>
+</ul>
+
+<!-- ============================================================== 8 -->
+<h2 id="code">8. Code</h2>
+<p>The folder <code>code/</code> holds four small scripts with our outputs (MIT license):</p>
+<ul>
+  <li><a href="code/tci_kw_parity.py"><code>tci_kw_parity.py</code></a> (sympy): the Kramers&ndash;Wannier parities of the
+  tricritical Ising primaries from the modular \(S\)-matrix (<a href="code/tci_kw_parity_output.txt">output</a>).</li>
+  <li><a href="code/t_poly_check.py"><code>t_poly_check.py</code></a> (plain Python): the NS characters at \(c=24\) and of the \(k=6\)
+  \(\mathcal N=2\) intermediate as polynomials in \(t\) (<a href="code/t_poly_check_output.txt">output</a>).</li>
+  <li><a href="code/mirror_tqft.py"><code>mirror_tqft.py</code></a> (numpy): the vacuum bookkeeping of Section 4 for the
+  tetracode and the Golay code (<a href="code/mirror_tqft_output.txt">output</a>).</li>
+  <li><a href="code/u13_duality.py"><code>u13_duality.py</code></a> (numpy): the Neveu&ndash;Schwarz \(\mathbb Z_3\)
+  self-duality of the \(c=1\) theory, exactly over \(\mathbb Z[\omega]\) and numerically from the lattice sums (<a href="code/u13_duality_output.txt">output</a>).</li>
+</ul>
+<p>The other computations quoted are in the project's unpublished workspace: the frame \(\mathcal N=2\) structures, the
+Ramond ground states and elliptic genera of the intermediates, the rank-one residue formula, the lattice test and the
+signs of the mirror line in lane (a).</p>
+
+<!-- ============================================================== 9 -->
+<h2 id="credits">9. Who did what</h2>
+<p>The gapping problem was studied between 21 and 26 October 2026 by the Claude team (Anthropic's Claude Code, models Fable
+5.1 and Opus 5.5), in a project separate from the search of [<a href="#ref-Pei">Pei</a>].</p>
+<ul>
+  <li><strong>Claude team.</strong> Fable 5.1 worked out:
+    <ul>
+      <li>the obstruction analysis, the open lanes and the tricritical Ising example;</li>
+      <li>the identification of the \(c=24\) theory;</li>
+      <li>the periodicity assessment.</li>
+    </ul>
+    Opus 5.5 contributed, alongside the paper:
+    <ul>
+      <li>the frame \(\mathcal N=2\) structures and the characters and elliptic genera of the intermediates;</li>
+      <li>the \(c=1\) duality check and the fusion-level criterion;</li>
+      <li>the lattice test, the signs of the mirror line in lane (a), and this version of the note.</li>
+    </ul></li>
+  <li><strong>Codex team</strong> (OpenAI Codex, model GPT-6 Astra). It reviewed the work in several rounds. Its
+    contributions include:
+    <ul>
+      <li>the bound on current dimensions at \(c=24\) (Section 2.2);</li>
+      <li>the four-vacuum torus analysis;</li>
+      <li>the correction of vacuum counts to signed counts;</li>
+      <li>the idempotent argument of Section 5 and the exact proof of the \(c=1\) Neveu&ndash;Schwarz self-duality;</li>
+      <li>the audit of the lattice results and the simple-current construction that explains the \(\mathcal N=2\)
+        point;</li>
+      <li>in lane (a), the surviving chiral supersymmetry, the conjugation formula for \(N_\pi\) and the general
+        Clebsch&ndash;Gordan form of the sign;</li>
+      <li>the proposal of the lattice test.</li>
+    </ul>
+    Its corrections are incorporated.</li>
+  <li><strong>Du Pei</strong> posed the gapping question and the question of its relation to the 576-fold periodicity,
+    and supervised the work.</li>
+</ul>
+
+<!-- ============================================================== refs -->
+<h2 id="references">References</h2>
+<ol class="refs">
+  <li id="ref-AF">[AF] I. Agricola and T. Friedrich, <em>A note on flat metric connections with antisymmetric torsion</em>,
+  Diff. Geom. Appl. 28 (2010) 480&ndash;487, <a href="https://arxiv.org/abs/0911.1602">arXiv:0911.1602</a> (a new proof of
+  the theorem of Cartan and Schouten).</li>
+  <li id="ref-BCZ">[BCZ] E. Braaten, T.&nbsp;L. Curtright and C.&nbsp;K. Zachos, <em>Torsion and geometrostasis in
+  nonlinear sigma models</em>, Nucl. Phys. B 260 (1985) 630&ndash;688.</li>
+  <li id="ref-BYZ">[BYZ] J. Bao, M. Yamazaki and D. Zhou, <em>Elliptic genera of 2d \(\mathcal N=(0,1)\) gauge
+  theories</em>, JHEP 04 (2026) 080, <a href="https://arxiv.org/abs/2508.06865">arXiv:2508.06865</a>.</li>
+  <li id="ref-CFMP">[CFMP] C.&nbsp;G. Callan, D. Friedan, E.&nbsp;J. Martinec and M.&nbsp;J. Perry, <em>Strings in
+  background fields</em>, Nucl. Phys. B 262 (1985) 593&ndash;609.</li>
+  <li id="ref-CLSWY">[CLSWY] C.-M. Chang, Y.-H. Lin, S.-H. Shao, Y. Wang and X. Yin, <em>Topological defect lines and
+  renormalization group flows in two dimensions</em>, JHEP 01 (2019) 026,
+  <a href="https://arxiv.org/abs/1802.04445">arXiv:1802.04445</a>.</li>
+  <li id="ref-DGH">[DGH] L.&nbsp;J. Dixon, P. Ginsparg and J.&nbsp;A. Harvey, <em>Beauty and the beast: superconformal
+  symmetry in a Monster module</em>, Commun. Math. Phys. 119 (1988) 221&ndash;241.</li>
+  <li id="ref-DM">[DM] C. Dong and G. Mason, <em>Holomorphic vertex operator algebras of small central charges</em>,
+  <a href="https://arxiv.org/abs/math/0203005">arXiv:math/0203005</a>.</li>
+  <li id="ref-Dun">[Dun] J.&nbsp;F. Duncan, <em>Super-moonshine for Conway's largest sporadic group</em>,
+  <a href="https://arxiv.org/abs/math/0502267">arXiv:math/0502267</a>.</li>
+  <li id="ref-FLM">[FLM] I. Frenkel, J. Lepowsky and A. Meurman, <em>Vertex Operator Algebras and the Monster</em>, Pure and
+  Applied Mathematics 134, Academic Press (1988).</li>
+  <li id="ref-GJConj">[GJConj] Fable 5.1, GPT-6 Astra and Opus 5.5, <em>The index of self-dual ternary codes: a proof of a
+  conjecture of Gaiotto and Johnson-Freyd</em>, <a href="../gj-conjecture/">du-pei-physics.github.io/gj-conjecture</a>
+  (2026); AI-generated research note, supervised by D. Pei.</li>
+  <li id="ref-GJF">[GJF] D. Gaiotto and T. Johnson-Freyd, <em>Holomorphic SCFTs with small index</em>, Canad. J. Math.
+  74 (2022) 573&ndash;601, <a href="https://arxiv.org/abs/1811.00589">arXiv:1811.00589</a>.</li>
+  <li id="ref-GJFW">[GJFW] D. Gaiotto, T. Johnson-Freyd and E. Witten, <em>A note on some minimally supersymmetric models in
+  two dimensions</em>, <a href="https://arxiv.org/abs/1902.10249">arXiv:1902.10249</a>.</li>
+  <li id="ref-GP">[GP] B.&nbsp;R. Greene and M.&nbsp;R. Plesser, <em>Duality in Calabi&ndash;Yau moduli space</em>, Nucl.
+  Phys. B 338 (1990) 15&ndash;37, <a href="https://doi.org/10.1016/0550-3213(90)90622-K">doi:10.1016/0550-3213(90)90622-K</a>.</li>
+  <li id="ref-JFY">[JFY] T. Johnson-Freyd and M. Yamashita, <em>On the 576-fold periodicity of the spectrum SQFT: the proof
+  of the lower bound via the Anderson duality pairing</em>, <a href="https://arxiv.org/abs/2404.06333">arXiv:2404.06333</a>.</li>
+  <li id="ref-KMS">[KMS] D.&nbsp;A. Kastor, E.&nbsp;J. Martinec and S.&nbsp;H. Shenker, <em>RG flow in N=1 discrete
+  series</em>, Nucl. Phys. B 316 (1989) 590&ndash;608.</li>
+  <li id="ref-KTT">[KTT] A. Karch, D. Tong and C. Turner, <em>A web of 2d dualities: \(\mathbb Z_2\) gauge fields and Arf
+  invariants</em>, SciPost Phys. 7 (2019) 007, <a href="https://arxiv.org/abs/1902.05550">arXiv:1902.05550</a>.</li>
+  <li id="ref-LG">[LG] Fable 5.1, GPT-6 Astra and Opus 5.5, <em>The elliptic genus and spin-structure partition functions
+  of Landau&ndash;Ginzburg orbifolds by ternary codes</em>, in [<a href="#ref-Notes">Notes</a>],
+  <a href="../holomorphic-svoa/notes/lg_elliptic_genus.md">notes/lg_elliptic_genus.md</a> (2026).</li>
+  <li id="ref-LYTC">[LYTC] W. Li, S. Yang, H.-H. Tu and M. Cheng, <em>Criticality in translation-invariant parafermion
+  chains</em>, Phys. Rev. B 91 (2015) 115133, <a href="https://arxiv.org/abs/1407.3790">arXiv:1407.3790</a>.</li>
+  <li id="ref-MS">[MS] G.&nbsp;W. Moore and R.&nbsp;K. Singh, <em>Beauty and the beast part 2: apprehending the missing
+  supercurrent</em>, <a href="https://arxiv.org/abs/2309.02382">arXiv:2309.02382</a>.</li>
+  <li id="ref-MQSS">[MQSS] I.&nbsp;V. Melnikov, C. Quigley, S. Sethi and M. Stern, <em>Target spaces from chiral gauge
+  theories</em>, JHEP 02 (2013) 111, <a href="https://arxiv.org/abs/1212.1212">arXiv:1212.1212</a>.</li>
+  <li id="ref-Notes">[Notes] Fable 5.1, GPT-6 Astra and Opus 5.5, <em>Holomorphic SCFTs with minimal index: research
+  notes, certificates and code</em>, <a href="../holomorphic-svoa/">du-pei-physics.github.io/holomorphic-svoa</a> (2026);
+  AI-generated research note, supervised by D. Pei. Section L: <a href="../holomorphic-svoa/details.html#L2">details,
+  &sect;L.2</a>.</li>
+  <li id="ref-OF">[OF] E. O'Brien and P. Fendley, <em>Lattice supersymmetry and order-disorder coexistence in the
+  tricritical Ising model</em>, Phys. Rev. Lett. 120 (2018) 206403, <a href="https://arxiv.org/abs/1712.06662">arXiv:1712.06662</a>.</li>
+  <li id="ref-Pei">[Pei] D. Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, arXiv preprint (2026).</li>
+  <li id="ref-QS">[QS] C. Quigley and S. Sethi, <em>Linear sigma models with torsion</em>, JHEP 11 (2011) 034,
+  <a href="https://arxiv.org/abs/1107.0714">arXiv:1107.0714</a>.</li>
+  <li id="ref-Tam">[Tam] D. Tambara, <em>Representations of tensor categories with fusion rules of self-duality for abelian
+  groups</em>, Israel J. Math. 118 (2000).</li>
+  <li id="ref-TW">[TW] R. Thorngren and Y. Wang, <em>Fusion category symmetry I: anomaly in-flow and gapped phases</em>,
+  <a href="https://arxiv.org/abs/1912.02817">arXiv:1912.02817</a>.</li>
+  <li id="ref-Wit">[Wit] E. Witten, <em>Supersymmetry and Morse theory</em>, J. Diff. Geom. 17 (1982) 661&ndash;692.</li>
+  <li id="ref-YCRT">[YCRT] X. Yu, X. Chen, A. Roy and J.&nbsp;C.&nbsp;Y. Teo, <em>Twofold twist defect chains at
+  criticality</em>, Phys. Rev. B 96 (2017) 205435, <a href="https://arxiv.org/abs/1709.05560">arXiv:1709.05560</a>.</li>
+  <li id="ref-Zam">[Zam] A.&nbsp;B. Zamolodchikov, <em>From tricritical Ising to critical Ising by thermodynamic Bethe
+  ansatz</em>, Nucl. Phys. B 358 (1991) 524&ndash;546.</li>
+</ol>
+
+<h3 id="cite">How to cite this note</h3>
+<pre><code>@misc{GappingDoubles,
+    author       = "{Fable 5.1} and {GPT-6 Astra} and {Opus 5.5}",
+    title        = "{Gapping the non-chiral doubles of holomorphic SCFTs}",
+    howpublished = "\url{https://du-pei-physics.github.io/gapping-doubles/}",
+    year         = "2026",
+    note         = "AI-generated research note, supervised by D. Pei"
+}</code></pre>
+</main>
+<footer>
+Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei. Code: MIT; text: CC BY 4.0.
+Version of 26 October 2026.
+</footer>
+</body>
+</html>

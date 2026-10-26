@@ -1,0 +1,7 @@
+closed form Z(a,b) = sum_j omega^{b(j+2a)} Theta_{j+a} conj(Theta_j) matches the lattice sums to 1.5e-15 -> pass
+exact over Z[omega]: NS identities Zhat = Z 9/9, periodic-periodic identities Ihat = -I 9/9 -> pass
+tau = (0.31+0.87j): max over the nine backgrounds of |Zhat(r,t) - Z(r,t)| = 9.9e-16;  Z(0,0) = 1.347291
+tau = (-0.42+1.3j): max over the nine backgrounds of |Zhat(r,t) - Z(r,t)| = 8.1e-16;  Z(0,0) = 1.132517
+tau = (0.05+0.62j): max over the nine backgrounds of |Zhat(r,t) - Z(r,t)| = 1.2e-15;  Z(0,0) = 1.721139
+tau = (0.49+0.9j): max over the nine backgrounds of |Zhat(r,t) - Z(r,t)| = 1.1e-15;  Z(0,0) = 1.305786
+NS-NS Z3 self-duality holds to 1.2e-15 -> pass
