@@ -6,7 +6,7 @@
 (* Theorem 1: verification of the codes *)
 
 (* ::Text:: *)
-(* For every positive integer k there is a holomorphic N = 1 VOA of central charge c = 12k with index 24/gcd(24,k) (Theorem 1 of the paper). This notebook stores the self-dual ternary code used for each k that has its own code (k = 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18, 21; alternative certificates are kept too), computes the per-cell transfer matrices and Index(C) = Tr(T_0 ... T_(L-1)) from the generator alone, checks the symmetry hypotheses, and then does the index arithmetic for the remaining k. *)
+(* For every positive integer k there is a holomorphic N = 1 VOA of central charge c = 12k with index 24/gcd(24,k) (Theorem 1 of D. Pei, Construction of holomorphic SCFTs with minimal index, arXiv:2610.33165). This notebook stores the self-dual ternary code used for each k that has its own code (k = 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 18, 21; alternative certificates are kept too), computes the per-cell transfer matrices and Index(C) = Tr(T_0 ... T_(L-1)) from the generator alone, checks the symmetry hypotheses, and then does the index arithmetic for the remaining k. *)
 
 (* ::Text:: *)
 (* What is checked exactly here: self-duality over F_3, the SHA-256 hash of the reduced row echelon form (so the code is the published certificate), the band structure, the index and the number of full-support words, and the finite hypotheses of the orbifold step. What is cited: GJF Theorem 5.6 (orbifold index Index(C)/m for cyclic groups under those hypotheses), the Q8 lemma of the paper (k = 8, 16), the symmetric-square and D4 index formulas, and k <= 5 (Duncan; Gaiotto-Johnson-Freyd). *)

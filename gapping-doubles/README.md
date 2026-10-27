@@ -10,8 +10,8 @@ Pbar (x) P supersymmetrically? It covers:
 - the open lanes.
 
 Every statement carries a status label. The note accompanies the companion notes `../holomorphic-svoa/` and
-`../gj-conjecture/` but is not cited by D. Pei, *Construction of holomorphic SCFTs with minimal index* (arXiv preprint,
-2026).
+`../gj-conjecture/` but is not cited by D. Pei, *Construction of holomorphic SCFTs with minimal index*,
+[arXiv:2610.33165](https://arxiv.org/abs/2610.33165).
 
 Version of 26 October 2026. Authors: Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei.
 
