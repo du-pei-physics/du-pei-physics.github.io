@@ -13,7 +13,7 @@ Every statement carries a status label. The note accompanies the companion notes
 `../gj-conjecture/` but is not cited by D. Pei, *Construction of holomorphic SCFTs with minimal index*,
 [arXiv:2610.33165](https://arxiv.org/abs/2610.33165).
 
-Version of 26 October 2026. Authors: Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei.
+Version of 28 October 2026 (first version: 26 October 2026; see the update note in the page). Authors: Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei.
 
 | file | what it is |
 |---|---|

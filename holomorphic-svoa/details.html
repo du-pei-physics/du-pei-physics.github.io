@@ -26,7 +26,7 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 <main id="main">
 <h1>Details: statements, arguments, status</h1>
 <p class="subtitle">Agent-facing companion to the <a href="index.html">summary</a> and to D.&nbsp;Pei,
-<em>Construction of holomorphic SCFTs with minimal index</em>, <a href="https://arxiv.org/abs/2610.33165">arXiv:2610.33165</a>. Numbered statements; every one carries a label. Version of 26 October 2026.</p>
+<em>Construction of holomorphic SCFTs with minimal index</em>, <a href="https://arxiv.org/abs/2610.33165">arXiv:2610.33165</a>. Numbered statements; every one carries a label. Version of 28 October 2026 (first version: 26 October 2026).</p>
 
 <div class="note">
 <p><strong>Labels.</strong>
@@ -66,8 +66,16 @@ published&rdquo; are in the project repository only.</p>
 <li><a href="#I">I. The TMF side: power operations</a></li>
 <li><a href="#L">L. Landau&ndash;Ginzburg orbifolds, the gapping test and refined elliptic genera</a> (paper &sect;6.3&ndash;6.4, Appendix A)</li>
 <li><a href="#J">J. Open problems and conjectures</a></li>
+<li><a href="#R">R. Related work: Daniel Bruegmann's notes</a></li>
 <li><a href="#K">K. References</a></li>
 </ol>
+
+<div class="note" id="update-2026-10-28"><p><strong>Update of 28 October 2026.</strong> Added section
+<a href="#R">R</a> on related work by Daniel Bruegmann, with its reference in <a href="#K">K</a>. Two entries of the open
+list <a href="#J">J</a> are removed because they are answered there: Conjecture A, and a direct code at \(k=12\) or
+\(k=24\). The final numbers of our <code>q8_k24</code> search (\(9.8\cdot10^9\) candidates, smallest balanced
+\(|\text{index}|\) 1,152; previously \(1.5\cdot10^9\) and 3,456) are now in R.3. The wording of the skipped records in
+<a href="#E4">E.4</a> is clarified. No other statement on this page has changed.</p></div>
 
 <!-- ============================================================== A -->
 <h2 id="A">A. Codes, lattice SCFTs and the index</h2>
@@ -737,7 +745,8 @@ its tolerance is small. The pruning margin (\(10^{-9}\times\) scale) is far abov
 end-to-end error bound for this implementation is documented, and the current release does not provide a complete
 numerical certificate of exclusion.
 <br><em>Not covered.</em> Twenty-nine records skipped by the memory limits of the closure: those with more than
-\(2^{23}\) twists, or with more than \(2^{24}\) cells in the exact-evaluation array (15 and 14 records respectively; the
+\(2^{23}\) twists, or with more than \(2^{24}\) cells in the exact-evaluation array (15 records exceed the twist limit and 14 further records exceed only the array
+limit; the
 largest has about \(1.3\cdot10^{11}\) twists). Four are subgroup classes of degree 12 (numbers 10690, 10692, 10705 and
 10710 in the record generator's GAP 4.16 enumeration) and 25 are transitive groups \(T(n,i)\) of degree 14&ndash;20, with
 \(n\!:\!i\) = 14:58&ndash;61; 15:92, 96, 101, 102; 16:1949&ndash;1951; 18:911, 934, 953, 958, 967, 969&ndash;972; 20:856,
@@ -1296,19 +1305,12 @@ the minimal model); nothing beyond L.3's first identity is claimed here for that
 <!-- ============================================================== J -->
 <h2 id="J">J. Open problems and conjectures</h2>
 <ol>
-<li><span class="tag conj">conjecture</span> <strong>Conjecture A</strong> (F.1.2): \(g^4=-1\Rightarrow16\mid\mathrm{Index}(C)\);
-equivalently the mixed full-support words come in multiples of 16.</li>
 <li><span class="tag open">open</span> <strong>A unique Ramond vacuum.</strong> \(T''\) has index \(-1\) but about
 \(4.7\cdot10^{15}\) Ramond ground states. Is there an index-1 holomorphic SCFT at \(c=288\) whose Ramond ground state is unique?</li>
 <li><span class="tag open">open</span> <strong>Inequivalence</strong> (G.3): exactly how many inequivalent theories do
 the 8,748 \(k=6\) codes give (at least 4,579; G.3 has the current bounds; codes with equal characters are not known to give
 isomorphic theories, and 2,701 of them have weight-1 fields, up to 16), and do different certificates at the same \(k\) give
 inequivalent theories?</li>
-<li><span class="tag open">open</span> <strong>A direct code at \(k=12\) or \(k=24\).</strong> A length-144 index-24 code
-with a GJF symmetry of order 12 (index-2 orbifold) or a length-288 code with an order-24 symmetry (index-24 codes exist
-at every length, A.8, but the required higher-order orbifold symmetry is not established for that family). Shift symmetries are
-excluded (C.4); \(\mathrm{Dic}_3\) or \(Q_8\times\mathbb Z_3\) chains are admissible. A \(Q_8\times\mathbb Z_3\) search
-(<code>q8_k24</code>, \(1.5\cdot10^9\) candidates) has smallest balanced \(|\text{index}|\) 3,456, no hit.</li>
 <li><span class="tag open">open</span> <strong>The two parity statements</strong> of D.3 and the 3-adic factors of the
 census gcds; a hexad-free count of the weight-6 terms in D.2.</li>
 <li><span class="tag open">open</span> <strong>Genuine equivariant tmf</strong> (I.3).</li>
@@ -1321,12 +1323,70 @@ remaining assumptions of L.6, the role played there by (A4). Neither is known (L
 <a href="../gapping-doubles/index.html#periodicity"><em>Gapping the non-chiral doubles of holomorphic SCFTs</em>, &sect;5</a>).</li>
 </ol>
 
+<!-- ============================================================== R -->
+<h2 id="R">R. Related work: Daniel Bruegmann's notes</h2>
+<p class="stmt" id="R1"><span class="label">R.1 (Source and status).</span> <span class="tag cited">cited</span>
+Daniel Bruegmann independently obtained similar results, which are stronger in several respects. They are in the public
+repository <a href="https://github.com/dbrueg/claude-gjf-conj">dbrueg/claude-gjf-conj</a>, read on 28 October 2026 at
+commit <code>b1fee5b</code>. The statements below are taken from its README, from
+<a href="https://github.com/dbrueg/claude-gjf-conj/blob/b1fee5b6993041332ea729ed8098c1b9fab2ef49/paper/conj14.tex"><code>paper/conj14.tex</code></a> (Theorems A&ndash;D), from
+<a href="https://github.com/dbrueg/claude-gjf-conj/blob/b1fee5b6993041332ea729ed8098c1b9fab2ef49/notes/main-question.md"><code>notes/main-question.md</code></a> and from
+<a href="https://github.com/dbrueg/claude-gjf-conj/blob/b1fee5b6993041332ea729ed8098c1b9fab2ef49/notes/orbifold-index.md"><code>notes/orbifold-index.md</code></a>. The Lean formalization covers the two
+halves of Conjecture 1.4; the vertex-algebra constructions rest on the cited orbifold and anomaly inputs.</p>
+<p class="stmt" id="R2"><span class="label">R.2 (Correspondence with this page).</span></p>
+<div class="scroll"><table class="data">
+<tr><th>There</th><th>Statement</th><th>Here</th></tr>
+<tr><td>Theorem A; <code>lean/GJF/Divisibility.lean</code></td><td>\(24\mid\mathrm{Index}(C)\) for every self-dual
+ternary code of positive length. The proof is a finite Poisson summation giving a signed 2-design identity. A lattice
+form covers odd unimodular lattices of rank \(12k\) whose shadow has minimum at least \(k\). Formalized in Lean 4.</td>
+<td><a href="#A7">A.7</a></td></tr>
+<tr><td>Theorem B; <code>lean/GJF/Existence.lean</code></td><td>Index 24 at every length \(12k\), by a partial Hadamard
+quadrupling of 4-blocks starting from the Golay code. Formalized in Lean 4.</td><td><a href="#A8">A.8</a></td></tr>
+<tr><td>Theorem D</td><td>If \(g\in\mathrm{Aut}(C)\) has \(g^4=-1\), then \(48\mid\mathrm{Index}(C)\), and
+\(\mathrm{Index}(C)=0\) when \(k\) is odd.</td><td><a href="#F1b">F.1.2</a> (Conjecture A)</td></tr>
+<tr><td><code>main-question.md</code>, Theorem 8.1</td><td>The anomaly of a \(Q_8\) action on \(V_{\Lambda(C)}\) of the
+kind used is \(3k\cdot a\) with \(a\) of order 8. So it vanishes exactly when \(8\mid k\). Two proofs.</td>
+<td><a href="#F3">F.3</a> (the cases \(k=8,16\))</td></tr>
+<tr><td><code>main-question.md</code>, Theorems 4.2, 4.4, 10.1 and Corollary 10.2</td><td>The Main Question for every
+\(k\), each by a single code orbifold:
+<ul>
+  <li>a chain with \(J^2=-1\) when \(\gcd(24,k)=4\) (index 6);</li>
+  <li>\(\mathbb Z_{12}\)-chains when \(\gcd(24,k)\in\{3,6,12\}\);</li>
+  <li>\(Q_8\)-chains when \(\gcd(24,k)=8\) (index 3);</li>
+  <li>a \(Q_8\times\mathbb Z_3\) chain from a length-72 seed when \(24\mid k\) (index 1).</li>
+</ul></td>
+<td>table of the summary; <a href="#G">G</a></td></tr>
+<tr><td>Hypothesis ORB</td><td>The fermionic case of GJF's orbifold theorem (GJF Thm 4.2), which GJF only sketch, stated
+as an explicit hypothesis.</td><td>the same input enters <a href="#F2">F.2</a>&ndash;<a href="#F3">F.3</a> through GJF
+Thm 5.6</td></tr>
+</table></div>
+<p class="stmt" id="R3"><span class="label">R.3 (Where the results are stronger).</span> <span class="tag cited">cited</span></p>
+<ol>
+  <li>Both halves of GJF Conj. 1.4 are formally verified.</li>
+  <li>Divisibility holds in the lattice form above.</li>
+  <li>Theorem D proves Conjecture A (F.1.2).</li>
+  <li>\(Q_8\) is non-anomalous for every \(k\) with \(8\mid k\).</li>
+  <li>Every \(k\) is reached by a single code orbifold, including a direct index-1 orbifold at \(c=288\), from a
+    length-288 code with a \(Q_8\times\mathbb Z_3\) symmetry, and an index-2 cyclic orbifold at \(c=144\). Our own
+    \(Q_8\times\mathbb Z_3\) search over a different family of cell chains (<code>q8_k24</code>, \(9.8\cdot10^9\)
+    candidates, smallest balanced \(|\text{index}|\) 1,152) found no such code.</li>
+</ol>
+<p class="stmt" id="R4"><span class="label">R.4 (Relevance to the gapping problem).</span>
+The \(c=288\) theory of R.3, item 5, is an index-1 orbifold of a length-288 code theory by a group of order 24. In such a
+quotient the free-quotient principle of the gapping note
+(<a href="../gapping-doubles/index.html#periodicity">&sect;5</a>) would give the comparison relations without assumption
+(A4). The proposed relation would apply when all nontrivial twisted-twined Ramond traces of the quotient vanish; the
+relation itself is <span class="tag open">open</span>.</p>
+
 <!-- ============================================================== K -->
 <h2 id="K">K. References</h2>
 <p class="small">&ldquo;verified&rdquo;: identifier, authors and title checked against the source during the project (and
 theorem numbers where stated above); &ldquo;id&rdquo;: identifier checked; &ldquo;memory&rdquo;: not re-checked, to be
 confirmed before publication.</p>
 <ul class="small">
+<li>[Bru] D. Bruegmann, <em>claude-gjf-conj</em>, public repository with notes, paper drafts, code and a Lean
+formalization on GJF's Conjecture 1.4 and Main Question, <a href="https://github.com/dbrueg/claude-gjf-conj">github.com/dbrueg/claude-gjf-conj</a>
+(R). Read on 28 October 2026 at commit b1fee5b.</li>
 <li>E. Witten, <em>On the Landau&ndash;Ginzburg description of \(N=2\) minimal models</em>, Int. J. Mod. Phys. A 9 (1994), <a href="https://arxiv.org/abs/hep-th/9304026">hep-th/9304026</a>, &sect;2.2.2 (L.4). id.</li>
 <li>T. Kawai, Y. Yamada, S.-K. Yang, <em>Elliptic genera and \(N=2\) superconformal field theory</em>, Nucl. Phys. B 414 (1994) 191, <a href="https://arxiv.org/abs/hep-th/9306096">hep-th/9306096</a> (orbifold formula, L.4). id.</li>
 <li>C. Vafa, N. P. Warner, <em>Catastrophes and the classification of conformal theories</em>, Phys. Lett. B 218 (1989) 51; E. J. Martinec, <em>Algebraic geometry and effective Lagrangians</em>, Phys. Lett. B 217 (1989) 431 (LG/minimal models, L.1). id.</li>
@@ -1368,5 +1428,6 @@ D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, <a h
 Code: MIT. Text and data: CC BY 4.0 (<a href="LICENSE">LICENSE</a>).
 Human-readable summary: <a href="index.html">index.html</a>.
 </footer>
+<script data-goatcounter="https://dpei.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

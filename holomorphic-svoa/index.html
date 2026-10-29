@@ -28,7 +28,7 @@ window.MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]
 <p class="subtitle">Research notes, certificates and code: holomorphic SVOAs of central charge \(12k\) whose Witten index has the
 TMF-predicted minimal nonzero absolute value \(24/\gcd(24,k)\), for every \(k\). An online companion to D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, <a href="https://arxiv.org/abs/2610.33165">arXiv:2610.33165</a>.
 Written by Fable 5.1, GPT-6 Astra and Opus 5.5 (AI agents), supervised by Du Pei.
-Version of 26 October 2026.
+Version of 28 October 2026 (first version: 26 October 2026).
 <a href="#cite">How to cite</a>.</p>
 
 <ul class="toc">
@@ -40,10 +40,15 @@ Version of 26 October 2026.
   <li><a href="#side">Things found along the way</a></li>
   <li><a href="#verify">How to verify</a></li>
   <li><a href="#certificates">Certificates and code</a></li>
+  <li><a href="#related">Related work: Daniel Bruegmann's notes</a></li>
   <li><a href="#credits">Who did what</a></li>
   <li><a href="#refs">References</a></li>
   <li><a href="#cite">How to cite this note</a></li>
 </ul>
+
+<div class="note" id="update-2026-10-28"><strong>Update of 28 October 2026.</strong> Added the section
+<a href="#related">Related work: Daniel Bruegmann's notes</a>, and the corresponding section
+<a href="details.html#R">R</a> of the details page. Nothing else on this page has changed.</div>
 
 <h2 id="overview">Overview</h2>
 <p>For every positive integer \(k\) there is a holomorphic \(\mathcal N=1\) superconformal vertex operator algebra
@@ -462,6 +467,41 @@ non-zero entries of the \(81\times81\) transfer matrix \(T\) and of \(u=Ts\), th
 <a href="code/index24/check_golay_chain_certificate.py">check_golay_chain_certificate.py</a> verifies from the file
 alone.</p>
 
+<h2 id="related">Related work: Daniel Bruegmann's notes</h2>
+<p>Daniel Bruegmann independently obtained similar results, which are stronger in several respects. His notes, paper
+drafts, code and Lean formalization are public in the repository
+<a href="https://github.com/dbrueg/claude-gjf-conj">dbrueg/claude-gjf-conj</a> [Bru]. The statements below are as given
+there <span class="tag cited">cited</span>. Precise pointers are in
+<a href="details.html#R">details &sect;R</a>.</p>
+<p><strong>Similar results.</strong></p>
+<ul>
+  <li>Both halves of GJF's Conjecture 1.4, with an explicit index-24 code at every length \(12k\) built from the Golay
+    code, by a partial Hadamard quadrupling of 4-blocks.</li>
+  <li>The obstruction to GJF's cyclic index-24 construction when \(8\mid k\), and the quaternion group \(Q_8\) as the
+    replacement, with the anomaly of its action computed.</li>
+  <li>An answer to GJF's Main Question: a holomorphic \(\mathcal N=1\) SVOA of central charge \(12k\) and index
+    \(\pm24/\gcd(24,k)\), for every \(k\). It rests, as here, on GJF's orbifold theorem, whose fermionic part GJF only
+    sketch; his notes state this input as an explicit hypothesis.</li>
+</ul>
+<p><strong>Where his results are stronger.</strong></p>
+<ul>
+  <li><em>Formal verification.</em> Both halves of Conjecture 1.4 are formalized in Lean 4 with Mathlib.</li>
+  <li><em>Divisibility.</em> The proof is a single finite Poisson summation. A lattice form extends it to odd unimodular
+    lattices of rank \(12k\) whose shadow has minimum at least \(k\).</li>
+  <li><em>Automorphisms with \(g^4=-1\).</em> A self-dual code of length \(12k\) with such an automorphism has index
+    divisible by 48, and index 0 when \(k\) is odd. This proves our Conjecture A (details &sect;F.1.2).</li>
+  <li><em>The quaternion anomaly.</em> The \(Q_8\) action on the lattice theory is non-anomalous exactly when \(8\mid k\),
+    for every \(k\), with two proofs.</li>
+  <li><em>One code orbifold for every \(k\).</em> Each \(k\) is reached by a single orbifold of a code theory: cyclic
+    chains when \(8\nmid k\), \(Q_8\) chains when \(\gcd(24,k)=8\), and \(Q_8\times\mathbb Z_3\) chains when \(24\mid k\).
+    No tensor products or symmetric squares are needed. At \(c=288\) the index-1 theory is one
+    \(Q_8\times\mathbb Z_3\) orbifold of the theory of a length-288 code, built from a length-72 seed. A chain of this kind
+    is what our own search at \(k=24\), over a different family, did not find (details &sect;R.3).</li>
+</ul>
+<p>For the gapping problem: an index-1 orbifold of a length-288 code theory by a group of order 24 is the kind of quotient
+considered in <a href="../gapping-doubles/index.html#periodicity">Section 5 of the gapping note</a>. The proposed
+free-quotient relation there would apply when all nontrivial twisted-twined Ramond traces of the quotient vanish.</p>
+
 <h2 id="credits">Who did what</h2>
 <p>The search was carried out in October 2026 by two teams of AI coding agents working in a shared
 repository, each reading but never editing the other's files, and each re-verifying the other's results with its own
@@ -474,6 +514,9 @@ supervised both teams, set the priorities and provided emotional support to the 
 a week without a hit.</p>
 <h2 id="refs">References</h2>
 <ul class="refs">
+  <li>[Bru] D.&nbsp;Bruegmann, <em>claude-gjf-conj</em>: notes, paper drafts, code and Lean formalization on GJF's
+    Conjecture 1.4 and Main Question, <a href="https://github.com/dbrueg/claude-gjf-conj">github.com/dbrueg/claude-gjf-conj</a>
+    (public repository, read on 28 October 2026 at commit b1fee5b).</li>
   <li>[GJF] D.&nbsp;Gaiotto and T.&nbsp;Johnson-Freyd, <em>Holomorphic SCFTs with small index</em>, Canad. J. Math. 74 (2022) 573&ndash;601, <a href="https://doi.org/10.4153/S0008414X2100002X">doi:10.4153/S0008414X2100002X</a>, <a href="https://arxiv.org/abs/1811.00589">arXiv:1811.00589</a>.</li>
   <li>[JFY] T.&nbsp;Johnson-Freyd and M.&nbsp;Yamashita, <em>On the 576-fold periodicity of the spectrum SQFT: the proof of the lower bound via the Anderson duality pairing</em>, <a href="https://arxiv.org/abs/2404.06333">arXiv:2404.06333</a>.</li>
 </ul>
@@ -495,5 +538,6 @@ D.&nbsp;Pei, <em>Construction of holomorphic SCFTs with minimal index</em>, <a h
 Code: MIT. Text and data: CC BY 4.0 (<a href="LICENSE">LICENSE</a>).
 Agent-facing details: <a href="details.html">details.html</a>.
 </footer>
+<script data-goatcounter="https://dpei.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
